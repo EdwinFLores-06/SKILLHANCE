@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseño Industrial - Innovance</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="Img/logo_creative.jpg" alt="Logo" width="50" height="50">
+        <p>INNOVANCE</p>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="suscripciones.html">Suscripciones</a></li>
+            <li><a href="miperfil.html">Mi Perfil</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="portafolio-contenedor">
+
+    <section class="portafolio-hero">
+        <h1>Diseño Industrial</h1>
+        <p>
+            Explora proyectos enfocados en productos funcionales, modernos y estéticos.
+        </p>
+    </section>
+
+    <section class="portfolio-grid">
+
+        <article class="portfolio-card">
+            <img src="Img/Portafolio-industrial.webp" alt="Diseño Industrial Moderno">
+
+            <h3>Diseño Industrial Moderno</h3>
+            <p>Un diseño enfocado en productos funcionales y estéticos.</p>
+
+            <button class="btn-favorito"
+                onclick="agregarFavorito('Diseño Industrial Moderno', 'Industrial', 'Img/Portafolio-industrial.webp')">
+                ♡ Agregar a favoritos
+            </button>
+        </article>
+
+        <article class="portfolio-card">
+            <img src="Img/Portafolio-industrial2.jpg" alt="Mobiliario Minimalista">
+
+            <h3>Mobiliario Minimalista</h3>
+            <p>Propuesta de muebles modernos con líneas simples y elegantes.</p>
+
+            <button class="btn-favorito"
+                onclick="agregarFavorito('Mobiliario Minimalista', 'Industrial', 'Img/Portafolio-industrial2.jpg')">
+                ♡ Agregar a favoritos
+            </button>
+        </article>
+
+        <article class="portfolio-card">
+            <img src="Img/Portafolio-industrial3.jpg" alt="Producto Tecnológico">
+
+            <h3>Producto Tecnológico</h3>
+            <p>Concepto de producto innovador pensado para mejorar la experiencia del usuario.</p>
+
+            <button class="btn-favorito"
+                onclick="agregarFavorito('Producto Tecnológico', 'Industrial', 'Img/Portafolio-industrial3.jpg')">
+                ♡ Agregar a favoritos
+            </button>
+        </article>
+
+    </section>
+
+</main>
+
+<script>
+    async function agregarFavorito(titulo, categoria, imagen) {
+        const idUsuario = localStorage.getItem("id_usuario");
+        const usuario = localStorage.getItem("usuario");
+
+        if (!idUsuario || !usuario || idUsuario === "undefined") {
+            window.location.href = "iniciosesion.html";
+            return;
+        }
+
+        const respuesta = await fetch("http://localhost:3000/favoritos", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                id_usuario: idUsuario,
+                titulo: titulo,
+                categoria: categoria,
+                imagen: imagen
+            })
+        });
+
+        const resultado = await respuesta.json();
+        alert(resultado.mensaje);
+    }
+</script>
+
+</body>
+</html>

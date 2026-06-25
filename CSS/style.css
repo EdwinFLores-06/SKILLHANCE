@@ -1,0 +1,722 @@
+/* Este es el Principal */
+header {
+     display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 40px 30px; 
+    background-color: #f5f5f5;
+
+}
+
+header p {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0px 0px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.logo{
+    display: flex;
+    align-items:center;
+    gap:15px;
+    font-size: small;
+}
+
+
+header h1 {
+    margin: 10px;
+    text-decoration: underline;
+}
+
+header nav {
+    margin-top: 10px;
+}
+
+header nav ul li {
+   display: inline-block;
+    margin: 0 10px;
+}
+
+header nav a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0 15px;
+    font-size: 18px;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+.tiene-submenu {
+    position: relative;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    list-style: none;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+    padding: 10px;
+    min-width: 150px;
+}
+
+.tiene-submenu:hover .submenu {
+    display: block;
+}
+
+.submenu li a {
+    display: block;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+section[id="nosotros"] {
+    text-align: center;
+}
+
+section h1 {
+    font-size: 60px;
+}
+
+section article[id="quienes-somos"] {
+    margin-top: 30px;
+    background-color: #f5f5f5;
+}
+
+section article[id="mision"] {
+    margin-top: 30px;
+    background-color: #f5f5f5;
+}
+
+section article[id="vision"] {
+    margin-top: 30px;
+    background-color: #f5f5f5;
+}
+
+section[id="explorar"] {
+    text-align: center;
+}
+
+section[id="contacto"] {
+    text-align: center;
+    background-color: #f5f5f5;
+}
+
+
+
+
+/* Este es de Perfil */
+
+.perfil-contenedor {
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+}
+
+.perfil-card {
+    background: #f4f4f4;
+    border-radius: 18px;
+    padding: 35px;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+    text-align: center;
+}
+
+.perfil-card h1 {
+    font-size: 42px;
+    margin-bottom: 25px;
+    color: #111;
+}
+
+.perfil-card h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #111;
+}
+
+.foto-perfil {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid #8b5e34;
+    margin: 15px auto;
+    display: block;
+    background: white;
+}
+
+#nombreUsuario {
+    font-size: 28px;
+    margin: 15px 0;
+    color: #111;
+}
+
+.perfil-card p {
+    font-size: 17px;
+    margin: 12px 0;
+    color: #333;
+}
+
+.perfil-card strong {
+    color: #8b5e34;
+}
+
+.estadisticas {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.estadisticas div {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    min-width: 180px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.10);
+}
+
+.estadisticas h3 {
+    font-size: 35px;
+    color: #8b5e34;
+    margin-bottom: 8px;
+}
+
+.estadisticas p {
+    font-size: 15px;
+    color: #333;
+}
+
+.favoritos-grid {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    min-height: 100px;
+    color: #333;
+}
+
+@media (max-width: 768px) {
+    .perfil-contenedor {
+        margin: 25px auto;
+        padding: 15px;
+    }
+
+    .perfil-card {
+        padding: 25px 18px;
+    }
+
+    .perfil-card h1 {
+        font-size: 34px;
+    }
+
+    .estadisticas {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .estadisticas div {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+/* Este es Administrar Cuenta */
+
+#formPerfil,
+#formPassword {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+#formPerfil label,
+#formPassword label,
+.perfil-card > label {
+    display: block;
+    margin-top: 18px;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #8b5e34;
+}
+
+#formPerfil input,
+#formPassword input,
+#formPerfil textarea {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    font-size: 15px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+#formPerfil input:focus,
+#formPassword input:focus,
+#formPerfil textarea:focus {
+    border-color: #8b5e34;
+    box-shadow: 0 0 0 3px rgba(139, 94, 52, 0.15);
+}
+
+#formPerfil textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+#fotoPerfilInput {
+    background: white;
+    cursor: pointer;
+}
+
+#formPerfil button,
+#formPassword button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: #8b5e34;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#formPerfil button:hover,
+#formPassword button:hover {
+    background: #6f4825;
+    transform: translateY(-2px);
+}
+
+.perfil-card:nth-child(3) {
+    text-align: left;
+}
+
+.perfil-card:nth-child(3) label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    padding: 14px 18px;
+    margin: 12px auto;
+    border-radius: 12px;
+    max-width: 600px;
+    color: #333;
+    font-weight: normal;
+}
+
+.perfil-card:nth-child(3) input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #8b5e34;
+}
+
+@media (max-width: 768px) {
+    #formPerfil,
+    #formPassword {
+        max-width: 100%;
+    }
+
+    #formPerfil input,
+    #formPassword input,
+    #formPerfil textarea {
+        font-size: 14px;
+    }
+}
+
+/* Este es el de Suscripciones */
+
+.suscripciones-contenedor {
+    padding: 50px 20px;
+    background: #f4f4f4;
+    min-height: 100vh;
+}
+
+.suscripciones-hero {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.suscripciones-hero h1 {
+    font-size: 42px;
+    color: #111;
+    margin-bottom: 12px;
+}
+
+.suscripciones-hero p {
+    font-size: 18px;
+    color: #555;
+}
+
+.planes-contenedor {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.plan-card {
+    background: white;
+    width: 310px;
+    padding: 35px 25px;
+    border-radius: 18px;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+    text-align: center;
+    transition: 0.3s;
+}
+
+.plan-card:hover {
+    transform: translateY(-8px);
+}
+
+.plan-card.destacado {
+    border: 3px solid #8b5e34;
+}
+
+.plan-card h2 {
+    font-size: 30px;
+    color: #8b5e34;
+    margin-bottom: 15px;
+}
+
+.precio {
+    font-size: 34px;
+    font-weight: bold;
+    color: #111;
+    margin-bottom: 25px;
+}
+
+.precio span {
+    font-size: 15px;
+    color: #555;
+}
+
+.plan-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 25px 0;
+    text-align: left;
+}
+
+.plan-card ul li {
+    margin: 12px 0;
+    color: #333;
+}
+
+.plan-card ul li::before {
+    content: "✓ ";
+    color: #8b5e34;
+    font-weight: bold;
+}
+
+.plan-card button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: #8b5e34;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.plan-card button:hover {
+    background: #6f4825;
+}
+
+/* Suscripcion del perfil de usuario */
+
+.suscripcion-card {
+    max-width: 420px;
+    margin: 25px auto 10px;
+    padding: 22px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    justify-content: center;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+    border: 2px solid #ccc;
+}
+
+.suscripcion-medalla {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: #8b5e34;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+}
+
+.suscripcion-info p {
+    margin: 0;
+    font-weight: bold;
+    color: #8b5e34;
+}
+
+.suscripcion-info h3 {
+    margin: 8px 0;
+    font-size: 26px;
+}
+
+.suscripcion-info span {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    background: #555;
+    color: white;
+}
+
+.sin-suscripcion {
+    background: #f4f4f4;
+    border-color: #ccc;
+}
+
+.con-suscripcion {
+    background: linear-gradient(135deg, #fff8e7, #ffffff);
+    border-color: #d4a64a;
+}
+
+.basico .suscripcion-medalla {
+    background: #8b5e34;
+}
+
+.creativo .suscripcion-medalla {
+    background: #6f35a5;
+}
+
+.creativo .suscripcion-info h3 {
+    color: #6f35a5;
+}
+
+.premium .suscripcion-medalla {
+    background: linear-gradient(135deg, #d4a64a, #8b5e34);
+}
+
+.premium .suscripcion-info h3 {
+    color: #b8860b;
+}
+
+/* ===== BOTÓN GESTIONAR SUSCRIPCIÓN ===== */
+
+.btn-gestionar {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 11px 20px;
+    border-radius: 12px;
+    background: #6f35a5;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-gestionar:hover {
+    background: #54277e;
+}
+
+/* Aqui gestionamos las suscripciones */
+
+.gestion-contenedor {
+    padding: 50px 20px;
+    background: #f4f4f4;
+    min-height: 100vh;
+}
+
+.gestion-card {
+    max-width: 900px;
+    margin: 0 auto 30px;
+    background: white;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+    text-align: center;
+}
+
+.gestion-card h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.plan-actual {
+    margin-top: 25px;
+    background: #fff8e7;
+    padding: 25px;
+    border-radius: 16px;
+    border: 2px solid #d4a64a;
+}
+
+.planes-gestion {
+    max-width: 1100px;
+    margin: 0 auto 30px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.peligro {
+    border: 2px solid #c62828;
+}
+
+.peligro h2 {
+    color: #c62828;
+}
+
+.peligro button {
+    margin-top: 20px;
+    padding: 13px 25px;
+    border: none;
+    border-radius: 12px;
+    background: #c62828;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.peligro button:hover {
+    background: #9f1f1f;
+}
+
+/* Favoritos */
+
+.portfolio-card,
+.favorito-card {
+    background: white;
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+    text-align: center;
+}
+
+.portfolio-card img,
+.favorito-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 14px;
+}
+
+.btn-favorito {
+    margin-top: 15px;
+    padding: 11px 18px;
+    border: none;
+    border-radius: 12px;
+    background: #8b5e34;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-favorito:hover {
+    background: #6f4825;
+}
+
+.favoritos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+}
+
+.favorito-card h3 {
+    margin-top: 12px;
+    color: #8b5e34;
+}
+
+/* Portafolio de industrial */
+
+/* ===== PORTAFOLIOS / DISEÑOS ===== */
+
+.portafolio-contenedor {
+    min-height: 100vh;
+    padding: 50px 20px;
+    background: #f4f4f4;
+}
+
+.portafolio-hero {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+.portafolio-hero h1 {
+    font-size: 42px;
+    color: #111;
+    margin-bottom: 12px;
+}
+
+.portafolio-hero p {
+    font-size: 18px;
+    color: #555;
+}
+
+.portfolio-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.portfolio-card {
+    background: white;
+    border-radius: 18px;
+    padding: 22px;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+    text-align: center;
+    transition: 0.3s;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-7px);
+}
+
+.portfolio-card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 15px;
+}
+
+.portfolio-card h3 {
+    color: #8b5e34;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.portfolio-card p {
+    color: #333;
+    font-size: 15px;
+    min-height: 55px;
+}
+
+.btn-favorito {
+    margin-top: 18px;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 12px;
+    background: #8b5e34;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-favorito:hover {
+    background: #6f4825;
+}

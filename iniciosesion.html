@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skillhance - Acceso</title>
+    <link rel="stylesheet" href="CSS/style2.css">
+</head>
+<body>
+
+<div class="contenedor">
+
+    <div class="tabs">
+        <button id="btnLogin" class="activo">Iniciar Sesión</button>
+        <button id="btnRegistro">Registrarse</button>
+    </div>
+
+    <!-- LOGIN -->
+    <div id="login" class="formulario">
+
+        <h2>SKILLHANCE</h2>
+        <p>Bienvenido de nuevo</p>
+
+        <form id="formLogin">
+
+            <input
+                type="email"
+                name="correo"
+                placeholder="Correo Electrónico"
+                required>
+
+            <input
+                type="password"
+                name="contrasena"
+                placeholder="Contraseña"
+                required>
+
+            <button type="submit">
+                Iniciar Sesión
+            </button>
+            <p id="mensajeLogin" class="mensaje-error"></p>
+        </form>
+
+    </div>
+
+    <!-- REGISTRO -->
+    <div id="registro" class="formulario oculto">
+
+        <h2>Crear Cuenta</h2>
+
+        <form id="formRegistro">
+
+            <input
+                type="text"
+                name="nombre"
+                placeholder="Nombre Completo"
+                required>
+
+            <input
+                type="email"
+                name="correo"
+                placeholder="Correo Electrónico"
+                required>
+
+            <input
+                type="password"
+                name="contrasena"
+                placeholder="Contraseña"
+                required>
+
+            <input
+                type="password"
+                name="confirmar_contrasena"
+                placeholder="Confirmar Contraseña"
+                required>
+
+            <button type="submit">
+                Registrarse
+            </button>
+            <p id="mensajeRegistro" class="mensaje-error"></p>
+        </form>
+
+    </div>
+
+</div>
+
+<script src="JS/iniciosesion.js"></script>
+
+</body>
+</html>

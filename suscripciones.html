@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suscripciones - SKILLHANCE</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="img/logo_creative.jpg" alt="Logo" width="50" height="50">
+        <p>SKILLHANCE</p>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a id="loginLink" href="iniciosesion.html">Iniciar Sesión</a></li>
+            <li><a id="perfilLink" href="miperfil.html" style="display:none;">Mi Perfil</a></li>
+            <li><a id="adminLink" href="administrarcuenta.html" style="display:none;">Administrar Cuenta</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="suscripciones-contenedor">
+    <section class="suscripciones-hero">
+        <h1>Planes de Suscripción</h1>
+        <p>Elige el plan ideal para disfrutar más contenido creativo dentro de SKILLHANCE.</p>
+    </section>
+
+    <section class="planes-contenedor">
+
+        <article class="plan-card">
+            <h2>Básico</h2>
+            <p class="precio">$4.99 <span>/ mes</span></p>
+
+            <ul>
+                <li>Acceso a tendencias de diseño</li>
+                <li>Perfil personalizado</li>
+                <li>Guardar hasta 10 favoritos</li>
+            </ul>
+
+            <button onclick="suscribirse('Básico', 4.99)">Suscribirme</button>
+        </article>
+
+        <article class="plan-card destacado">
+            <h2>Creativo</h2>
+            <p class="precio">$9.99 <span>/ mes</span></p>
+
+            <ul>
+                <li>Todo lo del plan Básico</li>
+                <li>Favoritos ilimitados</li>
+                <li>Contenido exclusivo</li>
+                <li>Recomendaciones personalizadas</li>
+            </ul>
+
+            <button onclick="suscribirse('Creativo', 9.99)">Suscribirme</button>
+        </article>
+
+        <article class="plan-card">
+            <h2>Premium</h2>
+            <p class="precio">$19.99 <span>/ mes</span></p>
+
+            <ul>
+                <li>Todo lo del plan Creativo</li>
+                <li>Acceso anticipado a colecciones</li>
+                <li>Portafolios destacados</li>
+                <li>Insignia Premium en el perfil</li>
+            </ul>
+
+            <button onclick="suscribirse('Premium', 19.99)">Suscribirme</button>
+        </article>
+
+    </section>
+</main>
+
+<script>
+    const idUsuario = localStorage.getItem("id_usuario");
+    const usuario = localStorage.getItem("usuario");
+
+    const loginLink = document.getElementById("loginLink");
+    const perfilLink = document.getElementById("perfilLink");
+    const adminLink = document.getElementById("adminLink");
+
+    if (idUsuario && usuario && idUsuario !== "undefined") {
+        loginLink.style.display = "none";
+        perfilLink.style.display = "inline-block";
+        adminLink.style.display = "inline-block";
+    }
+
+    async function suscribirse(plan, precio) {
+        if (!idUsuario || !usuario || idUsuario === "undefined") {
+            window.location.href = "iniciosesion.html";
+            return;
+        }
+
+        const respuesta = await fetch("http://localhost:3000/suscribirse", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                id_usuario: idUsuario,
+                plan: plan,
+                precio: precio
+            })
+        });
+
+        const resultado = await respuesta.json();
+
+        if (resultado.ok) {
+            alert("Te suscribiste al plan " + plan);
+        } else {
+            alert(resultado.mensaje);
+        }
+    }
+</script>
+
+</body>
+</html>

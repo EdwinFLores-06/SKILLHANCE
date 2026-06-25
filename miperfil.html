@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil - SKILLHACEN</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="img/logo_creative.jpg" alt="Logo" width="50" height="50">
+        <p>SKILLHACEN</p>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="administrarcuenta.html">Administrar Cuenta</a></li>
+            <li><a href="#" id="cerrarSesion">Cerrar Sesión</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="perfil-contenedor">
+
+    <section class="perfil-card">
+        <h1>Mi Perfil</h1>
+
+        <img id="fotoPerfil" src="Img/perfiles/default.png" alt="Foto de perfil" class="foto-perfil">
+
+        <h2 id="nombreUsuario">Usuario</h2>
+
+        <p><strong>Correo:</strong> <span id="correoUsuario">No disponible</span></p>
+        <p><strong>Profesión:</strong> <span id="profesionUsuario">No agregada</span></p>
+        <p><strong>Biografía:</strong> <span id="biografiaUsuario">Sin biografía</span></p>
+        <p><strong>Estado:</strong> Cuenta activa</p>
+
+        <div id="suscripcionCard" class="suscripcion-card sin-suscripcion">
+
+        <div class="suscripcion-medalla">
+            👑
+        </div>
+
+        <div class="suscripcion-info">
+            <p>Tu Suscripción Actual</p>
+
+            <h3 id="planNombre">Sin Suscripción Activa</h3>
+
+            <span id="estadoPlan">INACTIVA</span>
+
+            <br><br>
+
+            <a href="suscripciones.html"
+            id="btnGestionarSuscripcion"
+            class="btn-gestionar">
+                Ver Planes
+            </a>
+
+        </div>
+
+    </div>
+    </section>
+
+    <section class="perfil-card">
+        <h2>Resumen de actividad</h2>
+
+        <div class="estadisticas">
+            <div>
+                <h3 id="disenosVistos">0</h3>
+                <p>Diseños vistos</p>
+            </div>
+
+            <div>
+                <h3 id="categoriasExploradas">0</h3>
+                <p>Categorías exploradas</p>
+            </div>
+
+            <div>
+                <h3 id="totalFavoritos">0</h3>
+                <p>Favoritos</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="perfil-card">
+        <h2>Mis Favoritos</h2>
+
+        <div id="listaFavoritos" class="favoritos-grid">
+            <p>Aún no tienes diseños favoritos.</p>
+        </div>
+    </section>
+
+</main>
+
+<script>
+    const idUsuario = localStorage.getItem("id_usuario");
+    const usuario = localStorage.getItem("usuario");
+    const correo = localStorage.getItem("correo");
+
+    if (!idUsuario || !usuario) {
+        window.location.href = "iniciosesion.html";
+    }
+
+    document.getElementById("nombreUsuario").textContent = usuario || "Usuario";
+    document.getElementById("correoUsuario").textContent = correo || "No disponible";
+
+    async function cargarPerfil() {
+        try {
+            const respuesta = await fetch(`http://localhost:3000/perfil/${idUsuario}`);
+            const resultado = await respuesta.json();
+
+            if (resultado.ok && resultado.perfil) {
+                document.getElementById("profesionUsuario").textContent =
+                    resultado.perfil.profesion || "No agregada";
+
+                document.getElementById("biografiaUsuario").textContent =
+                    resultado.perfil.biografia || "Sin biografía";
+
+                if (resultado.perfil.foto_perfil) {
+                    const rutaFoto = "http://localhost:3000/" + resultado.perfil.foto_perfil;
+
+                    const foto = document.getElementById("fotoPerfil");
+                    foto.src = rutaFoto;
+
+                    foto.onerror = () => {
+                        console.log("No se pudo cargar la imagen:", rutaFoto);
+                    };
+                } else {
+                    document.getElementById("fotoPerfil").src = "Img/perfiles/default.png";
+                }
+            }
+        } catch (error) {
+            console.log("Error al cargar perfil:", error);
+        }
+    }
+
+    async function cargarSuscripcion() {
+        try {
+            const respuesta = await fetch(`http://localhost:3000/suscripcion/${idUsuario}`);
+            const resultado = await respuesta.json();
+
+            const suscripcionCard = document.getElementById("suscripcionCard");
+            const planNombre = document.getElementById("planNombre");
+            const estadoPlan = document.getElementById("estadoPlan");
+            const btnGestionar = document.getElementById("btnGestionarSuscripcion");
+
+            suscripcionCard.classList.remove(
+                "sin-suscripcion",
+                "con-suscripcion",
+                "premium",
+                "creativo",
+                "basico"
+            );
+
+            if (
+                resultado.ok &&
+                resultado.suscripcion &&
+                resultado.suscripcion.estado === "Activa"
+            ) {
+                const plan = resultado.suscripcion.plan;
+
+                suscripcionCard.classList.add("con-suscripcion");
+
+                planNombre.textContent = "Plan " + plan;
+                estadoPlan.textContent = "ACTIVA";
+
+                if (btnGestionar) {
+                    btnGestionar.textContent = "Gestionar Suscripción";
+                    btnGestionar.href = "gestionar-suscripcion.html";
+                }
+
+                if (plan === "Premium") {
+                    suscripcionCard.classList.add("premium");
+                } else if (plan === "Creativo") {
+                    suscripcionCard.classList.add("creativo");
+                } else {
+                    suscripcionCard.classList.add("basico");
+                }
+
+            } else {
+                suscripcionCard.classList.add("sin-suscripcion");
+
+                planNombre.textContent = "Sin Suscripción Activa";
+                estadoPlan.textContent = "INACTIVA";
+
+                if (btnGestionar) {
+                    btnGestionar.textContent = "Ver Planes";
+                    btnGestionar.href = "suscripciones.html";
+                }
+            }
+
+        } catch (error) {
+            console.log("Error al cargar suscripción:", error);
+        }
+    }
+
+    cargarPerfil();
+    cargarSuscripcion();
+
+    document.getElementById("cerrarSesion").addEventListener("click", (e) => {
+        e.preventDefault();
+
+        localStorage.removeItem("id_usuario");
+        localStorage.removeItem("usuario");
+        localStorage.removeItem("correo");
+
+        window.location.href = "index.html";
+    });
+
+    async function cargarFavoritos() {
+    const respuesta = await fetch(`http://localhost:3000/favoritos/${idUsuario}`);
+    const resultado = await respuesta.json();
+
+    const lista = document.getElementById("listaFavoritos");
+    const total = document.getElementById("totalFavoritos");
+
+    if (resultado.ok && resultado.favoritos.length > 0) {
+        total.textContent = resultado.favoritos.length;
+
+        lista.innerHTML = "";
+
+        resultado.favoritos.forEach(fav => {
+            lista.innerHTML += `
+                <div class="favorito-card">
+                    <img src="${fav.imagen}" alt="${fav.titulo}">
+                    <h3>${fav.titulo}</h3>
+                    <p>${fav.categoria}</p>
+                </div>
+            `;
+        });
+    } else {
+        total.textContent = "0";
+        lista.innerHTML = "<p>Aún no tienes diseños favoritos.</p>";
+    }
+}
+
+cargarFavoritos();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestionar Suscripción - Innovance</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="img/logo_creative.jpg" alt="Logo" width="50" height="50">
+        <p>INNOVANCE</p>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="miperfil.html">Mi Perfil</a></li>
+            <li><a href="suscripciones.html">Suscripciones</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="gestion-contenedor">
+
+    <section class="gestion-card">
+        <h1>Gestionar Suscripción</h1>
+        <p>Administra tu plan actual o cambia a uno que se adapte mejor a ti.</p>
+
+        <div class="plan-actual">
+            <h2>Tu plan actual</h2>
+            <p><strong>Plan:</strong> <span id="planActual">Cargando...</span></p>
+            <p><strong>Estado:</strong> <span id="estadoActual">Cargando...</span></p>
+            <p><strong>Precio:</strong> $<span id="precioActual">0.00</span> / mes</p>
+        </div>
+    </section>
+
+    <section class="planes-gestion">
+
+        <article class="plan-card">
+            <h2>Básico</h2>
+            <p class="precio">$4.99 <span>/ mes</span></p>
+            <button onclick="cambiarPlan('Básico', 4.99)">Cambiar a Básico</button>
+        </article>
+
+        <article class="plan-card destacado">
+            <h2>Creativo</h2>
+            <p class="precio">$9.99 <span>/ mes</span></p>
+            <button onclick="cambiarPlan('Creativo', 9.99)">Cambiar a Creativo</button>
+        </article>
+
+        <article class="plan-card">
+            <h2>Premium</h2>
+            <p class="precio">$19.99 <span>/ mes</span></p>
+            <button onclick="cambiarPlan('Premium', 19.99)">Cambiar a Premium</button>
+        </article>
+
+    </section>
+
+    <section class="gestion-card peligro">
+        <h2>Cancelar Suscripción</h2>
+        <p>Si cancelas tu suscripción, perderás los beneficios activos del plan.</p>
+        <button onclick="cancelarSuscripcion()">Cancelar Suscripción</button>
+    </section>
+
+</main>
+
+<script>
+    const idUsuario = localStorage.getItem("id_usuario");
+
+    if (!idUsuario || idUsuario === "undefined") {
+        window.location.href = "iniciosesion.html";
+    }
+
+    async function cargarSuscripcion() {
+        const respuesta = await fetch(`http://localhost:3000/suscripcion/${idUsuario}`);
+        const resultado = await respuesta.json();
+
+        if (resultado.ok && resultado.suscripcion) {
+            document.getElementById("planActual").textContent = resultado.suscripcion.plan;
+            document.getElementById("estadoActual").textContent = resultado.suscripcion.estado;
+            document.getElementById("precioActual").textContent = resultado.suscripcion.precio;
+        } else {
+            document.getElementById("planActual").textContent = "Sin suscripción";
+            document.getElementById("estadoActual").textContent = "Inactiva";
+            document.getElementById("precioActual").textContent = "0.00";
+        }
+    }
+
+    async function cambiarPlan(plan, precio) {
+        const respuesta = await fetch("http://localhost:3000/cambiarSuscripcion", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                id_usuario: idUsuario,
+                plan: plan,
+                precio: precio
+            })
+        });
+
+        const resultado = await respuesta.json();
+        alert(resultado.mensaje);
+        cargarSuscripcion();
+    }
+
+    async function cancelarSuscripcion() {
+        const confirmar = confirm("¿Seguro que deseas cancelar tu suscripción?");
+
+        if (!confirmar) return;
+
+        const respuesta = await fetch("http://localhost:3000/cancelarSuscripcion", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                id_usuario: idUsuario
+            })
+        });
+
+        const resultado = await respuesta.json();
+        alert(resultado.mensaje);
+        cargarSuscripcion();
+    }
+
+    cargarSuscripcion();
+</script>
+
+</body>
+</html>

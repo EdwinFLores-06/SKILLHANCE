@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skillhance</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="img/logo_creative.jpg" alt="Logo" width="50" height="50">
+            <p>SKILLHANCE</p>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="#nosotros">Nosotros</a></li>
+
+                <li class="tiene-submenu">
+                    <a href="#explorar">Explorar</a>
+
+                    <ul class="submenu">
+                        <li><a href="industrial.html">Industrial</a></li>
+                        <li><a href="disenoG.html">Diseño G</a></li>
+                        <li><a href="moda.html">Moda</a></li>
+                    </ul>
+                </li>
+                <li><a href="suscripciones.html">Suscripciones</a></li>
+                <li><a href="#contacto">Contactos</a></li>
+
+                <li><a id="loginLink" href="iniciosesion.html">Iniciar Sesión</a></li>
+
+                <li id="cuentaMenu" class="tiene-submenu" style="display: none;">
+                    <a id="perfilLink" href="#">Mi Cuenta</a>
+
+                    <ul class="submenu">
+                        <li><a href="miperfil.html">Mi Perfil</a></li>
+                        <li><a href="administrarcuenta.html">Administrar Cuenta</a></li>
+                        <li><a id="cerrarSesion" href="#">Cerrar Sesión</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="nosotros">
+            <h1>Los mejores diseños al alcance de tus manos</h1>
+
+            <article id="quienes-somos">
+                <h2>¿Quiénes Somos?</h2>
+
+                <p>
+                    En <strong>SKILLHANCE</strong> transformamos ideas en inspiración.
+                    Somos una plataforma enfocada en el diseño, la innovación y las
+                    tendencias creativas que impulsan el futuro.
+                </p>
+
+                <p>
+                    Nuestro propósito es brindar un espacio donde estudiantes,
+                    emprendedores, diseñadores y personas creativas puedan explorar
+                    nuevas ideas, descubrir proyectos innovadores y encontrar
+                    inspiración para desarrollar sus propias creaciones.
+                </p>
+
+                <p>
+                    Creemos que la creatividad no tiene límites y que cada gran
+                    proyecto comienza con una idea. Por eso trabajamos para acercarte
+                    a las mejores tendencias en diseño gráfico, diseño industrial e
+                    innovación tecnológica.
+                </p>
+            </article>
+
+            <article id="mision">
+                <h3>Nuestra Misión</h3>
+
+                <p>
+                    Impulsar el talento creativo y conectar a las personas con las
+                    tendencias que están marcando el futuro del diseño y la innovación.
+                </p>
+            </article>
+
+            <article id="vision">
+                <h3>Nuestra Visión</h3>
+
+                <p>
+                    Ser una plataforma de referencia para quienes buscan inspiración,
+                    conocimiento y oportunidades dentro del mundo del diseño y la
+                    creatividad.
+                </p>
+            </article>
+            <img src="img/Prueba_imagen.webp" alt="Creatividad" width="700" height="1200">
+        </section>
+
+        <section id="explorar">
+            <article>
+                <h2>Explorar</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate.</p>
+            </article>
+        </section>
+
+        <section id="contrataciones" class="solo-login">
+            <article>
+                <h2>Contrataciones</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate.</p>
+            </article>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const usuario = localStorage.getItem("usuario");
+
+            const loginLink = document.getElementById("loginLink");
+            const cuentaMenu = document.getElementById("cuentaMenu");
+            const perfilLink = document.getElementById("perfilLink");
+            const cerrarSesion = document.getElementById("cerrarSesion");
+
+            const seccionesPrivadas = document.querySelectorAll(".solo-login");
+
+            if (usuario) {
+                loginLink.style.display = "none";
+                cuentaMenu.style.display = "inline-block";
+                perfilLink.textContent = "Mi Cuenta";
+
+                seccionesPrivadas.forEach(seccion => {
+                    seccion.style.display = "block";
+                });
+            } else {
+                loginLink.style.display = "inline-block";
+                cuentaMenu.style.display = "none";
+
+                seccionesPrivadas.forEach(seccion => {
+                    seccion.style.display = "none";
+                });
+            }
+
+            cerrarSesion.addEventListener("click", (e) => {
+                e.preventDefault();
+
+                localStorage.removeItem("usuario");
+
+                alert("Sesión cerrada correctamente");
+                window.location.href = "index.html";
+            });
+        });
+    </script>
+</body>
+</html>
