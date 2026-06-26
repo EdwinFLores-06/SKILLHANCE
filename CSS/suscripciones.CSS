@@ -1,0 +1,266 @@
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.suscripciones{
+    max-width:1200px;
+    margin:40px auto;
+    padding:0 20px;
+}
+
+.titulo-seccion{
+    font-size:3rem;
+    margin-bottom:40px;
+    color:#111;
+    font-weight:900;
+}
+
+.planes-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:60px;
+
+}
+
+.plan-card{
+    background:white;
+    border:1px solid #e5e5e5;
+    border-radius:8px;
+    overflow:hidden;
+    position:relative;
+    transition:.3s;
+}
+
+.plan-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 8px 25px rgba(0,0,0,.1);
+}
+
+.plan-header{
+    padding:25px;
+}
+
+.plan-header h2{
+    margin-bottom:10px;
+    font-size:1.6rem;
+}
+
+
+
+.precio-antiguo{
+    padding:0 25px;
+    color:#444;
+    font-size:.9rem;
+}
+
+.descuento{
+    background:#f6d9b0;
+    padding:6px 12px;
+    border-radius:6px;
+    margin-left:10px;
+    font-size:.8rem;
+    font-weight:bold;
+}
+
+.precio{
+    padding:20px 25px 5px;
+    font-weight:bold;
+}
+
+.precio span{
+    font-size:3rem;
+    color:#000;
+}
+
+.precio small{
+    color:#3c3cb5;
+    font-size:1rem;
+}
+
+.gratis{
+    color:#4a37d6;
+    font-weight:bold;
+    padding:0 25px;
+}
+
+.plan-card button{
+    width:calc(100% - 50px);
+    margin:25px;
+    padding:14px;
+    border:2px solid #d98a00;
+    background:white;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.plan-card button:hover{
+    background:#d98a00;
+    color:white;
+}
+
+.destacado button{
+    background:#9a6500;
+    color:white;
+    border:none;
+}
+
+.destacado button:hover{
+    background:#7c5100;
+}
+
+.beneficios{
+    list-style:none;
+    padding:25px;
+    border-top:1px solid #eee;
+}
+
+.beneficios li{
+    padding:12px 0;
+    color:#1e2a5c;
+    border-bottom:1px solid #f2f2f2;
+    font-size:.95rem;
+}
+
+.popular{
+    background:#ffc57a;
+    color:white;
+    text-align:center;
+    padding:12px;
+    font-weight:bold;
+    letter-spacing:.5px;
+}
+
+
+header{
+    background:white;
+}
+
+nav{
+    background:#162447;
+    padding:15px 0;
+
+}
+
+nav ul{
+    display:flex;
+    justify-content:flex-end;
+    gap:40px;
+    list-style:none;
+    margin-right: 40px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    text-transform:uppercase;
+}
+
+
+.footer{
+    position: relative;
+    background:#f9a602;
+    overflow:hidden;
+    color:#fff;
+    padding:45px 70px 18px;
+}
+
+/* Figura azul inclinada */
+
+.footer{
+    background-image:url(Img/footer);
+}
+
+.footer-container{
+    position:relative;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    z-index:2;
+}
+
+.footer-social{
+    width:35%;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+}
+
+.social-icons{
+    display:flex;
+    gap:12px;
+    margin-bottom:25px;
+}
+
+.social-icons a{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    font-size:26px;
+    text-decoration:none;
+}
+
+.social-icons a:nth-child(1){
+    color:#E4405F;
+}
+
+.social-icons a:nth-child(2){
+    color:#1877F2;
+}
+
+.social-icons a:nth-child(3){
+    color:#25D366;
+}
+
+.social-icons a:nth-child(4){
+    color:#000;
+}
+
+.footer-social p{
+    font-size:13px;
+}
+
+.footer-links{
+    display:flex;
+    flex-direction:column;
+    gap:7px;
+}
+
+.footer-links h4{
+    color:black;
+    margin-bottom:10px;
+}
+
+.footer-links a{
+    color:white;
+    text-decoration:none;
+    font-size:14px;
+}
+
+.footer-location{
+    display:flex;
+    gap:15px;
+}
+
+.location-icon{
+    font-size:35px;
+    color:white;
+    margin-top:10px;
+}
+
+.footer-location h4{
+    color:black;
+    margin-bottom:8px;
+}
+
+.footer-location p{
+    font-size:14px;
+    line-height:1.5;
+}

@@ -4,45 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skillhance</title>
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/styles.CSS">
 </head>
 <body>
-    <header>
+    <header class="header">
+    <div class="header-top">
         <div class="logo">
-            <img src="img/logo_creative.jpg" alt="Logo" width="50" height="50">
-            <p>SKILLHANCE</p>
+               <a href="index.html"><img  src="img/LOGO-PROVISIONAL.png" alt="Logo" width="400" height="50" ></a>
+            
         </div>
+    </div>
 
-        <nav>
-            <ul>
-                <li><a href="#nosotros">Nosotros</a></li>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#nosotros">NOSOTROS</a></li>
 
-                <li class="tiene-submenu">
-                    <a href="#explorar">Explorar</a>
+            <li class="tiene-submenu">
+                <a href="#explorar">EXPLORAR</a>
 
-                    <ul class="submenu">
-                        <li><a href="industrial.html">Industrial</a></li>
-                        <li><a href="disenoG.html">Diseño G</a></li>
-                        <li><a href="moda.html">Moda</a></li>
-                    </ul>
-                </li>
-                <li><a href="suscripciones.html">Suscripciones</a></li>
-                <li><a href="#contacto">Contactos</a></li>
+                <ul class="submenu">
+                    <li><a href="industrial.html">Industrial</a></li>
+                    <li><a href="disenoG.html">Diseño Gráfico</a></li>
+                    <li><a href="moda.html">Moda</a></li>
+                </ul>
+            </li>
 
-                <li><a id="loginLink" href="iniciosesion.html">Iniciar Sesión</a></li>
+            <li><a href="suscripciones.html">SUSCRIPCIONES</a></li>
 
-                <li id="cuentaMenu" class="tiene-submenu" style="display: none;">
-                    <a id="perfilLink" href="#">Mi Cuenta</a>
+            <li><a href="#contacto">CONTACTOS</a></li>
 
-                    <ul class="submenu">
-                        <li><a href="miperfil.html">Mi Perfil</a></li>
-                        <li><a href="administrarcuenta.html">Administrar Cuenta</a></li>
-                        <li><a id="cerrarSesion" href="#">Cerrar Sesión</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-    </header>
+            <li><a id="loginLink" href="iniciosesion.html">INICIAR SESIÓN</a></li>
+
+            <li id="cuentaMenu" class="tiene-submenu" style="display:none;">
+                <a id="perfilLink" href="#">MI CUENTA</a>
+
+                <ul class="submenu">
+                    <li><a href="miperfil.html">Mi Perfil</a></li>
+                    <li><a href="administrarcuenta.html">Administrar Cuenta</a></li>
+                    <li><a id="cerrarSesion" href="#">Cerrar Sesión</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</header>
 
     <main>
         <section id="nosotros">
@@ -90,7 +94,7 @@
                     creatividad.
                 </p>
             </article>
-            <img src="img/Prueba_imagen.webp" alt="Creatividad" width="700" height="1200">
+            <img src="portafolios/diseño-grafico-1.jpg.jpeg" alt="Creatividad" width="900" height="2000">
         </section>
 
         <section id="explorar">
@@ -107,7 +111,37 @@
             </article>
         </section>
     </main>
+<footer class="footer">
+    <div class="footer-contenido">
 
+        <div class="footer-col">
+            <h3>SKILLHANCE</h3>
+            <p>
+                Plataforma dedicada a inspirar, conectar y potenciar
+                la creatividad mediante el diseño y la innovación.
+            </p>
+        </div>
+
+        <div class="footer-col">
+            <h3>Explorar</h3>
+            <a href="industrial.html">Diseño Industrial</a>
+            <a href="disenoG.html">Diseño Gráfico</a>
+            <a href="moda.html">Moda</a>
+        </div>
+
+        <div class="footer-col">
+            <h3>Enlaces</h3>
+            <a href="#nosotros">Nosotros</a>
+            <a href="suscripciones.html">Suscripciones</a>
+            <a href="#contacto">Contacto</a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 SKILLHANCE - Todos los derechos reservados.
+    </div>
+</footer>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const usuario = localStorage.getItem("usuario");
