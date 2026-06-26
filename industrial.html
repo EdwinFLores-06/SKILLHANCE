@@ -3,181 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diseño Industrial - Innovance</title>
-    <link rel="stylesheet" href="CSS/industrial.css">
-     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <title>Diseño Industrial - Skillhance</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
-      <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-</head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="CSS/styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
 
-
 <header>
-     <div class="logo">
-         <a href="index.html"><img  src="img/LOGO-PROVISIONAL.png" alt="Logo" width="400" height="50" ></a>
-    </div> 
-         <nav> 
-            <ul> <li><a href="index.html">Nosotros</a></li>
-                 <li><a id="loginLink" href="industrial.html">Explorar</a></li>
-                 <li><a href="suscripciones.html">Suscripciones</a></li>
-                 <li><a href="#">Contactos</a></li>
-                  <li><a id="perfilLink" href="miperfil.html">Mi perfil</a></li>
+    <div class="logo">
+        <a href="index.html">
+            <img src="img/LOGO-PROVISIONAL.png" alt="Logo Skillhance">
+        </a>
+        <p>SKILLHANCE</p>
+    </div>
 
+    <nav>
+        <ul>
+            <li><a href="index.html">Nosotros</a></li>
+
+            <li class="tiene-submenu">
+                <a href="#">Explorar</a>
+                <ul class="submenu">
+                    <li><a href="industrial.html">Industrial</a></li>
+                    <li><a href="disenoG.html">Diseño Gráfico</a></li>
+                    <li><a href="tendencias.html">Tendencias</a></li>
                 </ul>
-             </nav> 
+            </li>
+
+            <li><a href="suscripciones.html">Suscripciones</a></li>
+            <li><a href="index.html#contacto">Contactos</a></li>
+            <li><a href="miperfil.html">Mi Perfil</a></li>
+        </ul>
+    </nav>
 </header>
 
 <main class="portafolio-contenedor">
 
     <section class="portafolio-hero">
         <h1>Diseño Industrial</h1>
-        <p>
-            Explora proyectos enfocados en productos funcionales, modernos y estéticos.
-        </p>
+        <p>Explora autores destacados, conoce sus perfiles y guarda tus favoritos.</p>
     </section>
 
-    <section class="portfolio-grid">
+    <section class="autores-grid">
 
-        <article class="portfolio-card">
-            <img src="Img/Portafolio-industrial.webp" alt="Diseño Industrial Moderno">
-
-            <h3>Diseño Industrial Moderno</h3>
-            <p>Un diseño enfocado en productos funcionales y estéticos.</p>
-
-            <button class="btn-favorito"
-                onclick="agregarFavorito('Diseño Industrial Moderno', 'Industrial', 'Img/Portafolio-industrial.webp')">
-                ♡ Agregar a favoritos
-            </button>
-        </article>
-
-         <article class="portfolio-card" 
-            onclick="abrirImagen('portafolios/prueba_imagen.webp')">
-
-                <img src="Img/Portafolio-industrial.webp" alt="">
-            <h3>Mobiliario Minimalista</h3>
-            <p>Propuesta de muebles modernos con líneas simples y elegantes.</p>
-
-            <button class="btn-favorito"
-                onclick="agregarFavorito('Mobiliario Minimalista', 'Industrial', 'Img/Portafolio-industrial2.jpg')">
-                ♡ Agregar a favoritos
-            </button>
-        </article>
-
-        <article class="portfolio-card" 
-            onclick="abrirImagen('portafolios/diseño-grafico-1.jpeg')">
-
-            <img src="Img/Portafolio-industrial3.jpg" alt="">
-            <h3>Producto Tecnológico</h3>
-            <p>Concepto de producto innovador pensado para mejorar la experiencia del usuario.</p>
-
-            <button class="btn-favorito"
-                onclick="agregarFavorito('Producto Tecnológico', 'Industrial', 'Img/Portafolio-industrial3.jpg')">
-                ♡ Agregar a favoritos
-            </button>
-        </article>
-
-    </section>
-</main> 
-<footer class="footer">
-    <div class="footer-bg"></div>
-
-    <div class="footer-container">
-
-        <div class="footer-social">
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-whatsapp"></i></a>
-                <a href="#"><i class="fab fa-tiktok"></i></a>
+        <article class="autor-card">
+            <div class="autor-banner">
+                <img src="Img/Portafolio-industrial.webp" alt="Portafolio Rodrigo">
             </div>
 
-            <p>© 2026 Skillhance. Todos los derechos reservados</p>
-        </div>
+            <div class="autor-info">
+                <img class="autor-foto" src="Img/Autores/Rodrigo Beltran.jpg" alt="Rodrigo Beltrán">
 
-        <div class="footer-links">
-            <h4>Enlaces Útiles</h4>
+                <h3>Rodrigo Beltrán</h3>
+                <p class="autor-rol">Diseñador Industrial</p>
 
-            <a href="#">Política de Privacidad</a>
-            <a href="#">Términos y Condiciones</a>
-            <a href="#">Preguntas Frecuentes</a>
-        </div>
-
-        <div class="footer-location">
-            <div class="location-icon">
-                <i class="fas fa-map-marker-alt"></i>
-            </div>
-
-            <div>
-                <h4>Nuestra Ubicación</h4>
-
-                <p>
-                    Décima Avenida Norte<br>
-                    Entre la Tercera y Quinta<br>
-                    Avenida Sur frente al puesto<br>
-                    de la PNC Santa Ana, El Salvador
+                <p class="autor-descripcion">
+                    Especialista en diseño de productos funcionales, mobiliario moderno y soluciones industriales.
                 </p>
+
+                <div class="autor-stats">
+                    <span><i class="fa-solid fa-folder-open"></i> 8 proyectos</span>
+                    <span><i class="fa-solid fa-heart"></i> 124 favoritos</span>
+                </div>
+
+                <div class="autor-botones">
+                    <a href="perfil-autor.html?autor=rodrigo" class="btn-ver-portafolio">Ver portafolio</a>
+
+                    <button class="btn-favorito"
+                        onclick="agregarFavorito('Rodrigo Beltrán', 'Autor Industrial', 'Img/Autores/Rodrigo Beltran.jpg', 'autor')">
+                        <i class="fa-regular fa-heart"></i> Favorito
+                    </button>
+
+                    <button class="btn-seguir" onclick="seguirAutor('Rodrigo Beltrán')">
+                        <i class="fa-solid fa-user-plus"></i> Seguir
+                    </button>
+                </div>
             </div>
-        </div>
+        </article>
 
-    </div>
-</footer>
+        <article class="autor-card">
+            <div class="autor-banner">
+                <img src="Img/Portafolio-industrial2.jpg" alt="Portafolio Camila">
+            </div>
 
-<div id="modal" class="modal">
-    <span class="close">&times;</span>
-    <img id="imagenGrande">
-</div>
+            <div class="autor-info">
+                <img class="autor-foto" src="Img/Autores/Camila Gil.jpg" alt="Camila Gil">
 
+                <h3>Camila Gil</h3>
+                <p class="autor-rol">Diseñadora de Mobiliario</p>
+
+                <p class="autor-descripcion">
+                    Creadora de propuestas minimalistas enfocadas en espacios modernos, ergonomía y estética.
+                </p>
+
+                <div class="autor-stats">
+                    <span><i class="fa-solid fa-folder-open"></i> 12 proyectos</span>
+                    <span><i class="fa-solid fa-heart"></i> 210 favoritos</span>
+                </div>
+
+                <div class="autor-botones">
+                    <a href="perfil-autor.html?autor=camila" class="btn-ver-portafolio">Ver portafolio</a>
+
+                    <button class="btn-favorito"
+                        onclick="agregarFavorito('Camila Gil', 'Autor Industrial', 'Img/Autores/Camila Gil.jpg', 'autor')">
+                        <i class="fa-regular fa-heart"></i> Favorito
+                    </button>
+
+                    <button class="btn-seguir" onclick="seguirAutor('Camila Gil')">
+                        <i class="fa-solid fa-user-plus"></i> Seguir
+                    </button>
+                </div>
+            </div>
+        </article>
+
+        <article class="autor-card">
+            <div class="autor-banner">
+                <img src="Img/Portafolio-industrial3.jpg" alt="Portafolio Andrés">
+            </div>
+
+            <div class="autor-info">
+                <img class="autor-foto" src="Img/Autores/Andres Molina.jpg" alt="Andrés Molina">
+
+                <h3>Andrés Molina</h3>
+                <p class="autor-rol">Diseñador de Producto</p>
+
+                <p class="autor-descripcion">
+                    Diseñador enfocado en productos tecnológicos, innovación y experiencia del usuario.
+                </p>
+
+                <div class="autor-stats">
+                    <span><i class="fa-solid fa-folder-open"></i> 6 proyectos</span>
+                    <span><i class="fa-solid fa-heart"></i> 98 favoritos</span>
+                </div>
+
+                <div class="autor-botones">
+                    <a href="perfil-autor.html?autor=andres" class="btn-ver-portafolio">Ver portafolio</a>
+
+                    <button class="btn-favorito"
+                        onclick="agregarFavorito('Andrés Molina', 'Autor Industrial', 'Img/Autores/Andres Molina.jpg', 'autor')">
+                        <i class="fa-regular fa-heart"></i> Favorito
+                    </button>
+
+                    <button class="btn-seguir" onclick="seguirAutor('Andrés Molina')">
+                        <i class="fa-solid fa-user-plus"></i> Seguir
+                    </button>
+                </div>
+            </div>
+        </article>
+
+    </section>
+</main>
 
 <script>
-    const modal = document.getElementById("modal");
-const imagenGrande = document.getElementById("imagenGrande");
-const closeBtn = document.querySelector(".close");
+async function agregarFavorito(titulo, categoria, imagen, tipo = "autor") {
+    const idUsuario = localStorage.getItem("id_usuario");
+    const usuario = localStorage.getItem("usuario");
 
-function abrirImagen(ruta) {
-    modal.style.display = "flex";
-    imagenGrande.src = ruta;
+    if (!idUsuario || !usuario || idUsuario === "undefined") {
+        window.location.href = "iniciosesion.html";
+        return;
+    }
+
+    const respuesta = await fetch("http://localhost:3000/favoritos", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id_usuario: idUsuario, titulo, categoria, imagen, tipo })
+    });
+
+    const resultado = await respuesta.json();
+    alert(resultado.mensaje);
 }
 
-closeBtn.onclick = () => {
-    modal.style.display = "none";
-};
+function seguirAutor(nombreAutor) {
+    const idUsuario = localStorage.getItem("id_usuario");
+    const usuario = localStorage.getItem("usuario");
 
-modal.onclick = (e) => {
-    if (e.target === modal) {
-        modal.style.display = "none";
+    if (!idUsuario || !usuario || idUsuario === "undefined") {
+        window.location.href = "iniciosesion.html";
+        return;
     }
-};
 
-    async function agregarFavorito(titulo, categoria, imagen) {
-        const idUsuario = localStorage.getItem("id_usuario");
-        const usuario = localStorage.getItem("usuario");
-
-        if (!idUsuario || !usuario || idUsuario === "undefined") {
-            window.location.href = "iniciosesion.html";
-            return;
-        }
-
-        const respuesta = await fetch("http://localhost:3000/favoritos", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                id_usuario: idUsuario,
-                titulo: titulo,
-                categoria: categoria,
-                imagen: imagen
-            })
-        });
-
-        const resultado = await respuesta.json();
-        alert(resultado.mensaje);
-    }
+    alert("Ahora sigues a " + nombreAutor);
+}
 </script>
-
 
 </body>
 </html>
