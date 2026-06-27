@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Autor - Skillhance</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="CSS/styles.css">  
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <a href="index.html">
+            <img src="img/LOGO-PROVISIONAL.png" alt="Logo Skillhance">
+        </a>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Nosotros</a></li>
+            <li><a href="industrial.html">Industrial</a></li>
+            <li><a href="suscripciones.html">Suscripciones</a></li>
+            <li><a href="miperfil.html">Mi Perfil</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="perfil-autor-contenedor">
+
+    <section class="perfil-autor-header">
+        <img id="bannerAutor" class="banner-autor" src="" alt="Banner autor">
+
+        <div class="perfil-autor-info">
+            <img id="fotoAutor" class="foto-autor-grande" src="" alt="Foto autor">
+
+            <h1 id="nombreAutor">Autor</h1>
+            <p id="rolAutor" class="autor-rol"></p>
+            <p id="descripcionAutor"></p>
+
+            <div class="autor-stats">
+                <span id="proyectosAutor"></span>
+                <span id="favoritosAutor"></span>
+                <span>Industrial</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="portafolio-hero">
+        <h2>Portafolios del Autor</h2>
+        <p>Explora sus proyectos y guarda tus favoritos.</p>
+    </section>
+
+    <section id="proyectosGrid" class="portfolio-grid"></section>
+
+</main>
+
+<script>
+const autores = {
+    rodrigo: {
+        nombre: "Rodrigo Beltrán",
+        rol: "Diseñador Industrial",
+        foto: "Img/Autores/Rodrigo Beltran.jpg",
+        banner: "Img/Portafolio-industrial.webp",
+        descripcion: "Especialista en diseño de productos funcionales, mobiliario moderno y soluciones industriales creativas.",
+        proyectos: "8 proyectos",
+        favoritos: "124 favoritos",
+        portafolios: [
+            {
+                titulo: "Diseño Industrial Moderno",
+                imagen: "Img/Portafolio-industrial.webp",
+                descripcion: "Producto moderno enfocado en funcionalidad y estética."
+            },
+            {
+                titulo: "Mobiliario Modular",
+                imagen: "Img/Portafolio-industrial2.jpg",
+                descripcion: "Muebles adaptables para espacios pequeños."
+            },
+            {
+                titulo: "Producto Ergonómico",
+                imagen: "Img/Portafolio-industrial3.jpg",
+                descripcion: "Diseño centrado en comodidad y experiencia de usuario."
+            }
+        ]
+    },
+
+    camila: {
+        nombre: "Camila Gil",
+        rol: "Diseñadora de Mobiliario",
+        foto: "Img/Autores/Camila Gil.jpg",
+        banner: "Img/Portafolio-industrial2.jpg",
+        descripcion: "Creadora de propuestas minimalistas enfocadas en espacios modernos, ergonomía y estética visual.",
+        proyectos: "12 proyectos",
+        favoritos: "210 favoritos",
+        portafolios: [
+            {
+                titulo: "Silla Minimalista",
+                imagen: "Img/Portafolio-industrial2.jpg",
+                descripcion: "Mobiliario limpio, moderno y funcional."
+            },
+            {
+                titulo: "Mesa Escandinava",
+                imagen: "Img/Portafolio-industrial.webp",
+                descripcion: "Diseño elegante para interiores modernos."
+            }
+        ]
+    },
+
+    andres: {
+        nombre: "Andrés Molina",
+        rol: "Diseñador de Producto",
+        foto: "Img/Autores/Andres Molina.jpg",
+        banner: "Img/Portafolio-industrial3.jpg",
+        descripcion: "Diseñador enfocado en productos tecnológicos, innovación y experiencia del usuario.",
+        proyectos: "6 proyectos",
+        favoritos: "98 favoritos",
+        portafolios: [
+            {
+                titulo: "Producto Tecnológico",
+                imagen: "Img/Portafolio-industrial3.jpg",
+                descripcion: "Concepto tecnológico orientado a la experiencia de usuario."
+            },
+            {
+                titulo: "Prototipo Funcional",
+                imagen: "Img/Portafolio-industrial.webp",
+                descripcion: "Prototipo práctico para resolver necesidades cotidianas."
+            }
+        ]
+    }
+};
+
+const params = new URLSearchParams(window.location.search);
+const autorSeleccionado = params.get("autor") || "rodrigo";
+const autor = autores[autorSeleccionado];
+
+document.getElementById("bannerAutor").src = autor.banner;
+document.getElementById("fotoAutor").src = autor.foto;
+document.getElementById("nombreAutor").textContent = autor.nombre;
+document.getElementById("rolAutor").textContent = autor.rol;
+document.getElementById("descripcionAutor").textContent = autor.descripcion;
+document.getElementById("proyectosAutor").textContent = autor.proyectos;
+document.getElementById("favoritosAutor").textContent = autor.favoritos;
+
+const proyectosGrid = document.getElementById("proyectosGrid");
+
+autor.portafolios.forEach(proyecto => {
+    proyectosGrid.innerHTML += `
+        <article class="portfolio-card">
+            <img src="${proyecto.imagen}" alt="${proyecto.titulo}">
+            <h3>${proyecto.titulo}</h3>
+            <p>${proyecto.descripcion}</p>
+
+            <button class="btn-favorito"
+                onclick="agregarFavorito('${proyecto.titulo}', 'Portafolio Industrial', '${proyecto.imagen}', 'portafolio')">
+                ♡ Agregar a favoritos
+            </button>
+        </article>
+    `;
+});
+
+async function agregarFavorito(titulo, categoria, imagen, tipo = "portafolio") {
+    const idUsuario = localStorage.getItem("id_usuario");
+    const usuario = localStorage.getItem("usuario");
+
+    if (!idUsuario || !usuario || idUsuario === "undefined") {
+        window.location.href = "iniciosesion.html";
+        return;
+    }
+
+    const respuesta = await fetch("http://localhost:3000/favoritos", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id_usuario: idUsuario, titulo, categoria, imagen, tipo })
+    });
+
+    const resultado = await respuesta.json();
+    alert(resultado.mensaje);
+}
+</script>
+
+</body>
+</html>

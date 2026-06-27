@@ -12,8 +12,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-
 app.use("/img", express.static(path.join(__dirname, "../img")));
+app.use("/Img", express.static(path.join(__dirname, "../Img")));
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -43,6 +43,8 @@ conexion.connect((error) => {
     console.log("Conectado a MySQL correctamente");
 });
 
+/* REGISTRO */
+
 app.post("/registro", async (req, res) => {
     const { nombre, correo, contrasena } = req.body;
 
@@ -52,7 +54,11 @@ app.post("/registro", async (req, res) => {
 
     conexion.query(sql, [nombre, correo, contrasenaEncriptada], (error) => {
         if (error) {
-            return res.json({ ok: false, mensaje: "Error al registrar usuario" });
+            console.log(error);
+            return res.json({
+                ok: false,
+                mensaje: "Error al registrar usuario"
+            });
         }
 
         res.json({
@@ -62,6 +68,8 @@ app.post("/registro", async (req, res) => {
     });
 });
 
+/* LOGIN */
+
 app.post("/login", (req, res) => {
     const { correo, contrasena } = req.body;
 
@@ -69,14 +77,20 @@ app.post("/login", (req, res) => {
 
     conexion.query(sql, [correo], async (error, resultados) => {
         if (error || resultados.length === 0) {
-            return res.json({ ok: false, mensaje: "Correo o contraseña incorrectos" });
+            return res.json({
+                ok: false,
+                mensaje: "Correo o contraseña incorrectos"
+            });
         }
 
         const usuario = resultados[0];
         const correcta = await bcrypt.compare(contrasena, usuario.contrasena);
 
         if (!correcta) {
-            return res.json({ ok: false, mensaje: "Correo o contraseña incorrectos" });
+            return res.json({
+                ok: false,
+                mensaje: "Correo o contraseña incorrectos"
+            });
         }
 
         res.json({
@@ -88,6 +102,8 @@ app.post("/login", (req, res) => {
         });
     });
 });
+
+/* GUARDAR PERFIL */
 
 app.post("/guardarPerfil", (req, res) => {
     const { id_usuario, profesion, biografia } = req.body;
@@ -115,6 +131,8 @@ app.post("/guardarPerfil", (req, res) => {
         });
     });
 });
+
+/* SUBIR FOTO */
 
 app.post("/subirFoto", upload.single("foto"), (req, res) => {
     const id_usuario = req.body.id_usuario;
@@ -152,6 +170,8 @@ app.post("/subirFoto", upload.single("foto"), (req, res) => {
     });
 });
 
+/* OBTENER PERFIL */
+
 app.get("/perfil/:id", (req, res) => {
     const id_usuario = req.params.id;
 
@@ -180,9 +200,7 @@ app.get("/perfil/:id", (req, res) => {
     });
 });
 
-app.get("/", (req, res) => {
-    res.send("Servidor funcionando correctamente");
-});
+/* SUSCRIPCIONES */
 
 app.post("/suscribirse", (req, res) => {
     const { id_usuario, plan, precio } = req.body;
@@ -220,14 +238,23 @@ app.get("/suscripcion/:id", (req, res) => {
 
     conexion.query(sql, [id_usuario], (error, resultados) => {
         if (error) {
-            return res.json({ ok: false, mensaje: "Error al obtener suscripción" });
+            return res.json({
+                ok: false,
+                mensaje: "Error al obtener suscripción"
+            });
         }
 
         if (resultados.length === 0) {
-            return res.json({ ok: true, suscripcion: null });
+            return res.json({
+                ok: true,
+                suscripcion: null
+            });
         }
 
-        res.json({ ok: true, suscripcion: resultados[0] });
+        res.json({
+            ok: true,
+            suscripcion: resultados[0]
+        });
     });
 });
 
@@ -281,34 +308,45 @@ app.post("/cancelarSuscripcion", (req, res) => {
     });
 });
 
+/* FAVORITOS */
+
 app.post("/favoritos", (req, res) => {
-    const { id_usuario, titulo, categoria, imagen } = req.body;
+    const { id_usuario, titulo, categoria, imagen, tipo } = req.body;
 
     const sql = `
-        INSERT INTO favoritos (id_usuario, titulo, categoria, imagen)
-        VALUES (?, ?, ?, ?)
+        INSERT INTO favoritos (id_usuario, titulo, categoria, imagen, tipo)
+        VALUES (?, ?, ?, ?, ?)
     `;
 
-    conexion.query(sql, [id_usuario, titulo, categoria, imagen], (error) => {
-        if (error) {
-            console.log(error);
-            return res.json({
-                ok: false,
-                mensaje: "Error al guardar favorito"
+    conexion.query(
+        sql,
+        [id_usuario, titulo, categoria, imagen, tipo || "portafolio"],
+        (error) => {
+            if (error) {
+                console.log(error);
+                return res.json({
+                    ok: false,
+                    mensaje: "Error al guardar favorito"
+                });
+            }
+
+            res.json({
+                ok: true,
+                mensaje: "Agregado a favoritos"
             });
         }
-
-        res.json({
-            ok: true,
-            mensaje: "Diseño agregado a favoritos"
-        });
-    });
+    );
 });
 
 app.get("/favoritos/:id", (req, res) => {
     const id_usuario = req.params.id;
 
-    const sql = "SELECT * FROM favoritos WHERE id_usuario = ? ORDER BY fecha_guardado DESC";
+    const sql = `
+        SELECT *
+        FROM favoritos
+        WHERE id_usuario = ?
+        ORDER BY fecha_guardado DESC
+    `;
 
     conexion.query(sql, [id_usuario], (error, resultados) => {
         if (error) {
@@ -324,6 +362,12 @@ app.get("/favoritos/:id", (req, res) => {
             favoritos: resultados
         });
     });
+});
+
+/* RUTA PRINCIPAL */
+
+app.get("/", (req, res) => {
+    res.send("Servidor funcionando correctamente");
 });
 
 app.listen(3000, () => {
