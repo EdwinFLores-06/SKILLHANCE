@@ -13,6 +13,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
+
 <body>
 
 <header>
@@ -29,11 +30,13 @@
             <li class="tiene-submenu">
                 <a href="#">Explorar</a>
                 <ul class="submenu">
-                    <li><a href="industrial.html">Industrial</a></li>
-                    <li><a href="disenoG.html">Diseño Gráfico</a></li>
-                    <li><a href="tendencias.html">Tendencias</a></li>
+                <li><a href="industrial.html">Industrial</a></li>
+                <li><a href="diseñoG.html">Diseño Gráfico</a></li>
+                <li><a href="moda.html">Moda</a></li>
+                <li><a href="arquitectonico.html">Arquitectónico</a></li>
                 </ul>
             </li>
+
             <li><a href="index.html">Home</a></li>
             <li><a href="suscripciones.html">Suscripciones</a></li>
             <li><a href="index.html#contacto">Contactos</a></li>
@@ -72,7 +75,9 @@
                 </div>
 
                 <div class="autor-botones">
-                    <a href="perfil-autor.html?autor=rodrigo" class="btn-ver-portafolio">Ver portafolio</a>
+                    <a href="perfil-autor.html?categoria=industrial&autor=rodrigo" class="btn-ver-portafolio">
+                        Ver portafolio
+                    </a>
 
                     <button class="btn-favorito"
                         onclick="agregarFavorito('Rodrigo Beltrán', 'Autor Industrial', 'Img/Autores/Rodrigo Beltran.jpg', 'autor')">
@@ -88,7 +93,7 @@
 
         <article class="autor-card">
             <div class="autor-banner">
-                <img src="Img/Portafolio-industrial2.jpg" alt="Portafolio Camila" >
+                <img src="Img/Portafolio-industrial2.jpg" alt="Portafolio Camila">
             </div>
 
             <div class="autor-info">
@@ -107,7 +112,9 @@
                 </div>
 
                 <div class="autor-botones">
-                    <a href="perfil-autor.html?autor=camila" class="btn-ver-portafolio">Ver portafolio</a>
+                    <a href="perfil-autor.html?categoria=industrial&autor=camila" class="btn-ver-portafolio">
+                        Ver portafolio
+                    </a>
 
                     <button class="btn-favorito"
                         onclick="agregarFavorito('Camila Gil', 'Autor Industrial', 'Img/Autores/Camila Gil.jpg', 'autor')">
@@ -142,7 +149,9 @@
                 </div>
 
                 <div class="autor-botones">
-                    <a href="perfil-autor.html?autor=andres" class="btn-ver-portafolio">Ver portafolio</a>
+                    <a href="perfil-autor.html?categoria=industrial&autor=andres" class="btn-ver-portafolio">
+                        Ver portafolio
+                    </a>
 
                     <button class="btn-favorito"
                         onclick="agregarFavorito('Andrés Molina', 'Autor Industrial', 'Img/Autores/Andres Molina.jpg', 'autor')">
@@ -157,6 +166,7 @@
         </article>
 
     </section>
+
 </main>
 
 <footer class="footer">
@@ -165,7 +175,6 @@
 
     <div class="footer-container">
 
-        <!-- Columna 1 -->
         <div class="footer-column">
             <h2 class="footer-logo">SKILLHANCE</h2>
 
@@ -186,7 +195,6 @@
             </p>
         </div>
 
-        <!-- Columna 2 -->
         <div class="footer-column">
             <h3>Enlaces Útiles</h3>
 
@@ -198,7 +206,6 @@
             </ul>
         </div>
 
-        <!-- Columna 3 -->
         <div class="footer-column">
             <h3>
                 <i class="fas fa-location-dot"></i>
@@ -216,6 +223,7 @@
     </div>
 
 </footer>
+
 <script>
 async function agregarFavorito(titulo, categoria, imagen, tipo = "autor") {
     const idUsuario = localStorage.getItem("id_usuario");
@@ -229,7 +237,13 @@ async function agregarFavorito(titulo, categoria, imagen, tipo = "autor") {
     const respuesta = await fetch("http://localhost:3000/favoritos", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id_usuario: idUsuario, titulo, categoria, imagen, tipo })
+        body: JSON.stringify({
+            id_usuario: idUsuario,
+            titulo: titulo,
+            categoria: categoria,
+            imagen: imagen,
+            tipo: tipo
+        })
     });
 
     const resultado = await respuesta.json();

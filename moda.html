@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moda - Skillhance</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <a href="index.html">
+            <img src="img/LOGO-PROVISIONAL.png" alt="Logo Skillhance">
+        </a>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="sobre-nosotros.html">Nosotros</a></li>
+
+            <li class="tiene-submenu">
+                <a href="#">Explorar</a>
+                <ul class="submenu">
+                    <li><a href="industrial.html">Industrial</a></li>
+                    <li><a href="diseñoG.html">Diseño Gráfico</a></li>
+                    <li><a href="moda.html">Moda</a></li>
+                    <li><a href="arquitectonico.html">Arquitectónico</a></li>
+                </ul>
+            </li>
+
+            <li><a href="index.html">Home</a></li>
+            <li><a href="suscripciones.html">Suscripciones</a></li>
+            <li><a href="index.html#contacto">Contactos</a></li>
+            <li><a href="miperfil.html">Mi Perfil</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="portafolio-contenedor">
+
+    <section class="portafolio-hero">
+        <h1>Diseño de Moda</h1>
+        <p>Explora autores de moda, diseño textil y estilismo creativo.</p>
+    </section>
+
+    <section class="autores-grid">
+
+        <article class="autor-card">
+            <div class="autor-banner">
+                <img src="Img/Moda/banner-isabella.jpg" alt="Portafolio Isabella">
+            </div>
+
+            <div class="autor-info">
+                <img class="autor-foto" src="Img/Autores/Isabella Rios.jpg" alt="Isabella Ríos">
+
+                <h3>Isabella Ríos</h3>
+                <p class="autor-rol">Diseñadora de Moda</p>
+
+                <p class="autor-descripcion">
+                    Creadora de colecciones modernas con enfoque juvenil y urbano.
+                </p>
+
+                <div class="autor-stats">
+                    <span><i class="fa-solid fa-folder-open"></i> 11 proyectos</span>
+                    <span><i class="fa-solid fa-heart"></i> 220 favoritos</span>
+                </div>
+
+                <div class="autor-botones">
+                    <a href="perfil-autor.html?categoria=moda&autor=isabella" class="btn-ver-portafolio">
+                        Ver portafolio
+                    </a>
+
+                    <button class="btn-favorito"
+                        onclick="agregarFavorito('Isabella Ríos', 'Autor Moda', 'Img/Autores/Isabella Rios.jpg', 'autor')">
+                        <i class="fa-regular fa-heart"></i> Favorito
+                    </button>
+
+                    <button class="btn-seguir" onclick="seguirAutor('Isabella Ríos')">
+                        <i class="fa-solid fa-user-plus"></i> Seguir
+                    </button>
+                </div>
+            </div>
+        </article>
+
+        <article class="autor-card">
+            <div class="autor-banner">
+                <img src="Img/Moda/banner-mateo.jpg" alt="Portafolio Mateo">
+            </div>
+
+            <div class="autor-info">
+                <img class="autor-foto" src="Img/Autores/Mateo Salazar.jpg" alt="Mateo Salazar">
+
+                <h3>Mateo Salazar</h3>
+                <p class="autor-rol">Diseñador Textil</p>
+
+                <p class="autor-descripcion">
+                    Especialista en texturas, estampados, patrones y prendas conceptuales.
+                </p>
+
+                <div class="autor-stats">
+                    <span><i class="fa-solid fa-folder-open"></i> 8 proyectos</span>
+                    <span><i class="fa-solid fa-heart"></i> 145 favoritos</span>
+                </div>
+
+                <div class="autor-botones">
+                    <a href="perfil-autor.html?categoria=moda&autor=mateo" class="btn-ver-portafolio">
+                        Ver portafolio
+                    </a>
+
+                    <button class="btn-favorito"
+                        onclick="agregarFavorito('Mateo Salazar', 'Autor Moda', 'Img/Autores/Mateo Salazar.jpg', 'autor')">
+                        <i class="fa-regular fa-heart"></i> Favorito
+                    </button>
+
+                    <button class="btn-seguir" onclick="seguirAutor('Mateo Salazar')">
+                        <i class="fa-solid fa-user-plus"></i> Seguir
+                    </button>
+                </div>
+            </div>
+        </article>
+
+        <article class="autor-card">
+            <div class="autor-banner">
+                <img src="Img/Moda/banner-renata.jpg" alt="Portafolio Renata">
+            </div>
+
+            <div class="autor-info">
+                <img class="autor-foto" src="Img/Autores/Renata Lopez.jpg" alt="Renata López">
+
+                <h3>Renata López</h3>
+                <p class="autor-rol">Estilista Creativa</p>
+
+                <p class="autor-descripcion">
+                    Diseñadora enfocada en estilismo, pasarela, color y composición de outfits.
+                </p>
+
+                <div class="autor-stats">
+                    <span><i class="fa-solid fa-folder-open"></i> 13 proyectos</span>
+                    <span><i class="fa-solid fa-heart"></i> 260 favoritos</span>
+                </div>
+
+                <div class="autor-botones">
+                    <a href="perfil-autor.html?categoria=moda&autor=renata" class="btn-ver-portafolio">
+                        Ver portafolio
+                    </a>
+
+                    <button class="btn-favorito"
+                        onclick="agregarFavorito('Renata López', 'Autor Moda', 'Img/Autores/Renata Lopez.jpg', 'autor')">
+                        <i class="fa-regular fa-heart"></i> Favorito
+                    </button>
+
+                    <button class="btn-seguir" onclick="seguirAutor('Renata López')">
+                        <i class="fa-solid fa-user-plus"></i> Seguir
+                    </button>
+                </div>
+            </div>
+        </article>
+
+    </section>
+
+</main>
+
+<script>
+async function agregarFavorito(titulo, categoria, imagen, tipo = "autor") {
+    const idUsuario = localStorage.getItem("id_usuario");
+    const usuario = localStorage.getItem("usuario");
+
+    if (!idUsuario || !usuario || idUsuario === "undefined") {
+        window.location.href = "iniciosesion.html";
+        return;
+    }
+
+    const respuesta = await fetch("http://localhost:3000/favoritos", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id_usuario: idUsuario, titulo, categoria, imagen, tipo })
+    });
+
+    const resultado = await respuesta.json();
+    alert(resultado.mensaje);
+}
+
+function seguirAutor(nombreAutor) {
+    const idUsuario = localStorage.getItem("id_usuario");
+    const usuario = localStorage.getItem("usuario");
+
+    if (!idUsuario || !usuario || idUsuario === "undefined") {
+        window.location.href = "iniciosesion.html";
+        return;
+    }
+
+    alert("Ahora sigues a " + nombreAutor);
+}
+</script>
+
+</body>
+</html>

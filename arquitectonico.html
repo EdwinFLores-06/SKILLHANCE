@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseño Arquitectónico - Skillhance</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <a href="index.html">
+            <img src="img/LOGO-PROVISIONAL.png" alt="Logo Skillhance">
+        </a>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="sobre-nosotros.html">Nosotros</a></li>
+
+            <li class="tiene-submenu">
+                <a href="#">Explorar</a>
+                <ul class="submenu">
+                    <li><a href="industrial.html">Industrial</a></li>
+                    <li><a href="diseñoG.html">Diseño Gráfico</a></li>
+                    <li><a href="moda.html">Moda</a></li>
+                    <li><a href="arquitectonico.html">Arquitectónico</a></li>
+                </ul>
+            </li>
+
+            <li><a href="index.html">Home</a></li>
+            <li><a href="suscripciones.html">Suscripciones</a></li>
+            <li><a href="index.html#contacto">Contactos</a></li>
+            <li><a href="miperfil.html">Mi Perfil</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="portafolio-contenedor">
+
+    <section class="portafolio-hero">
+        <h1>Diseño Arquitectónico</h1>
+        <p>Explora autores de arquitectura conceptual, interiores y diseño de espacios.</p>
+    </section>
+
+    <section class="autores-grid">
+
+        <article class="autor-card">
+            <div class="autor-banner">
+                <img src="Img/Arquitectura/banner-daniel.jpg" alt="Portafolio Daniel">
+            </div>
+
+            <div class="autor-info">
+                <img class="autor-foto" src="Img/Autores/Daniel Fuentes.jpg" alt="Daniel Fuentes">
+
+                <h3>Daniel Fuentes</h3>
+                <p class="autor-rol">Diseñador Arquitectónico</p>
+
+                <p class="autor-descripcion">
+                    Creador de espacios modernos, funcionales y visualmente equilibrados.
+                </p>
+
+                <div class="autor-stats">
+                    <span><i class="fa-solid fa-folder-open"></i> 9 proyectos</span>
+                    <span><i class="fa-solid fa-heart"></i> 175 favoritos</span>
+                </div>
+
+                <div class="autor-botones">
+                    <a href="perfil-autor.html?categoria=arquitectonico&autor=daniel" class="btn-ver-portafolio">
+                        Ver portafolio
+                    </a>
+
+                    <button class="btn-favorito"
+                        onclick="agregarFavorito('Daniel Fuentes', 'Autor Arquitectónico', 'Img/Autores/Daniel Fuentes.jpg', 'autor')">
+                        <i class="fa-regular fa-heart"></i> Favorito
+                    </button>
+
+                    <button class="btn-seguir" onclick="seguirAutor('Daniel Fuentes')">
+                        <i class="fa-solid fa-user-plus"></i> Seguir
+                    </button>
+                </div>
+            </div>
+        </article>
+
+        <article class="autor-card">
+            <div class="autor-banner">
+                <img src="Img/Arquitectura/banner-elena.jpg" alt="Portafolio Elena">
+            </div>
+
+            <div class="autor-info">
+                <img class="autor-foto" src="Img/Autores/Elena Vargas.jpg" alt="Elena Vargas">
+
+                <h3>Elena Vargas</h3>
+                <p class="autor-rol">Interiorista</p>
+
+                <p class="autor-descripcion">
+                    Diseñadora de interiores enfocada en ambientes cálidos y elegantes.
+                </p>
+
+                <div class="autor-stats">
+                    <span><i class="fa-solid fa-folder-open"></i> 15 proyectos</span>
+                    <span><i class="fa-solid fa-heart"></i> 300 favoritos</span>
+                </div>
+
+                <div class="autor-botones">
+                    <a href="perfil-autor.html?categoria=arquitectonico&autor=elena" class="btn-ver-portafolio">
+                        Ver portafolio
+                    </a>
+
+                    <button class="btn-favorito"
+                        onclick="agregarFavorito('Elena Vargas', 'Autor Arquitectónico', 'Img/Autores/Elena Vargas.jpg', 'autor')">
+                        <i class="fa-regular fa-heart"></i> Favorito
+                    </button>
+
+                    <button class="btn-seguir" onclick="seguirAutor('Elena Vargas')">
+                        <i class="fa-solid fa-user-plus"></i> Seguir
+                    </button>
+                </div>
+            </div>
+        </article>
+
+        <article class="autor-card">
+            <div class="autor-banner">
+                <img src="Img/Arquitectura/banner-marco.jpg" alt="Portafolio Marco">
+            </div>
+
+            <div class="autor-info">
+                <img class="autor-foto" src="Img/Autores/Marco Castillo.jpg" alt="Marco Castillo">
+
+                <h3>Marco Castillo</h3>
+                <p class="autor-rol">Arquitecto Conceptual</p>
+
+                <p class="autor-descripcion">
+                    Diseñador de conceptos arquitectónicos, fachadas y propuestas urbanas.
+                </p>
+
+                <div class="autor-stats">
+                    <span><i class="fa-solid fa-folder-open"></i> 7 proyectos</span>
+                    <span><i class="fa-solid fa-heart"></i> 115 favoritos</span>
+                </div>
+
+                <div class="autor-botones">
+                    <a href="perfil-autor.html?categoria=arquitectonico&autor=marco" class="btn-ver-portafolio">
+                        Ver portafolio
+                    </a>
+
+                    <button class="btn-favorito"
+                        onclick="agregarFavorito('Marco Castillo', 'Autor Arquitectónico', 'Img/Autores/Marco Castillo.jpg', 'autor')">
+                        <i class="fa-regular fa-heart"></i> Favorito
+                    </button>
+
+                    <button class="btn-seguir" onclick="seguirAutor('Marco Castillo')">
+                        <i class="fa-solid fa-user-plus"></i> Seguir
+                    </button>
+                </div>
+            </div>
+        </article>
+
+    </section>
+
+</main>
+
+<script>
+async function agregarFavorito(titulo, categoria, imagen, tipo = "autor") {
+    const idUsuario = localStorage.getItem("id_usuario");
+    const usuario = localStorage.getItem("usuario");
+
+    if (!idUsuario || !usuario || idUsuario === "undefined") {
+        window.location.href = "iniciosesion.html";
+        return;
+    }
+
+    const respuesta = await fetch("http://localhost:3000/favoritos", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id_usuario: idUsuario, titulo, categoria, imagen, tipo })
+    });
+
+    const resultado = await respuesta.json();
+    alert(resultado.mensaje);
+}
+
+function seguirAutor(nombreAutor) {
+    const idUsuario = localStorage.getItem("id_usuario");
+    const usuario = localStorage.getItem("usuario");
+
+    if (!idUsuario || !usuario || idUsuario === "undefined") {
+        window.location.href = "iniciosesion.html";
+        return;
+    }
+
+    alert("Ahora sigues a " + nombreAutor);
+}
+</script>
+
+</body>
+</html>
