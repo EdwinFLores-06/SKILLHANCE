@@ -3,187 +3,279 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skillhance</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <title>SkillHance</title>
+    <link rel="stylesheet" href="CSS/pagina-principal.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+          <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="CSS/styles.CSS">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
-    <header class="header">
-    <div class="header-top">
+
+    <!-- HEADER -->
+    <header>
         <div class="logo">
-               <a href="index.html"><img  src="img/LOGO-PROVISIONAL.png" alt="Logo" width="400" height="50" ></a>
-            
+            <a href="index.html">
+                <img src="Img/LOGO-PROVISIONAL.png" alt="Logo" width="250">
+            </a>
         </div>
-    </div>
 
-    <nav class="navbar">
-        <ul>
-            <li><a href="#nosotros">NOSOTROS</a></li>
+        <nav>
+            <ul>
+                <li><a href="sobre-nosotros.html">Nosotros</a></li>
+                <li><a href="industrial.html">Explorar</a></li>
+                <li><a href="suscripciones.html">Suscripciones</a></li>
+                <li><a href="#">Contactos</a></li>
+                <li><a href="miperfil.html">Mi Perfil</a></li>
+            </ul>
+        </nav>
+    </header>
 
-            <li class="tiene-submenu">
-                <a href="#explorar">EXPLORAR</a>
+    <!-- FRASE SUPERIOR -->
+    <section class="top-text">
+        <span class="letter">S</span>
+        <div class="line"></div>
+        <p>Conectamos talento, creatividad e innovación para impulsar ideas que transforman el mundo.</p>
+    </section>
 
-                <ul class="submenu">
-                    <li><a href="industrial.html">Industrial</a></li>
-                    <li><a href="disenoG.html">Diseño Gráfico</a></li>
-                    <li><a href="moda.html">Moda</a></li>
-                    <li><a href="arquitectonico.html">Arquitectónico</a></li>
-                </ul>
-            </li>
+    <!-- HERO -->
+    <section class="hero">
 
-            <li><a href="suscripciones.html">SUSCRIPCIONES</a></li>
+        <div class="hero-text">
 
-            <li><a href="#contacto">CONTACTOS</a></li>
+            <h1>
+                Descubre.<br>
+                <span>Inspírate.</span><br>
+                Crea sin límites.
+            </h1>
 
-            <li><a id="loginLink" href="iniciosesion.html">INICIAR SESIÓN</a></li>
-
-            <li id="cuentaMenu" class="tiene-submenu" style="display:none;">
-                <a id="perfilLink" href="#">MI CUENTA</a>
-
-                <ul class="submenu">
-                    <li><a href="miperfil.html">Mi Perfil</a></li>
-                    <li><a href="administrarcuenta.html">Administrar Cuenta</a></li>
-                    <li><a id="cerrarSesion" href="#">Cerrar Sesión</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
-</header>
-
-    <main>
-        <section id="nosotros">
-            <h1>Los mejores diseños al alcance de tus manos</h1>
-
-            <article id="quienes-somos">
-                <h2>¿Quiénes Somos?</h2>
-
-                <p>
-                    En <strong>SKILLHANCE</strong> transformamos ideas en inspiración.
-                    Somos una plataforma enfocada en el diseño, la innovación y las
-                    tendencias creativas que impulsan el futuro.
-                </p>
-
-                <p>
-                    Nuestro propósito es brindar un espacio donde estudiantes,
-                    emprendedores, diseñadores y personas creativas puedan explorar
-                    nuevas ideas, descubrir proyectos innovadores y encontrar
-                    inspiración para desarrollar sus propias creaciones.
-                </p>
-
-                <p>
-                    Creemos que la creatividad no tiene límites y que cada gran
-                    proyecto comienza con una idea. Por eso trabajamos para acercarte
-                    a las mejores tendencias en diseño gráfico, diseño industrial e
-                    innovación tecnológica.
-                </p>
-            </article>
-
-            <article id="mision">
-                <h3>Nuestra Misión</h3>
-
-                <p>
-                    Impulsar el talento creativo y conectar a las personas con las
-                    tendencias que están marcando el futuro del diseño y la innovación.
-                </p>
-            </article>
-
-            <article id="vision">
-                <h3>Nuestra Visión</h3>
-
-                <p>
-                    Ser una plataforma de referencia para quienes buscan inspiración,
-                    conocimiento y oportunidades dentro del mundo del diseño y la
-                    creatividad.
-                </p>
-            </article>
-            <img src="portafolios/diseño-grafico-1.jpg.jpeg" alt="Creatividad" width="900" height="2000">
-        </section>
-
-        <section id="explorar">
-            <article>
-                <h2>Explorar</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate.</p>
-            </article>
-        </section>
-
-        <section id="contrataciones" class="solo-login">
-            <article>
-                <h2>Contrataciones</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate.</p>
-            </article>
-        </section>
-    </main>
-<footer class="footer">
-    <div class="footer-contenido">
-
-        <div class="footer-col">
-            <h3>SKILLHANCE</h3>
             <p>
-                Plataforma dedicada a inspirar, conectar y potenciar
-                la creatividad mediante el diseño y la innovación.
+                Explora portafolios de diseñadores y creativos de todo el mundo.
+                Encuentra inspiración, colabora y haz crecer tu talento.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="industrial.html" class="btn-primary">
+                    Explorar Proyectos
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+
+                <a href="suscripciones.html" class="btn-secondary">
+                    Únete Ahora
+                </a>
+            </div>
+
+        </div>
+
+        <!-- GRID DE IMÁGENES -->
+        <div class="hero-gallery">
+
+            <div class="square blue"></div>
+
+            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=500"
+                alt="silla">
+
+            <img src="https://images.unsplash.com/photo-1580910051074-3eb694886505?w=500"
+                alt="producto">
+
+            <div class="card dark">
+                Less <br> is more.
+            </div>
+
+            <img src="https://images.unsplash.com/photo-1517991104123-1d56a6e81ed9?w=500"
+                alt="lámpara">
+
+            <img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=500"
+                alt="arquitectura">
+
+            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500"
+                alt="figuras">
+
+            <div class="square orange"></div>
+
+        </div>
+
+    </section>
+
+    <!-- CATEGORÍAS -->
+    <section class="categories">
+
+        <h2>Explora por categoría</h2>
+
+        <div class="cards">
+            <a href="industrial.html">
+
+                <div class="category-card">
+                    <div class="icon orange-bg">
+                        <i class="fas fa-chair"></i>
+                    </div>
+                    <div>
+                        <h3>Diseño Industrial</h3>
+                        <p>Productos funcionales y estéticos.</p>
+                    </div>
+                </div>
+
+
+            </a>
+
+            <a href="">
+
+                <div class="category-card">
+                    <div class="icon blue-bg">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <div>
+                        <h3>Diseño Gráfico</h3>
+                        <p>Comunicación visual que impacta.</p>
+                    </div>
+                </div>
+
+
+            </a>
+
+            <a href="">
+
+                <div class="category-card">
+                    <div class="icon green-bg">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div>
+                        <h3>Arquitectura</h3>
+                        <p>Espacios que inspiran y transforman.</p>
+                    </div>
+                </div>
+
+            </a>
+            
+            <a href="">
+
+
+                <div class="category-card">
+                    <div class="icon purple-bg">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <div>
+                        <h3>Multimedia</h3>
+                        <p>Animación, video y más.</p>
+                    </div>
+                </div>
+
+            </a>
+            <a href="">
+
+
+                <div class="category-card">
+                    <div class="icon yellow-bg">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </div>
+                    <div>
+                        <h3>Ver más categorías</h3>
+                        <p>Descubre todas las áreas creativas.</p>
+                    </div>
+                </div>
+                
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- BENEFICIOS -->
+    <section class="features">
+
+        <div class="feature">
+            <i class="fas fa-users"></i>
+            <div>
+                <h4>Comunidad Creativa</h4>
+                <p>Conecta con diseñadores y creativos.</p>
+            </div>
+        </div>
+
+        <div class="feature">
+            <i class="far fa-star"></i>
+            <div>
+                <h4>Proyectos Destacados</h4>
+                <p>Descubre los mejores portafolios.</p>
+            </div>
+        </div>
+
+        <div class="feature">
+            <i class="far fa-lightbulb"></i>
+            <div>
+                <h4>Inspírate</h4>
+                <p>Ideas que te motivan a crear más.</p>
+            </div>
+        </div>
+
+        <div class="feature">
+            <i class="fas fa-rocket"></i>
+            <div>
+                <h4>Impulsa tu Talento</h4>
+                <p>Herramientas y recursos para crecer.</p>
+            </div>
+        </div>
+
+    </section>
+<footer class="footer">
+
+    <div class="footer-top-line"></div>
+
+    <div class="footer-container">
+
+        <!-- Columna 1 -->
+        <div class="footer-column">
+            <h2 class="footer-logo">SKILLHANCE</h2>
+
+            <p class="footer-description">
+                Aprende, practica y domina nuevas habilidades con nuestra
+                plataforma educativa.
+            </p>
+
+            <div class="social-links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-x-twitter"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+
+            <p class="copyright">
+                © 2026 Skillhance. Todos los derechos reservados.
             </p>
         </div>
 
-        <div class="footer-col">
-            <h3>Explorar</h3>
-            <a href="industrial.html">Diseño Industrial</a>
-            <a href="disenoG.html">Diseño Gráfico</a>
-            <a href="moda.html">Moda</a>
-            <a href="arquitectonico.html">Arquitectónico</a>
+        <!-- Columna 2 -->
+        <div class="footer-column">
+            <h3>Enlaces Útiles</h3>
+
+            <ul>
+                <li><a href="#">Política de Privacidad</a></li>
+                <li><a href="#">Términos y Condiciones</a></li>
+                <li><a href="#">Preguntas Frecuentes</a></li>
+                <li><a href="#">Centro de Ayuda</a></li>
+            </ul>
         </div>
 
-        <div class="footer-col">
-            <h3>Enlaces</h3>
-            <a href="#nosotros">Nosotros</a>
-            <a href="suscripciones.html">Suscripciones</a>
-            <a href="#contacto">Contacto</a>
+        <!-- Columna 3 -->
+        <div class="footer-column">
+            <h3>
+                <i class="fas fa-location-dot"></i>
+                Nuestra Ubicación
+            </h3>
+
+            <p>
+                Décima Avenida Norte<br>
+                Entre la Tercera y Quinta Avenida Sur<br>
+                Frente al puesto de la PNC<br>
+                Santa Ana, El Salvador
+            </p>
         </div>
 
     </div>
 
-    <div class="footer-bottom">
-        © 2026 SKILLHANCE - Todos los derechos reservados.
-    </div>
 </footer>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const usuario = localStorage.getItem("usuario");
-
-            const loginLink = document.getElementById("loginLink");
-            const cuentaMenu = document.getElementById("cuentaMenu");
-            const perfilLink = document.getElementById("perfilLink");
-            const cerrarSesion = document.getElementById("cerrarSesion");
-
-            const seccionesPrivadas = document.querySelectorAll(".solo-login");
-
-            if (usuario) {
-                loginLink.style.display = "none";
-                cuentaMenu.style.display = "inline-block";
-                perfilLink.textContent = "Mi Cuenta";
-
-                seccionesPrivadas.forEach(seccion => {
-                    seccion.style.display = "block";
-                });
-            } else {
-                loginLink.style.display = "inline-block";
-                cuentaMenu.style.display = "none";
-
-                seccionesPrivadas.forEach(seccion => {
-                    seccion.style.display = "none";
-                });
-            }
-
-            cerrarSesion.addEventListener("click", (e) => {
-                e.preventDefault();
-
-                localStorage.removeItem("usuario");
-
-                alert("Sesión cerrada correctamente");
-                window.location.href = "index.html";
-            });
-        });
-    </script>
 </body>
+
 </html>

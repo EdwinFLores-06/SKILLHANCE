@@ -24,7 +24,7 @@
 
     <nav>
         <ul>
-            <li><a href="index.html">Nosotros</a></li>
+            <li><a href="sobre-nosotros.html">Nosotros</a></li>
 
             <li class="tiene-submenu">
                 <a href="#">Explorar</a>
@@ -34,7 +34,7 @@
                     <li><a href="tendencias.html">Tendencias</a></li>
                 </ul>
             </li>
-
+            <li><a href="index.html">Home</a></li>
             <li><a href="suscripciones.html">Suscripciones</a></li>
             <li><a href="index.html#contacto">Contactos</a></li>
             <li><a href="miperfil.html">Mi Perfil</a></li>
@@ -88,7 +88,7 @@
 
         <article class="autor-card">
             <div class="autor-banner">
-                <img src="Img/Portafolio-industrial2.jpg" alt="Portafolio Camila">
+                <img src="Img/Portafolio-industrial2.jpg" alt="Portafolio Camila" >
             </div>
 
             <div class="autor-info">
@@ -159,6 +159,63 @@
     </section>
 </main>
 
+<footer class="footer">
+
+    <div class="footer-top-line"></div>
+
+    <div class="footer-container">
+
+        <!-- Columna 1 -->
+        <div class="footer-column">
+            <h2 class="footer-logo">SKILLHANCE</h2>
+
+            <p class="footer-description">
+                Aprende, practica y domina nuevas habilidades con nuestra
+                plataforma educativa.
+            </p>
+
+            <div class="social-links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-x-twitter"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+
+            <p class="copyright">
+                © 2026 Skillhance. Todos los derechos reservados.
+            </p>
+        </div>
+
+        <!-- Columna 2 -->
+        <div class="footer-column">
+            <h3>Enlaces Útiles</h3>
+
+            <ul>
+                <li><a href="#">Política de Privacidad</a></li>
+                <li><a href="#">Términos y Condiciones</a></li>
+                <li><a href="#">Preguntas Frecuentes</a></li>
+                <li><a href="#">Centro de Ayuda</a></li>
+            </ul>
+        </div>
+
+        <!-- Columna 3 -->
+        <div class="footer-column">
+            <h3>
+                <i class="fas fa-location-dot"></i>
+                Nuestra Ubicación
+            </h3>
+
+            <p>
+                Décima Avenida Norte<br>
+                Entre la Tercera y Quinta Avenida Sur<br>
+                Frente al puesto de la PNC<br>
+                Santa Ana, El Salvador
+            </p>
+        </div>
+
+    </div>
+
+</footer>
 <script>
 async function agregarFavorito(titulo, categoria, imagen, tipo = "autor") {
     const idUsuario = localStorage.getItem("id_usuario");

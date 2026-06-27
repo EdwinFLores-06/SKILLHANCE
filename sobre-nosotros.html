@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skillhance</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/sobre-nosotros.css">
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+</head>
+<body>
+  <!-- HEADER -->
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="Img/LOGO-PROVISIONAL.png" alt="Logo" width="250px">
+            </a>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="industrial.html">Explorar</a></li>
+                <li><a href="suscripciones.html">Suscripciones</a></li>
+                <li><a href="#">Contactos</a></li>
+                <li><a href="miperfil.html">Mi Perfil</a></li>
+            </ul>
+        </nav>
+    </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" id="nosotros">
+        <div class="hero-text">
+            <h1>
+                Los mejores diseños <br>
+                al alcance <br>
+                <span>de tus manos</span>
+            </h1>
+
+            <p>
+                En <strong>SKILLHANCE</strong> transformamos ideas en inspiración.
+                Somos una plataforma enfocada en el diseño, la innovación y las
+                tendencias creativas.
+            </p>
+
+            <p>
+                Nuestro propósito es brindar un espacio donde estudiantes,
+                emprendedores y diseñadores puedan explorar nuevas ideas.
+            </p>
+
+            <button>Explorar Diseños</button>
+        </div>
+
+        <div class="hero-image">
+            <img src="img/sobre-nosotros.png" alt="Hero">
+        </div>
+    </section>
+
+    <!-- ESENCIA -->
+    <section class="esencia">
+        <h2>Nuestra Esencia</h2>
+
+        <div class="cards">
+            <div class="card">
+                <h3>Nuestra Misión</h3>
+                <p>
+                    Impulsar el talento creativo y conectar a las personas con
+                    tendencias innovadoras.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Nuestra Visión</h3>
+                <p>
+                    Ser una plataforma referente para creatividad y diseño.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Nuestro Compromiso</h3>
+                <p>
+                    Fomentar una comunidad creativa y colaborativa.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats">
+        <div class="stat-box">
+            <h3>+2,500</h3>
+            <p>Diseños Inspiradores</p>
+        </div>
+
+        <div class="stat-box">
+            <h3>+10,000</h3>
+            <p>Usuarios Creativos</p>
+        </div>
+
+        <div class="stat-box">
+            <h3>+150</h3>
+            <p>Proyectos Destacados</p>
+        </div>
+
+        <div class="stat-box">
+            <h3>+20</h3>
+            <p>Países Conectados</p>
+        </div>
+    </section>
+
+</main>
+<footer class="footer">
+
+    <div class="footer-top-line"></div>
+
+    <div class="footer-container">
+
+        <!-- Columna 1 -->
+        <div class="footer-column">
+            <h2 class="footer-logo">SKILLHANCE</h2>
+
+            <p class="footer-description">
+                Aprende, practica y domina nuevas habilidades con nuestra
+                plataforma educativa.
+            </p>
+
+            <div class="social-links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-x-twitter"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+
+            <p class="copyright">
+                © 2026 Skillhance. Todos los derechos reservados.
+            </p>
+        </div>
+
+        <!-- Columna 2 -->
+        <div class="footer-column">
+            <h3>Enlaces Útiles</h3>
+
+            <ul>
+                <li><a href="#">Política de Privacidad</a></li>
+                <li><a href="#">Términos y Condiciones</a></li>
+                <li><a href="#">Preguntas Frecuentes</a></li>
+                <li><a href="#">Centro de Ayuda</a></li>
+            </ul>
+        </div>
+
+        <!-- Columna 3 -->
+        <div class="footer-column">
+            <h3>
+                <i class="fas fa-location-dot"></i>
+                Nuestra Ubicación
+            </h3>
+
+            <p>
+                Décima Avenida Norte<br>
+                Entre la Tercera y Quinta Avenida Sur<br>
+                Frente al puesto de la PNC<br>
+                Santa Ana, El Salvador
+            </p>
+        </div>
+
+    </div>
+
+</footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const usuario = localStorage.getItem("usuario");
+
+            const loginLink = document.getElementById("loginLink");
+            const cuentaMenu = document.getElementById("cuentaMenu");
+            const perfilLink = document.getElementById("perfilLink");
+            const cerrarSesion = document.getElementById("cerrarSesion");
+
+            const seccionesPrivadas = document.querySelectorAll(".solo-login");
+
+            if (usuario) {
+                loginLink.style.display = "none";
+                cuentaMenu.style.display = "inline-block";
+                perfilLink.textContent = "Mi Cuenta";
+
+                seccionesPrivadas.forEach(seccion => {
+                    seccion.style.display = "block";
+                });
+            } else {
+                loginLink.style.display = "inline-block";
+                cuentaMenu.style.display = "none";
+
+                seccionesPrivadas.forEach(seccion => {
+                    seccion.style.display = "none";
+                });
+            }
+
+            cerrarSesion.addEventListener("click", (e) => {
+                e.preventDefault();
+
+                localStorage.removeItem("usuario");
+
+                alert("Sesión cerrada correctamente");
+                window.location.href = "index.html";
+            });
+        });
+    </script>
+</body>
+</html>

@@ -3,6 +3,31 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+
+/* HEADER */
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 80px;
+    background:white;
+}
+
+nav ul{
+    display:flex;
+    gap:40px;
+    list-style:none;
+}
+
+nav a{
+    text-decoration:none;
+    color:#0f1f4d;
+    font-weight:600;
+}
+
+
+
 .suscripciones{
     max-width:1200px;
     margin:40px auto;
@@ -131,32 +156,6 @@ body {
     padding:12px;
     font-weight:bold;
     letter-spacing:.5px;
-}
-
-
-header{
-    background:white;
-}
-
-nav{
-    background:#162447;
-    padding:15px 0;
-
-}
-
-nav ul{
-    display:flex;
-    justify-content:flex-end;
-    gap:40px;
-    list-style:none;
-    margin-right: 40px;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    font-weight:bold;
-    text-transform:uppercase;
 }
 
 

@@ -1,0 +1,282 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #f7f7f7;
+}
+
+/* HEADER */
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 80px;
+    background:white;
+}
+
+nav ul{
+    display:flex;
+    gap:40px;
+    list-style:none;
+}
+
+nav a{
+    text-decoration:none;
+    color:#0f1f4d;
+    font-weight:600;
+}
+
+
+.logo img {
+    width: 170px;
+    height: auto;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+}
+
+.navbar ul {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+/* HERO */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 70px 90px;
+}
+
+.hero-text {
+    width: 50%;
+}
+
+.hero-text h1 {
+    font-size: 64px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 30px;
+}
+
+.hero-text span {
+    color: #f5a300;
+}
+
+.hero-text p {
+    margin-bottom: 20px;
+    line-height: 1.7;
+    color: #444;
+}
+
+.hero button {
+    background: #f5a300;
+    border: none;
+    padding: 16px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.hero-image {
+    width: 45%;
+}
+
+.hero-image img {
+    width: 100%;
+}
+
+/* ESENCIA */
+.esencia {
+    padding: 20px 90px 60px;
+    text-align: center;
+}
+
+.esencia h2 {
+    color: #031b4e;
+    margin-bottom: 40px;
+    font-size: 32px;
+}
+
+.cards {
+    display: flex;
+    gap: 30px;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    flex: 1;
+    text-align: left;
+}
+
+.card h3 {
+    color: #031b4e;
+    margin-bottom: 15px;
+}
+
+/* STATS */
+.stats {
+    margin: 0 90px 50px;
+    background: #031b4e;
+    color: white;
+    border-radius: 16px;
+    padding: 35px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.stat-box h3 {
+    color: #f5a300;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+/* FOOTER */
+
+/*footer*/
+.footer{
+    background: linear-gradient(
+        135deg,
+        #ff9800,
+        #ffad14,
+        #ff9800
+    );
+    color:white;
+    position:relative;
+    overflow:hidden;
+}
+
+.footer-top-line{
+    height:5px;
+    background:#1d2b57;
+}
+
+.footer-container{
+    max-width:1400px;
+    margin:auto;
+    padding:70px 80px;
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr;
+    gap:80px;
+}
+
+.footer-column h3{
+    font-size:1.5rem;
+    margin-bottom:25px;
+    font-weight:700;
+}
+
+.footer-logo{
+    font-size:2.5rem;
+    font-weight:900;
+    margin-bottom:15px;
+    letter-spacing:2px;
+}
+
+.footer-description{
+    max-width:350px;
+    line-height:1.7;
+    margin-bottom:25px;
+    opacity:.95;
+}
+
+.social-links{
+    display:flex;
+    gap:15px;
+    margin-bottom:25px;
+}
+
+.social-links a{
+    width:45px;
+    height:45px;
+    border:2px solid rgba(255,255,255,.3);
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.social-links a:hover{
+    background:white;
+    color:#ff9800;
+    transform:translateY(-4px);
+}
+
+.footer-column ul{
+    list-style:none;
+}
+
+.footer-column ul li{
+    margin-bottom:15px;
+}
+
+.footer-column ul li a{
+    text-decoration:none;
+    color:white;
+    transition:.3s;
+    font-size:1.05rem;
+}
+
+.footer-column ul li a:hover{
+    padding-left:8px;
+    opacity:.8;
+}
+
+.footer-column p{
+    line-height:1.9;
+    font-size:1.05rem;
+}
+
+.copyright{
+    margin-top:20px;
+    font-size:.95rem;
+    opacity:.9;
+}
+
+/* Línea divisoria elegante */
+.footer-column:nth-child(2){
+    border-left:1px solid rgba(255,255,255,.25);
+    border-right:1px solid rgba(255,255,255,.25);
+    padding:0 40px;
+}
+
+/* Responsive */
+@media(max-width:900px){
+
+    .footer-container{
+        grid-template-columns:1fr;
+        gap:50px;
+        padding:50px 30px;
+    }
+
+    .footer-column:nth-child(2){
+        border:none;
+        padding:0;
+    }
+
+    .footer-logo{
+        font-size:2rem;
+    }
+}
