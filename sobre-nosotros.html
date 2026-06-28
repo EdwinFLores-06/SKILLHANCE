@@ -173,42 +173,21 @@
 
 </footer>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const usuario = localStorage.getItem("usuario");
+    document.addEventListener("DOMContentLoaded", () => {
+        const cerrarSesion = document.getElementById("cerrarSesion");
 
-            const loginLink = document.getElementById("loginLink");
-            const cuentaMenu = document.getElementById("cuentaMenu");
-            const perfilLink = document.getElementById("perfilLink");
-            const cerrarSesion = document.getElementById("cerrarSesion");
-
-            const seccionesPrivadas = document.querySelectorAll(".solo-login");
-
-            if (usuario) {
-                loginLink.style.display = "none";
-                cuentaMenu.style.display = "inline-block";
-                perfilLink.textContent = "Mi Cuenta";
-
-                seccionesPrivadas.forEach(seccion => {
-                    seccion.style.display = "block";
-                });
-            } else {
-                loginLink.style.display = "inline-block";
-                cuentaMenu.style.display = "none";
-
-                seccionesPrivadas.forEach(seccion => {
-                    seccion.style.display = "none";
-                });
-            }
-
+        if (cerrarSesion) {
             cerrarSesion.addEventListener("click", (e) => {
                 e.preventDefault();
 
+                localStorage.removeItem("id_usuario");
                 localStorage.removeItem("usuario");
+                localStorage.removeItem("correo");
 
-                alert("Sesión cerrada correctamente");
                 window.location.href = "index.html";
             });
-        });
-    </script>
+        }
+    });
+</script>
 </body>
 </html>

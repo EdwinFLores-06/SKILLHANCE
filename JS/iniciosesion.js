@@ -47,7 +47,7 @@ formRegistro.addEventListener("submit", async (e) => {
     }
 
     try {
-        const respuesta = await fetch("http://localhost:3000/registro", {
+        const respuesta = await fetch(`${API_URL}/registro`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -92,7 +92,7 @@ formLogin.addEventListener("submit", async (e) => {
     mensajeLogin.className = "";
 
     try {
-        const respuesta = await fetch("http://localhost:3000/login", {
+        const respuesta = await fetch(`${API_URL}/login`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

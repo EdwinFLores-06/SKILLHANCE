@@ -95,6 +95,7 @@
     </section>
 
 </main>
+<script src="config.js"></script>
 
 <script>
     const idUsuario = localStorage.getItem("id_usuario");
@@ -110,7 +111,7 @@
 
     async function cargarPerfil() {
         try {
-            const respuesta = await fetch(`http://localhost:3000/perfil/${idUsuario}`);
+            const respuesta = await fetch(`${API_URL}/perfil/${idUsuario}`);
             const resultado = await respuesta.json();
 
             if (resultado.ok && resultado.perfil) {
@@ -121,7 +122,7 @@
                     resultado.perfil.biografia || "Sin biografía";
 
                 if (resultado.perfil.foto_perfil) {
-                    const rutaFoto = "http://localhost:3000/" + resultado.perfil.foto_perfil;
+                    const rutaFoto = `${API_URL}/${resultado.perfil.foto_perfil}`;
 
                     const foto = document.getElementById("fotoPerfil");
                     foto.src = rutaFoto;
@@ -140,7 +141,7 @@
 
     async function cargarSuscripcion() {
         try {
-            const respuesta = await fetch(`http://localhost:3000/suscripcion/${idUsuario}`);
+            const respuesta = await fetch(`${API_URL}/suscripcion/${idUsuario}`);
             const resultado = await respuesta.json();
 
             const suscripcionCard = document.getElementById("suscripcionCard");
@@ -198,8 +199,36 @@
         }
     }
 
+    async function cargarFavoritos() {
+        const respuesta = await fetch(`${API_URL}/favoritos/${idUsuario}`);
+        const resultado = await respuesta.json();
+
+        const lista = document.getElementById("listaFavoritos");
+        const total = document.getElementById("totalFavoritos");
+
+        if (resultado.ok && resultado.favoritos.length > 0) {
+            total.textContent = resultado.favoritos.length;
+
+            lista.innerHTML = "";
+
+            resultado.favoritos.forEach(fav => {
+                lista.innerHTML += `
+                    <div class="favorito-card">
+                        <img src="${API_URL}/${fav.imagen}" alt="${fav.titulo}">
+                        <h3>${fav.titulo}</h3>
+                        <p>${fav.categoria}</p>
+                    </div>
+                `;
+            });
+        } else {
+            total.textContent = "0";
+            lista.innerHTML = "<p>Aún no tienes diseños favoritos.</p>";
+        }
+    }
+
     cargarPerfil();
     cargarSuscripcion();
+    cargarFavoritos();
 
     document.getElementById("cerrarSesion").addEventListener("click", (e) => {
         e.preventDefault();
@@ -210,35 +239,6 @@
 
         window.location.href = "index.html";
     });
-
-    async function cargarFavoritos() {
-    const respuesta = await fetch(`http://localhost:3000/favoritos/${idUsuario}`);
-    const resultado = await respuesta.json();
-
-    const lista = document.getElementById("listaFavoritos");
-    const total = document.getElementById("totalFavoritos");
-
-    if (resultado.ok && resultado.favoritos.length > 0) {
-        total.textContent = resultado.favoritos.length;
-
-        lista.innerHTML = "";
-
-        resultado.favoritos.forEach(fav => {
-            lista.innerHTML += `
-                <div class="favorito-card">
-                    <img src="${fav.imagen}" alt="${fav.titulo}">
-                    <h3>${fav.titulo}</h3>
-                    <p>${fav.categoria}</p>
-                </div>
-            `;
-        });
-    } else {
-        total.textContent = "0";
-        lista.innerHTML = "<p>Aún no tienes diseños favoritos.</p>";
-    }
-}
-
-cargarFavoritos();
 </script>
 
 </body>

@@ -87,6 +87,8 @@
         <img id="modalImg" src="" alt="">
     </div>
 </div>
+<script src="config.js"></script>
+
 <script>
 
     const imgModal = document.getElementById("imgModal");
@@ -475,6 +477,7 @@ if (!autor) {
 }
 
 async function agregarFavorito(titulo, categoria, imagen, tipo = "portafolio") {
+
     const idUsuario = localStorage.getItem("id_usuario");
     const usuario = localStorage.getItem("usuario");
 
@@ -483,9 +486,11 @@ async function agregarFavorito(titulo, categoria, imagen, tipo = "portafolio") {
         return;
     }
 
-    const respuesta = await fetch("http://localhost:3000/favoritos", {
+    const respuesta = await fetch(`${API_URL}/favoritos`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+            "Content-Type": "application/json"
+        },
         body: JSON.stringify({
             id_usuario: idUsuario,
             titulo,

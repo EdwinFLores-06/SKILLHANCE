@@ -209,6 +209,8 @@
     </div>
 
 </footer>
+<script src="config.js"></script>
+
 <script>
 async function agregarFavorito(titulo, categoria, imagen, tipo = "autor") {
     const idUsuario = localStorage.getItem("id_usuario");
@@ -219,10 +221,18 @@ async function agregarFavorito(titulo, categoria, imagen, tipo = "autor") {
         return;
     }
 
-    const respuesta = await fetch("http://localhost:3000/favoritos", {
+    const respuesta = await fetch(`${API_URL}/favoritos`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id_usuario: idUsuario, titulo, categoria, imagen, tipo })
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            id_usuario: idUsuario,
+            titulo,
+            categoria,
+            imagen,
+            tipo
+        })
     });
 
     const resultado = await respuesta.json();

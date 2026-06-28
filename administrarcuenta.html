@@ -89,6 +89,8 @@
 
 </main>
 
+<script src="config.js"></script>
+
 <script>
     const idUsuario = localStorage.getItem("id_usuario");
     const usuario = localStorage.getItem("usuario");
@@ -108,7 +110,7 @@
         const biografia = document.getElementById("biografia").value;
         const archivoFoto = document.getElementById("fotoPerfilInput").files[0];
 
-        const respuesta = await fetch("http://localhost:3000/guardarPerfil", {
+        const respuesta = await fetch(`${API_URL}/guardarPerfil`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -128,7 +130,7 @@
             formData.append("foto", archivoFoto);
             formData.append("id_usuario", idUsuario);
 
-            const respuestaFoto = await fetch("http://localhost:3000/subirFoto", {
+            const respuestaFoto = await fetch(`${API_URL}/subirFoto`, {
                 method: "POST",
                 body: formData
             });

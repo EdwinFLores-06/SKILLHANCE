@@ -184,6 +184,8 @@
 </footer>
 
 
+<script src="config.js"></script>
+
 <script>
     const idUsuario = localStorage.getItem("id_usuario");
     const usuario = localStorage.getItem("usuario");
@@ -193,9 +195,9 @@
     const adminLink = document.getElementById("adminLink");
 
     if (idUsuario && usuario && idUsuario !== "undefined") {
-        loginLink.style.display = "none";
-        perfilLink.style.display = "inline-block";
-        adminLink.style.display = "inline-block";
+        if (loginLink) loginLink.style.display = "none";
+        if (perfilLink) perfilLink.style.display = "inline-block";
+        if (adminLink) adminLink.style.display = "inline-block";
     }
 
     async function suscribirse(plan, precio) {
@@ -204,7 +206,7 @@
             return;
         }
 
-        const respuesta = await fetch("http://localhost:3000/suscribirse", {
+        const respuesta = await fetch(`${API_URL}/suscribirse`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

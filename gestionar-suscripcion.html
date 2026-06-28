@@ -67,6 +67,8 @@
 
 </main>
 
+<script src="config.js"></script>
+
 <script>
     const idUsuario = localStorage.getItem("id_usuario");
 
@@ -75,7 +77,7 @@
     }
 
     async function cargarSuscripcion() {
-        const respuesta = await fetch(`http://localhost:3000/suscripcion/${idUsuario}`);
+        const respuesta = await fetch(`${API_URL}/suscripcion/${idUsuario}`);
         const resultado = await respuesta.json();
 
         if (resultado.ok && resultado.suscripcion) {
@@ -90,7 +92,7 @@
     }
 
     async function cambiarPlan(plan, precio) {
-        const respuesta = await fetch("http://localhost:3000/cambiarSuscripcion", {
+        const respuesta = await fetch(`${API_URL}/cambiarSuscripcion`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -112,7 +114,7 @@
 
         if (!confirmar) return;
 
-        const respuesta = await fetch("http://localhost:3000/cancelarSuscripcion", {
+        const respuesta = await fetch(`${API_URL}/cancelarSuscripcion`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

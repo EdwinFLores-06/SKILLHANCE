@@ -12,6 +12,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.use(express.static(path.join(__dirname, "..")));
+
 app.use("/img", express.static(path.join(__dirname, "../img")));
 app.use("/Img", express.static(path.join(__dirname, "../Img")));
 
@@ -48,24 +50,32 @@ conexion.connect((error) => {
 app.post("/registro", async (req, res) => {
     const { nombre, correo, contrasena } = req.body;
 
-    const contrasenaEncriptada = await bcrypt.hash(contrasena, 10);
+    try {
+        const contrasenaEncriptada = await bcrypt.hash(contrasena, 10);
 
-    const sql = "INSERT INTO usuarios (nombre, correo, contrasena) VALUES (?, ?, ?)";
+        const sql = "INSERT INTO usuarios (nombre, correo, contrasena) VALUES (?, ?, ?)";
 
-    conexion.query(sql, [nombre, correo, contrasenaEncriptada], (error) => {
-        if (error) {
-            console.log(error);
-            return res.json({
-                ok: false,
-                mensaje: "Error al registrar usuario"
+        conexion.query(sql, [nombre, correo, contrasenaEncriptada], (error) => {
+            if (error) {
+                console.log(error);
+                return res.json({
+                    ok: false,
+                    mensaje: "Error al registrar usuario"
+                });
+            }
+
+            res.json({
+                ok: true,
+                mensaje: "Usuario registrado correctamente"
             });
-        }
-
-        res.json({
-            ok: true,
-            mensaje: "Usuario registrado correctamente"
         });
-    });
+    } catch (error) {
+        console.log(error);
+        res.json({
+            ok: false,
+            mensaje: "Error interno al registrar usuario"
+        });
+    }
 });
 
 /* LOGIN */
@@ -367,7 +377,7 @@ app.get("/favoritos/:id", (req, res) => {
 /* RUTA PRINCIPAL */
 
 app.get("/", (req, res) => {
-    res.send("Servidor funcionando correctamente");
+    res.sendFile(path.join(__dirname, "../index.html"));
 });
 
 app.listen(3000, () => {
