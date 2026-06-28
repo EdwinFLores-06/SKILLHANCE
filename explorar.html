@@ -3,336 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explorar - SkillHance</title>
-
-    <link rel="stylesheet" href="CSS/pagina-principal.css">
-    <link rel="stylesheet" href="CSS/styles.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>Explorar Proyectos | Skillhance</title>
+    <link rel="stylesheet" href="CSS/explorar.css">
 </head>
-
 <body>
 
 <header>
     <div class="logo">
         <a href="index.html">
-            <img src="Img/LOGO-PROVISIONAL.png" alt="Logo" width="250">
+            <img src="Img/LOGO-PROVISIONAL.png" alt="Logo" width="400" height="50">
         </a>
     </div>
 
     <nav>
         <ul>
             <li><a href="sobre-nosotros.html">Nosotros</a></li>
-            <li><a href="explorar.html">Explorar</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a class="active" href="explorar.html">Explorar</a></li>
             <li><a href="suscripciones.html">Suscripciones</a></li>
-            <li><a href="index.html#contacto">Contactos</a></li>
-            <li><a href="miperfil.html">Mi Perfil</a></li>
+            <li><a href="#">Contactos</a></li>
+            <li><a href="miperfil.html">Mi perfil</a></li>
         </ul>
     </nav>
 </header>
 
-<main class="portafolio-contenedor">
+<main>
 
-    <section class="portafolio-hero">
-        <h1>Explorar Proyectos</h1>
-        <p>Descubre autores y portafolios de todas las categorías creativas de SkillHance.</p>
+    <section class="hero">
+        <p class="tag">PROYECTOS</p>
+
+        <div class="hero-content">
+            <h1>Explora proyectos <span>creativos.</span></h1>
+            <p>Descubre trabajos increíbles de diseñadores de todo el mundo.</p>
+        </div>
     </section>
 
-    <section class="autores-grid">
+    <section class="filters">
+        <div class="categories">
+            <button class="selected">Todos</button>
+            <button>Industrial</button>
+            <button>UX/UI</button>
+            <button>Branding</button>
+            <button>Arquitectura</button>
+        </div>
 
-        <!-- INDUSTRIAL -->
-        <article class="autor-card">
-            <div class="autor-banner">
-                <img src="Img/Portafolio-industrial.webp" alt="Rodrigo Beltrán">
-            </div>
+        <input type="text" placeholder="Buscar proyectos...">
+    </section>
 
-            <div class="autor-info">
-                <img class="autor-foto" src="Img/Autores/Rodrigo Beltran.jpg" alt="Rodrigo Beltrán">
-                <h3>Rodrigo Beltrán</h3>
-                <p class="autor-rol">Diseñador Industrial</p>
-                <p class="autor-descripcion">Especialista en productos funcionales, mobiliario moderno y soluciones industriales.</p>
+    <section class="projects-grid">
 
-                <div class="autor-stats">
-                    <span><i class="fa-solid fa-folder-open"></i> 8 proyectos</span>
-                    <span><i class="fa-solid fa-tag"></i> Industrial</span>
-                </div>
-
-                <div class="autor-botones">
-                    <a href="perfil-autor.html?categoria=industrial&autor=rodrigo" class="btn-ver-portafolio">Ver portafolio</a>
-                    <button class="btn-favorito" onclick="agregarFavorito('Rodrigo Beltrán','Autor Industrial','Img/Autores/Rodrigo Beltran.jpg','autor')">♡ Favorito</button>
-                    <button class="btn-seguir" onclick="seguirAutor('Rodrigo Beltrán')">+ Seguir</button>
-                </div>
+        <article class="card" data-portfolio="portafolios/portafolio_moda1.png">
+            <img src="Img/img_portafolio1.jpg" alt="">
+            <div class="card-content">
+                <span>Diseño de moda</span>
+                <h3>Diseño</h3>
             </div>
         </article>
 
-        <article class="autor-card">
-            <div class="autor-banner">
-                <img src="Img/Portafolio-industrial2.jpg" alt="Camila Gil">
-            </div>
-
-            <div class="autor-info">
-                <img class="autor-foto" src="Img/Autores/Camila Gil.jpg" alt="Camila Gil">
-                <h3>Camila Gil</h3>
-                <p class="autor-rol">Diseñadora de Mobiliario</p>
-                <p class="autor-descripcion">Creadora de propuestas minimalistas enfocadas en espacios modernos y ergonomía.</p>
-
-                <div class="autor-stats">
-                    <span><i class="fa-solid fa-folder-open"></i> 12 proyectos</span>
-                    <span><i class="fa-solid fa-tag"></i> Industrial</span>
-                </div>
-
-                <div class="autor-botones">
-                    <a href="perfil-autor.html?categoria=industrial&autor=camila" class="btn-ver-portafolio">Ver portafolio</a>
-                    <button class="btn-favorito" onclick="agregarFavorito('Camila Gil','Autor Industrial','Img/Autores/Camila Gil.jpg','autor')">♡ Favorito</button>
-                    <button class="btn-seguir" onclick="seguirAutor('Camila Gil')">+ Seguir</button>
-                </div>
+        <article class="card" data-portfolio="portafolios/portafolio_moda2.png">
+            <img src="Img/img_portafolio2.jpg" alt="" width=auto height=auto>
+            <div class="card-content">
+                <span>Diseño de moda</span>
+                <h3></h3>
+                <p>Camila Gil</p>
             </div>
         </article>
 
-        <article class="autor-card">
-            <div class="autor-banner">
-                <img src="Img/Portafolio-industrial3.jpg" alt="Andrés Molina">
-            </div>
-
-            <div class="autor-info">
-                <img class="autor-foto" src="Img/Autores/Andres Molina.jpg" alt="Andrés Molina">
-                <h3>Andrés Molina</h3>
-                <p class="autor-rol">Diseñador de Producto</p>
-                <p class="autor-descripcion">Diseñador enfocado en productos tecnológicos, innovación y experiencia del usuario.</p>
-
-                <div class="autor-stats">
-                    <span><i class="fa-solid fa-folder-open"></i> 6 proyectos</span>
-                    <span><i class="fa-solid fa-tag"></i> Industrial</span>
-                </div>
-
-                <div class="autor-botones">
-                    <a href="perfil-autor.html?categoria=industrial&autor=andres" class="btn-ver-portafolio">Ver portafolio</a>
-                    <button class="btn-favorito" onclick="agregarFavorito('Andrés Molina','Autor Industrial','Img/Autores/Andres Molina.jpg','autor')">♡ Favorito</button>
-                    <button class="btn-seguir" onclick="seguirAutor('Andrés Molina')">+ Seguir</button>
-                </div>
+        <article class="card" data-portfolio="portafolios/thiago.jpeg">
+            <img src="Img/Thiago_foto.jpeg" alt="">
+            <div class="card-content">
+                <span>Fotografia</span>
+                <h3>Producto</h3>
+                <p>Thiago Echeverria</p>
             </div>
         </article>
 
-        <!-- DISEÑO GRÁFICO -->
-        <article class="autor-card">
-            <div class="autor-banner">
-                <img src="Img/Grafico/banner-sofia.jpg" alt="Sofía Martínez">
-            </div>
-
-            <div class="autor-info">
-                <img class="autor-foto" src="Img/Autores/Sofia Martinez.jpg" alt="Sofía Martínez">
-                <h3>Sofía Martínez</h3>
-                <p class="autor-rol">Diseñadora Gráfica</p>
-                <p class="autor-descripcion">Especialista en branding, identidad visual y diseño publicitario.</p>
-
-                <div class="autor-stats">
-                    <span><i class="fa-solid fa-folder-open"></i> 10 proyectos</span>
-                    <span><i class="fa-solid fa-tag"></i> Gráfico</span>
-                </div>
-
-                <div class="autor-botones">
-                    <a href="perfil-autor.html?categoria=grafico&autor=sofia" class="btn-ver-portafolio">Ver portafolio</a>
-                    <button class="btn-favorito" onclick="agregarFavorito('Sofía Martínez','Autor Diseño Gráfico','Img/Autores/Sofia Martinez.jpg','autor')">♡ Favorito</button>
-                    <button class="btn-seguir" onclick="seguirAutor('Sofía Martínez')">+ Seguir</button>
-                </div>
-            </div>
-        </article>
-
-        <article class="autor-card">
-            <div class="autor-banner">
-                <img src="Img/Grafico/banner-luis.jpg" alt="Luis Herrera">
-            </div>
-
-            <div class="autor-info">
-                <img class="autor-foto" src="Img/Autores/Luis Herrera.jpg" alt="Luis Herrera">
-                <h3>Luis Herrera</h3>
-                <p class="autor-rol">Ilustrador Digital</p>
-                <p class="autor-descripcion">Creador de ilustraciones editoriales, personajes y piezas digitales.</p>
-
-                <div class="autor-stats">
-                    <span><i class="fa-solid fa-folder-open"></i> 9 proyectos</span>
-                    <span><i class="fa-solid fa-tag"></i> Gráfico</span>
-                </div>
-
-                <div class="autor-botones">
-                    <a href="perfil-autor.html?categoria=grafico&autor=luis" class="btn-ver-portafolio">Ver portafolio</a>
-                    <button class="btn-favorito" onclick="agregarFavorito('Luis Herrera','Autor Diseño Gráfico','Img/Autores/Luis Herrera.jpg','autor')">♡ Favorito</button>
-                    <button class="btn-seguir" onclick="seguirAutor('Luis Herrera')">+ Seguir</button>
-                </div>
-            </div>
-        </article>
-
-        <article class="autor-card">
-            <div class="autor-banner">
-                <img src="Img/Grafico/banner-valeria.jpg" alt="Valeria Cruz">
-            </div>
-
-            <div class="autor-info">
-                <img class="autor-foto" src="Img/Autores/Valeria Cruz.jpg" alt="Valeria Cruz">
-                <h3>Valeria Cruz</h3>
-                <p class="autor-rol">Diseñadora Editorial</p>
-                <p class="autor-descripcion">Diseñadora enfocada en revistas, catálogos, carteles y composición visual.</p>
-
-                <div class="autor-stats">
-                    <span><i class="fa-solid fa-folder-open"></i> 7 proyectos</span>
-                    <span><i class="fa-solid fa-tag"></i> Gráfico</span>
-                </div>
-
-                <div class="autor-botones">
-                    <a href="perfil-autor.html?categoria=grafico&autor=valeria" class="btn-ver-portafolio">Ver portafolio</a>
-                    <button class="btn-favorito" onclick="agregarFavorito('Valeria Cruz','Autor Diseño Gráfico','Img/Autores/Valeria Cruz.jpg','autor')">♡ Favorito</button>
-                    <button class="btn-seguir" onclick="seguirAutor('Valeria Cruz')">+ Seguir</button>
-                </div>
-            </div>
-        </article>
-
-        <!-- MODA -->
-        <article class="autor-card">
-            <div class="autor-banner">
-                <img src="Img/Moda/banner-isabella.jpg" alt="Isabella Ríos">
-            </div>
-
-            <div class="autor-info">
-                <img class="autor-foto" src="Img/Autores/Isabella Rios.jpg" alt="Isabella Ríos">
-                <h3>Isabella Ríos</h3>
-                <p class="autor-rol">Diseñadora de Moda</p>
-                <p class="autor-descripcion">Creadora de colecciones modernas con enfoque juvenil y urbano.</p>
-
-                <div class="autor-stats">
-                    <span><i class="fa-solid fa-folder-open"></i> 11 proyectos</span>
-                    <span><i class="fa-solid fa-tag"></i> Moda</span>
-                </div>
-
-                <div class="autor-botones">
-                    <a href="perfil-autor.html?categoria=moda&autor=isabella" class="btn-ver-portafolio">Ver portafolio</a>
-                    <button class="btn-favorito" onclick="agregarFavorito('Isabella Ríos','Autor Moda','Img/Autores/Isabella Rios.jpg','autor')">♡ Favorito</button>
-                    <button class="btn-seguir" onclick="seguirAutor('Isabella Ríos')">+ Seguir</button>
-                </div>
-            </div>
-        </article>
-
-        <article class="autor-card">
-            <div class="autor-banner">
-                <img src="Img/Moda/banner-mateo.jpg" alt="Mateo Salazar">
-            </div>
-
-            <div class="autor-info">
-                <img class="autor-foto" src="Img/Autores/Mateo Salazar.jpg" alt="Mateo Salazar">
-                <h3>Mateo Salazar</h3>
-                <p class="autor-rol">Diseñador Textil</p>
-                <p class="autor-descripcion">Especialista en texturas, estampados, patrones y prendas conceptuales.</p>
-
-                <div class="autor-stats">
-                    <span><i class="fa-solid fa-folder-open"></i> 8 proyectos</span>
-                    <span><i class="fa-solid fa-tag"></i> Moda</span>
-                </div>
-
-                <div class="autor-botones">
-                    <a href="perfil-autor.html?categoria=moda&autor=mateo" class="btn-ver-portafolio">Ver portafolio</a>
-                    <button class="btn-favorito" onclick="agregarFavorito('Mateo Salazar','Autor Moda','Img/Autores/Mateo Salazar.jpg','autor')">♡ Favorito</button>
-                    <button class="btn-seguir" onclick="seguirAutor('Mateo Salazar')">+ Seguir</button>
-                </div>
-            </div>
-        </article>
-
-        <article class="autor-card">
-            <div class="autor-banner">
-                <img src="Img/Moda/banner-renata.jpg" alt="Renata López">
-            </div>
-
-            <div class="autor-info">
-                <img class="autor-foto" src="Img/Autores/Renata Lopez.jpg" alt="Renata López">
-                <h3>Renata López</h3>
-                <p class="autor-rol">Estilista Creativa</p>
-                <p class="autor-descripcion">Diseñadora enfocada en estilismo, pasarela, color y composición de outfits.</p>
-
-                <div class="autor-stats">
-                    <span><i class="fa-solid fa-folder-open"></i> 13 proyectos</span>
-                    <span><i class="fa-solid fa-tag"></i> Moda</span>
-                </div>
-
-                <div class="autor-botones">
-                    <a href="perfil-autor.html?categoria=moda&autor=renata" class="btn-ver-portafolio">Ver portafolio</a>
-                    <button class="btn-favorito" onclick="agregarFavorito('Renata López','Autor Moda','Img/Autores/Renata Lopez.jpg','autor')">♡ Favorito</button>
-                    <button class="btn-seguir" onclick="seguirAutor('Renata López')">+ Seguir</button>
-                </div>
-            </div>
-        </article>
-
-        <!-- ARQUITECTÓNICO -->
-        <article class="autor-card">
-            <div class="autor-banner">
-                <img src="Img/Arquitectura/banner-daniel.jpg" alt="Daniel Fuentes">
-            </div>
-
-            <div class="autor-info">
-                <img class="autor-foto" src="Img/Autores/Daniel Fuentes.jpg" alt="Daniel Fuentes">
-                <h3>Daniel Fuentes</h3>
-                <p class="autor-rol">Diseñador Arquitectónico</p>
-                <p class="autor-descripcion">Creador de espacios modernos, funcionales y visualmente equilibrados.</p>
-
-                <div class="autor-stats">
-                    <span><i class="fa-solid fa-folder-open"></i> 9 proyectos</span>
-                    <span><i class="fa-solid fa-tag"></i> Arquitectónico</span>
-                </div>
-
-                <div class="autor-botones">
-                    <a href="perfil-autor.html?categoria=arquitectonico&autor=daniel" class="btn-ver-portafolio">Ver portafolio</a>
-                    <button class="btn-favorito" onclick="agregarFavorito('Daniel Fuentes','Autor Arquitectónico','Img/Autores/Daniel Fuentes.jpg','autor')">♡ Favorito</button>
-                    <button class="btn-seguir" onclick="seguirAutor('Daniel Fuentes')">+ Seguir</button>
-                </div>
-            </div>
-        </article>
-
-        <article class="autor-card">
-            <div class="autor-banner">
-                <img src="Img/Arquitectura/banner-elena.jpg" alt="Elena Vargas">
-            </div>
-
-            <div class="autor-info">
-                <img class="autor-foto" src="Img/Autores/Elena Vargas.jpg" alt="Elena Vargas">
-                <h3>Elena Vargas</h3>
-                <p class="autor-rol">Interiorista</p>
-                <p class="autor-descripcion">Diseñadora de interiores enfocada en ambientes cálidos y elegantes.</p>
-
-                <div class="autor-stats">
-                    <span><i class="fa-solid fa-folder-open"></i> 15 proyectos</span>
-                    <span><i class="fa-solid fa-tag"></i> Arquitectónico</span>
-                </div>
-
-                <div class="autor-botones">
-                    <a href="perfil-autor.html?categoria=arquitectonico&autor=elena" class="btn-ver-portafolio">Ver portafolio</a>
-                    <button class="btn-favorito" onclick="agregarFavorito('Elena Vargas','Autor Arquitectónico','Img/Autores/Elena Vargas.jpg','autor')">♡ Favorito</button>
-                    <button class="btn-seguir" onclick="seguirAutor('Elena Vargas')">+ Seguir</button>
-                </div>
-            </div>
-        </article>
-
-        <article class="autor-card">
-            <div class="autor-banner">
-                <img src="Img/Arquitectura/banner-marco.jpg" alt="Marco Castillo">
-            </div>
-
-            <div class="autor-info">
-                <img class="autor-foto" src="Img/Autores/Marco Castillo.jpg" alt="Marco Castillo">
-                <h3>Marco Castillo</h3>
-                <p class="autor-rol">Arquitecto Conceptual</p>
-                <p class="autor-descripcion">Diseñador de conceptos arquitectónicos, fachadas y propuestas urbanas.</p>
-
-                <div class="autor-stats">
-                    <span><i class="fa-solid fa-folder-open"></i> 7 proyectos</span>
-                    <span><i class="fa-solid fa-tag"></i> Arquitectónico</span>
-                </div>
-
-                <div class="autor-botones">
-                    <a href="perfil-autor.html?categoria=arquitectonico&autor=marco" class="btn-ver-portafolio">Ver portafolio</a>
-                    <button class="btn-favorito" onclick="agregarFavorito('Marco Castillo','Autor Arquitectónico','Img/Autores/Marco Castillo.jpg','autor')">♡ Favorito</button>
-                    <button class="btn-seguir" onclick="seguirAutor('Marco Castillo')">+ Seguir</button>
-                </div>
+        <article class="card" data-portfolio="portafolios/adrian_valdes.jpeg">
+            <img src="Img/Adrian_valdes.jpeg" alt="">
+            <div class="card-content">
+                <span>Industrial</span>
+                <h3>Prototipo Ergonómico</h3>
+                <p>Skillhance Studio</p>
             </div>
         </article>
 
@@ -340,36 +91,43 @@
 
 </main>
 
+<!-- MODAL -->
+<div id="imgModal" class="img-modal">
+    <span id="closeImg" class="close-img">&times;</span>
+
+    <div class="modal-wrapper">
+        <img id="modalImg" src="" alt="">
+    </div>
+</div>
+
 <script>
-async function agregarFavorito(titulo, categoria, imagen, tipo = "autor") {
-    const idUsuario = localStorage.getItem("id_usuario");
-    const usuario = localStorage.getItem("usuario");
+const modal = document.getElementById("imgModal");
+const modalImg = document.getElementById("modalImg");
+const closeBtn = document.getElementById("closeImg");
 
-    if (!idUsuario || !usuario || idUsuario === "undefined") {
-        window.location.href = "iniciosesion.html";
-        return;
-    }
+const cards = document.querySelectorAll(".card");
 
-    const respuesta = await fetch("http://localhost:3000/favoritos", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id_usuario: idUsuario, titulo, categoria, imagen, tipo })
+cards.forEach(card => {
+    card.addEventListener("click", () => {
+        const portfolioImg = card.dataset.portfolio;
+        modalImg.src = portfolioImg;
+
+        modal.classList.add("show");
+        document.body.classList.add("modal-open");
     });
+});
 
-    const resultado = await respuesta.json();
-    alert(resultado.mensaje);
-}
+closeBtn.addEventListener("click", closeModal);
 
-function seguirAutor(nombreAutor) {
-    const idUsuario = localStorage.getItem("id_usuario");
-    const usuario = localStorage.getItem("usuario");
-
-    if (!idUsuario || !usuario || idUsuario === "undefined") {
-        window.location.href = "iniciosesion.html";
-        return;
+modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+        closeModal();
     }
+});
 
-    alert("Ahora sigues a " + nombreAutor);
+function closeModal() {
+    modal.classList.remove("show");
+    document.body.classList.remove("modal-open");
 }
 </script>
 

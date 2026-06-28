@@ -32,62 +32,24 @@ body {
    HEADER / NAVBAR GLOBAL
 ========================= */
 
-header {
-    background: var(--azul);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 14px 45px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 80px;
+    background:white;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 14px;
+nav ul{
+    display:flex;
+    gap:40px;
+    list-style:none;
 }
 
-.logo img {
-    height: 55px;
-    width: auto;
-    object-fit: contain;
-}
-
-.logo p,
-.logo h1 {
-    color: white;
-    font-size: 28px;
-    font-weight: 800;
-    letter-spacing: 1px;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-nav ul li {
-    position: relative;
-}
-
-nav a {
-    display: block;
-    color: white;
-    text-decoration: none;
-    padding: 13px 16px;
-    font-size: 14px;
-    font-weight: 700;
-    text-transform: uppercase;
-    border-radius: 8px;
-    transition: 0.3s;
-}
-
-nav a:hover {
-    background: var(--azul-hover);
+nav a{
+    text-decoration:none;
+    color:#0f1f4d;
+    font-weight:600;
 }
 
 /* SUBMENÚ */
