@@ -280,3 +280,167 @@ nav a{
         font-size:2rem;
     }
 }
+
+/* ===============================
+   RESPONSIVE EXTRA - SOBRE NOSOTROS
+================================ */
+
+/* TABLET */
+@media (max-width:1024px){
+
+    header{
+        padding:20px 35px;
+        flex-wrap:wrap;
+        gap:20px;
+    }
+
+    nav ul{
+        gap:22px;
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero{
+        padding:55px 40px;
+        gap:40px;
+    }
+
+    .hero-text h1{
+        font-size:50px;
+    }
+
+    .esencia{
+        padding:20px 40px 55px;
+    }
+
+    .cards{
+        gap:20px;
+    }
+
+    .stats{
+        margin:0 40px 50px;
+    }
+}
+
+/* CELULAR */
+@media (max-width:768px){
+
+    header{
+        flex-direction:column;
+        text-align:center;
+        padding:20px;
+    }
+
+    nav ul{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .logo img{
+        width:180px;
+    }
+
+    .hero{
+        flex-direction:column;
+        padding:45px 22px;
+        text-align:center;
+    }
+
+    .hero-text,
+    .hero-image{
+        width:100%;
+    }
+
+    .hero-text h1{
+        font-size:40px;
+    }
+
+    .hero-text p{
+        font-size:15px;
+    }
+
+    .hero-image img{
+        max-width:420px;
+    }
+
+    .esencia{
+        padding:20px 22px 45px;
+    }
+
+    .esencia h2{
+        font-size:28px;
+    }
+
+    .cards{
+        flex-direction:column;
+    }
+
+    .card{
+        text-align:center;
+    }
+
+    .stats{
+        margin:0 22px 45px;
+        flex-direction:column;
+        gap:25px;
+        text-align:center;
+    }
+
+    .footer-container{
+        grid-template-columns:1fr;
+        gap:45px;
+        padding:45px 25px;
+        text-align:center;
+    }
+
+    .footer-column:nth-child(2){
+        border:none;
+        padding:0;
+    }
+
+    .social-links{
+        justify-content:center;
+    }
+}
+
+/* CELULAR PEQUEÑO */
+@media (max-width:480px){
+
+    .hero{
+        padding:35px 16px;
+    }
+
+    .hero-text h1{
+        font-size:32px;
+    }
+
+    .hero button{
+        width:100%;
+        max-width:260px;
+    }
+
+    .hero-image img{
+        max-width:100%;
+    }
+
+    .esencia{
+        padding:15px 16px 35px;
+    }
+
+    .card{
+        padding:24px 18px;
+    }
+
+    .stats{
+        margin:0 16px 35px;
+        padding:28px 18px;
+    }
+
+    .stat-box h3{
+        font-size:28px;
+    }
+
+    .footer-logo{
+        font-size:1.8rem;
+    }
+}

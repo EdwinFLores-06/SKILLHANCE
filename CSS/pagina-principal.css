@@ -413,3 +413,200 @@ a{
         font-size:2rem;
     }
 }
+
+/* ===============================
+   RESPONSIVE EXTRA - HOME
+================================ */
+
+/* TABLETS */
+@media (max-width:1024px){
+
+    header{
+        padding:20px 35px;
+        flex-wrap:wrap;
+        gap:20px;
+    }
+
+    nav ul{
+        gap:20px;
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero{
+        flex-direction:column;
+        padding:40px 30px;
+        text-align:center;
+    }
+
+    .hero-text{
+        width:100%;
+    }
+
+    .hero-text p{
+        margin:auto;
+        margin-top:20px;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+    }
+
+    .hero-text h1{
+        font-size:55px;
+    }
+
+    .hero-gallery{
+        width:100%;
+        max-width:700px;
+    }
+
+    .categories{
+        padding:50px 30px;
+    }
+
+    .features{
+        grid-template-columns:repeat(2,1fr);
+        margin:40px 30px;
+    }
+}
+
+
+/* CELULARES */
+@media (max-width:768px){
+
+    header{
+        flex-direction:column;
+        justify-content:center;
+        text-align:center;
+        padding:20px;
+    }
+
+    header img{
+        width:180px;
+        height:auto;
+    }
+
+    nav ul{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .top-text{
+        flex-direction:column;
+        gap:10px;
+        text-align:center;
+        padding:0 20px;
+    }
+
+    .line{
+        width:60px;
+        height:2px;
+    }
+
+    .hero{
+        padding:35px 20px;
+    }
+
+    .hero-text h1{
+        font-size:42px;
+    }
+
+    .hero-text p{
+        font-size:16px;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .btn-primary,
+    .btn-secondary{
+        width:230px;
+        text-align:center;
+    }
+
+    .hero-gallery{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .hero-gallery img,
+    .hero-gallery .card{
+        height:140px;
+    }
+
+    .categories{
+        padding:40px 20px;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .category-card{
+        width:100%;
+    }
+
+    .features{
+        grid-template-columns:1fr;
+        margin:30px 20px;
+        padding:25px;
+    }
+
+    .feature{
+        justify-content:flex-start;
+    }
+
+}
+
+
+/* CELULARES PEQUEÑOS */
+@media (max-width:480px){
+
+    .hero{
+        padding:25px 15px;
+    }
+
+    .hero-text h1{
+        font-size:34px;
+    }
+
+    .hero-text p{
+        font-size:15px;
+    }
+
+    .hero-gallery{
+        grid-template-columns:1fr;
+    }
+
+    .hero-gallery img,
+    .hero-gallery .card{
+        height:220px;
+    }
+
+    .categories h2{
+        font-size:28px;
+    }
+
+    .feature{
+        flex-direction:column;
+        align-items:center;
+        text-align:center;
+    }
+
+    .feature i{
+        font-size:36px;
+    }
+
+    .footer-container{
+        padding:40px 20px;
+        text-align:center;
+    }
+
+    .social-links{
+        justify-content:center;
+    }
+
+}
+

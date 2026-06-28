@@ -263,3 +263,143 @@ nav a{
     font-size:14px;
     line-height:1.5;
 }
+/* ===============================
+   RESPONSIVE EXTRA - SUSCRIPCIONES
+================================ */
+
+/* TABLET */
+@media (max-width:1024px){
+
+    header{
+        padding:20px 35px;
+        flex-wrap:wrap;
+        gap:20px;
+    }
+
+    nav ul{
+        gap:22px;
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .suscripciones{
+        padding:0 30px;
+    }
+
+    .planes-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:35px;
+    }
+
+    .footer{
+        padding:40px 35px 18px;
+    }
+
+    .footer-container{
+        gap:35px;
+    }
+}
+
+/* CELULAR */
+@media (max-width:768px){
+
+    header{
+        flex-direction:column;
+        text-align:center;
+        padding:20px;
+    }
+
+    nav ul{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    header img{
+        width:180px;
+        height:auto;
+    }
+
+    .suscripciones{
+        margin:30px auto;
+        padding:0 20px;
+    }
+
+    .titulo-seccion{
+        font-size:2.2rem;
+        text-align:center;
+    }
+
+    .planes-grid{
+        grid-template-columns:1fr;
+        gap:30px;
+    }
+
+    .plan-card{
+        width:100%;
+    }
+
+    .precio span{
+        font-size:2.5rem;
+    }
+
+    .footer{
+        padding:35px 25px 18px;
+    }
+
+    .footer-container{
+        flex-direction:column;
+        gap:35px;
+        text-align:center;
+        align-items:center;
+    }
+
+    .footer-social{
+        width:100%;
+        align-items:center;
+    }
+
+    .social-icons{
+        justify-content:center;
+    }
+
+    .footer-location{
+        flex-direction:column;
+        align-items:center;
+        gap:10px;
+    }
+}
+
+/* CELULAR PEQUEÑO */
+@media (max-width:480px){
+
+    .titulo-seccion{
+        font-size:1.8rem;
+    }
+
+    .plan-header{
+        padding:22px 18px;
+    }
+
+    .precio,
+    .precio-antiguo,
+    .gratis,
+    .beneficios{
+        padding-left:18px;
+        padding-right:18px;
+    }
+
+    .plan-card button{
+        width:calc(100% - 36px);
+        margin:18px;
+    }
+
+    .descuento{
+        display:inline-block;
+        margin-left:0;
+        margin-top:8px;
+    }
+
+    .footer{
+        padding:30px 18px 15px;
+    }
+}
