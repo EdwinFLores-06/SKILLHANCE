@@ -16,7 +16,7 @@
 <header>
     <div class="logo">
         <a href="index.html">
-            <img src="Img/Logo-SKILLHANCE.png" alt="Logo Skillhance">
+            <img src="Img/Logo-SKILLHANCE.png" alt="Logo Skillhance" width="250px">
         </a>
     </div>
 
@@ -79,8 +79,54 @@
     <section id="proyectosGrid" class="portfolio-grid"></section>
 
 </main>
+<!-- MODAL -->
+<div id="imgModal" class="img-modal">
+    <span id="closeImg" class="close-img">&times;</span>
 
+    <div class="modal-wrapper">
+        <img id="modalImg" src="" alt="">
+    </div>
+</div>
 <script>
+
+    const imgModal = document.getElementById("imgModal");
+const modalImg = document.getElementById("modalImg");
+const closeImg = document.getElementById("closeImg");
+
+document.addEventListener("click", (e) => {
+
+    const card = e.target.closest(".portfolio-card");
+
+    if (!card) return;
+
+    const imagen = card.querySelector("img");
+
+    if (!imagen) return;
+
+    modalImg.src = imagen.src;
+
+    imgModal.classList.add("show");
+
+    document.body.style.overflow = "hidden";
+});
+
+/* Cerrar con X */
+
+closeImg.addEventListener("click", () => {
+    imgModal.classList.remove("show");
+    document.body.style.overflow = "auto";
+});
+
+/* Cerrar haciendo click fuera */
+
+imgModal.addEventListener("click", (e) => {
+
+    if (e.target === imgModal) {
+        imgModal.classList.remove("show");
+        document.body.style.overflow = "auto";
+    }
+
+});
 const autores = {
     industrial: {
         rodrigo: {
@@ -100,7 +146,7 @@ const autores = {
                 },
                 {
                     titulo: "Mobiliario Modular",
-                    imagen: "Img/Portafolio-industrial2.jpg",
+                    imagen: "portafolios/Adrian_valdes.jpeg",
                     descripcion: "Muebles adaptables para espacios pequeños."
                 },
                 {

@@ -2,7 +2,7 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Segoe UI',sans-serif;
+    font-family:'Montserrat',sans-serif;
 }
 
 body{
@@ -28,22 +28,20 @@ nav ul{
 nav a{
     text-decoration:none;
     color:#0f1f4d;
-    font-weight:600;
+    font-weight:500;
 }
-
 /* TEXTO SUPERIOR */
 
-.top-text{
-    display:flex;
+.top-text{ display:flex; 
     align-items:center;
-    justify-content:center;
-    gap:15px;
-    margin:20px 0;
-}
+     justify-content:center; 
+     gap:15px;
+      margin:20px 0;
+    font-weight: 500px; }
 
 .letter{
     font-size:40px;
-    font-weight:900;
+    font-weight:400;
     color:#0f1f4d;
 }
 
@@ -73,8 +71,8 @@ nav a{
     font-size:70px;
     line-height:1.1;
     color:#0f1f4d;
+    font-weight:900;
 }
-
 .hero-text span{
     color:#ff8c1a;
 }
@@ -84,6 +82,7 @@ nav a{
     font-size:18px;
     max-width:500px;
     color:#555;
+    font-weight:300;
 }
 
 .hero-buttons{
@@ -160,6 +159,7 @@ nav a{
     text-align:center;
     margin-bottom:40px;
     color:#0f1f4d;
+    font-weight:500;
 }
 
 .cards{
@@ -170,11 +170,18 @@ nav a{
 
 .category-card{
     position:relative;
-    overflow:hidden;   
+    overflow:hidden;
+    font-weight:500;
+
 }
 a{
     text-decoration: none;
     color: inherit;
+}
+.category-card h3,
+.category-card p,
+.category-card span{
+    font-weight:500;
 }
 .category-card{
     display:flex;

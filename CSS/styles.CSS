@@ -1190,7 +1190,58 @@ button,
     .btn-gestionar,
     .btn-ver-portafolio,
     .btn-seguir {
-        width: 100%;
+        width: 50%;
         text-align: center;
     }
+}
+
+
+
+.img-modal{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.92);
+
+    display: none;
+
+    justify-content: center;
+    align-items: flex-start;
+
+    overflow-y: auto;
+
+    padding: 40px 20px;
+
+    z-index: 99999;
+}
+
+.img-modal.show{
+    display: flex;
+}
+
+.modal-wrapper{
+    width: fit-content;
+    margin: auto;
+}
+
+.modal-wrapper img{
+    display: block;
+
+    max-width: 50vw;
+    height: auto;
+
+    border-radius: 12px;
+    box-shadow: 0 15px 50px rgba(0,0,0,.5);
+}
+
+.close-img{
+    position: fixed;
+    top: 20px;
+    right: 30px;
+
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+
+    cursor: pointer;
+    z-index: 100000;
 }
