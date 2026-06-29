@@ -43,17 +43,17 @@
 
         <article class="autor-card">
             <div class="autor-banner">
-                <img src="Img/Arquitectura/banner-daniel.jpg" alt="Portafolio Daniel">
+                <img src="Img/banner arcqui1.jpg" alt="Portafolio Valeria">
             </div>
 
             <div class="autor-info">
-                <img class="autor-foto" src="Img/Autores/Daniel Fuentes.jpg" alt="Daniel Fuentes">
+                <img class="autor-foto" src="Img/Autores/foto arcqui1-28207198.jpg.jpeg" alt="Valeria Quintero">
 
-                <h3>Daniel Fuentes</h3>
+                <h3>Valeria Quintero</h3>
                 <p class="autor-rol">Diseñador Arquitectónico</p>
 
                 <p class="autor-descripcion">
-                    Creador de espacios modernos, funcionales y visualmente equilibrados.
+                   Desarrollo proyectos que integran eficiencia energetica.
                 </p>
 
                 <div class="autor-stats">
@@ -62,16 +62,16 @@
                 </div>
 
                 <div class="autor-botones">
-                    <a href="perfil-autor.html?categoria=arquitectonico&autor=daniel" class="btn-ver-portafolio">
+                    <a href="perfil-autor.html?categoria=arquitectonico&autor=valeria" class="btn-ver-portafolio">
                         Ver portafolio
                     </a>
 
                     <button class="btn-favorito"
-                        onclick="agregarFavorito('Daniel Fuentes', 'Autor Arquitectónico', 'Img/Autores/Daniel Fuentes.jpg', 'autor')">
+                        onclick="agregarFavorito('Valeria Quintero', 'Autor Arquitectónico', 'Img/portafolio arcqui.jpg.jpeg', 'autor')">
                         <i class="fa-regular fa-heart"></i> Favorito
                     </button>
 
-                    <button class="btn-seguir" onclick="seguirAutor('Daniel Fuentes')">
+                    <button class="btn-seguir" onclick="seguirAutor('Valeria Quintero')">
                         <i class="fa-solid fa-user-plus"></i> Seguir
                     </button>
                 </div>
@@ -80,13 +80,13 @@
 
         <article class="autor-card">
             <div class="autor-banner">
-                <img src="Img/Arquitectura/banner-elena.jpg" alt="Portafolio Elena">
+                <img src="Img/banner arcqui3.jpg" alt="Portafolio Valeria">
             </div>
 
             <div class="autor-info">
-                <img class="autor-foto" src="Img/Autores/Elena Vargas.jpg" alt="Elena Vargas">
+                <img class="autor-foto" src="Img/Autores/foto arcqui3.jpg.jpeg" alt="Isabela Morales">
 
-                <h3>Elena Vargas</h3>
+                <h3>Isabela Morales</h3>
                 <p class="autor-rol">Interiorista</p>
 
                 <p class="autor-descripcion">
@@ -99,53 +99,16 @@
                 </div>
 
                 <div class="autor-botones">
-                    <a href="perfil-autor.html?categoria=arquitectonico&autor=elena" class="btn-ver-portafolio">
+                    <a href="perfil-autor.html?categoria=arquitectonico&autor=isabela" class="btn-ver-portafolio">
                         Ver portafolio
                     </a>
 
                     <button class="btn-favorito"
-                        onclick="agregarFavorito('Elena Vargas', 'Autor Arquitectónico', 'Img/Autores/Elena Vargas.jpg', 'autor')">
+                        onclick="agregarFavorito('Isabela Morales', 'Autor Arquitectónico', 'Img/Autores/foto arcqui1-28207198.jpg.jpeg', 'autor')">
                         <i class="fa-regular fa-heart"></i> Favorito
                     </button>
 
-                    <button class="btn-seguir" onclick="seguirAutor('Elena Vargas')">
-                        <i class="fa-solid fa-user-plus"></i> Seguir
-                    </button>
-                </div>
-            </div>
-        </article>
-
-        <article class="autor-card">
-            <div class="autor-banner">
-                <img src="Img/Arquitectura/banner-marco.jpg" alt="Portafolio Marco">
-            </div>
-
-            <div class="autor-info">
-                <img class="autor-foto" src="Img/Autores/Marco Castillo.jpg" alt="Marco Castillo">
-
-                <h3>Marco Castillo</h3>
-                <p class="autor-rol">Arquitecto Conceptual</p>
-
-                <p class="autor-descripcion">
-                    Diseñador de conceptos arquitectónicos, fachadas y propuestas urbanas.
-                </p>
-
-                <div class="autor-stats">
-                    <span><i class="fa-solid fa-folder-open"></i> 7 proyectos</span>
-                    <span><i class="fa-solid fa-heart"></i> 115 favoritos</span>
-                </div>
-
-                <div class="autor-botones">
-                    <a href="perfil-autor.html?categoria=arquitectonico&autor=marco" class="btn-ver-portafolio">
-                        Ver portafolio
-                    </a>
-
-                    <button class="btn-favorito"
-                        onclick="agregarFavorito('Marco Castillo', 'Autor Arquitectónico', 'Img/Autores/Marco Castillo.jpg', 'autor')">
-                        <i class="fa-regular fa-heart"></i> Favorito
-                    </button>
-
-                    <button class="btn-seguir" onclick="seguirAutor('Marco Castillo')">
+                    <button class="btn-seguir" onclick="seguirAutor('Isabela Morales')">
                         <i class="fa-solid fa-user-plus"></i> Seguir
                     </button>
                 </div>
@@ -258,7 +221,7 @@ async function cargarAutoresDinamicos() {
 
     try {
 
-        const respuesta = await fetch(`${API_URL}/autores/Arquitectura`);
+        const respuesta = await fetch(`${API_URL}/autores/arquitectonico`);
         const resultado = await respuesta.json();
 
         if (resultado.ok && resultado.autores.length > 0) {
