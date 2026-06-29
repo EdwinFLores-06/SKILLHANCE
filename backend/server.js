@@ -374,6 +374,355 @@ app.get("/favoritos/:id", (req, res) => {
     });
 });
 
+/* PERFIL DE AUTOR Y PORTAFOLIOS PREMIUM */
+
+function verificarPremium(id_usuario, callback) {
+    const sql = `
+        SELECT *
+        FROM suscripciones
+        WHERE id_usuario = ? AND estado = 'Activa' AND plan = 'Premium'
+    `;
+
+    conexion.query(sql, [id_usuario], (error, resultados) => {
+        if (error || resultados.length === 0) {
+            return callback(false);
+        }
+
+        callback(true);
+    });
+}
+
+/* CREAR O ACTUALIZAR PERFIL DE AUTOR */
+
+app.post("/crearPerfilAutor", upload.fields([
+    { name: "foto_autor", maxCount: 1 },
+    { name: "banner_autor", maxCount: 1 }
+]), (req, res) => {
+    const { id_usuario, nombre_autor, categoria, rol, descripcion } = req.body;
+
+    verificarPremium(id_usuario, (esPremium) => {
+        if (!esPremium) {
+            return res.json({
+                ok: false,
+                mensaje: "Solo los usuarios Premium pueden crear un perfil de autor"
+            });
+        }
+
+        const fotoAutor = req.files["foto_autor"]
+            ? "img/perfiles/" + req.files["foto_autor"][0].filename
+            : null;
+
+        const bannerAutor = req.files["banner_autor"]
+            ? "img/perfiles/" + req.files["banner_autor"][0].filename
+            : null;
+
+        const buscarSql = "SELECT * FROM perfil_autor WHERE id_usuario = ?";
+
+        conexion.query(buscarSql, [id_usuario], (error, resultados) => {
+            if (error) {
+                console.log(error);
+                return res.json({
+                    ok: false,
+                    mensaje: "Error al buscar perfil de autor"
+                });
+            }
+
+            if (resultados.length > 0) {
+                const sqlUpdate = `
+                    UPDATE perfil_autor
+                    SET nombre_autor = ?,
+                        categoria = ?,
+                        rol = ?,
+                        descripcion = ?,
+                        foto_autor = COALESCE(?, foto_autor),
+                        banner_autor = COALESCE(?, banner_autor)
+                    WHERE id_usuario = ?
+                `;
+
+                conexion.query(
+                    sqlUpdate,
+                    [nombre_autor, categoria, rol, descripcion, fotoAutor, bannerAutor, id_usuario],
+                    (error) => {
+                        if (error) {
+                            console.log(error);
+                            return res.json({
+                                ok: false,
+                                mensaje: "Error al actualizar perfil de autor"
+                            });
+                        }
+
+                        res.json({
+                            ok: true,
+                            mensaje: "Perfil de autor actualizado correctamente"
+                        });
+                    }
+                );
+            } else {
+                const sqlInsert = `
+                    INSERT INTO perfil_autor
+                    (id_usuario, nombre_autor, categoria, rol, descripcion, foto_autor, banner_autor)
+                    VALUES (?, ?, ?, ?, ?, ?, ?)
+                `;
+
+                conexion.query(
+                    sqlInsert,
+                    [id_usuario, nombre_autor, categoria, rol, descripcion, fotoAutor, bannerAutor],
+                    (error) => {
+                        if (error) {
+                            console.log(error);
+                            return res.json({
+                                ok: false,
+                                mensaje: "Error al crear perfil de autor"
+                            });
+                        }
+
+                        res.json({
+                            ok: true,
+                            mensaje: "Perfil de autor creado correctamente"
+                        });
+                    }
+                );
+            }
+        });
+    });
+});
+
+/* OBTENER PERFIL DE AUTOR POR USUARIO */
+
+app.get("/perfilAutor/:id", (req, res) => {
+    const id_usuario = req.params.id;
+
+    const sql = "SELECT * FROM perfil_autor WHERE id_usuario = ?";
+
+    conexion.query(sql, [id_usuario], (error, resultados) => {
+        if (error) {
+            console.log(error);
+            return res.json({
+                ok: false,
+                mensaje: "Error al obtener perfil de autor"
+            });
+        }
+
+        if (resultados.length === 0) {
+            return res.json({
+                ok: true,
+                autor: null
+            });
+        }
+
+        res.json({
+            ok: true,
+            autor: resultados[0]
+        });
+    });
+});
+
+/* SUBIR PORTAFOLIO */
+
+app.post("/subirPortafolio", upload.single("imagen"), (req, res) => {
+    const { id_usuario, titulo, descripcion } = req.body;
+
+    verificarPremium(id_usuario, (esPremium) => {
+        if (!esPremium) {
+            return res.json({
+                ok: false,
+                mensaje: "Solo los usuarios Premium pueden subir portafolios"
+            });
+        }
+
+        if (!req.file) {
+            return res.json({
+                ok: false,
+                mensaje: "Debes seleccionar una imagen"
+            });
+        }
+
+        const buscarAutor = "SELECT * FROM perfil_autor WHERE id_usuario = ?";
+
+        conexion.query(buscarAutor, [id_usuario], (error, resultados) => {
+            if (error || resultados.length === 0) {
+                return res.json({
+                    ok: false,
+                    mensaje: "Primero debes crear tu perfil de autor"
+                });
+            }
+
+            const id_autor = resultados[0].id_autor;
+            const imagen = "img/perfiles/" + req.file.filename;
+
+            const sql = `
+                INSERT INTO portafolios (id_autor, titulo, descripcion, imagen)
+                VALUES (?, ?, ?, ?)
+            `;
+
+            conexion.query(sql, [id_autor, titulo, descripcion, imagen], (error) => {
+                if (error) {
+                    console.log(error);
+                    return res.json({
+                        ok: false,
+                        mensaje: "Error al subir portafolio"
+                    });
+                }
+
+                res.json({
+                    ok: true,
+                    mensaje: "Portafolio publicado correctamente"
+                });
+            });
+        });
+    });
+});
+
+/* MIS PORTAFOLIOS */
+
+app.get("/misPortafolios/:id", (req, res) => {
+    const id_usuario = req.params.id;
+
+    const sql = `
+        SELECT p.*
+        FROM portafolios p
+        INNER JOIN perfil_autor a ON p.id_autor = a.id_autor
+        WHERE a.id_usuario = ?
+        ORDER BY p.fecha_publicacion DESC
+    `;
+
+    conexion.query(sql, [id_usuario], (error, resultados) => {
+        if (error) {
+            console.log(error);
+            return res.json({
+                ok: false,
+                mensaje: "Error al obtener portafolios"
+            });
+        }
+
+        res.json({
+            ok: true,
+            portafolios: resultados
+        });
+    });
+});
+
+/* TODOS LOS PORTAFOLIOS PARA EXPLORAR */
+
+app.get("/portafolios", (req, res) => {
+    const sql = `
+        SELECT 
+            p.id_portafolio,
+            p.titulo,
+            p.descripcion,
+            p.imagen,
+            p.fecha_publicacion,
+            a.nombre_autor,
+            a.categoria,
+            a.rol,
+            a.foto_autor
+        FROM portafolios p
+        INNER JOIN perfil_autor a ON p.id_autor = a.id_autor
+        ORDER BY p.fecha_publicacion DESC
+    `;
+
+    conexion.query(sql, (error, resultados) => {
+        if (error) {
+            console.log(error);
+            return res.json({
+                ok: false,
+                mensaje: "Error al obtener portafolios"
+            });
+        }
+
+        res.json({
+            ok: true,
+            portafolios: resultados
+        });
+    });
+});
+
+/* AUTORES POR CATEGORÍA */
+
+app.get("/autores/:categoria", (req, res) => {
+    const categoria = req.params.categoria;
+
+    const sql = `
+        SELECT *
+        FROM perfil_autor
+        WHERE categoria = ?
+        ORDER BY fecha_creacion DESC
+    `;
+
+    conexion.query(sql, [categoria], (error, resultados) => {
+        if (error) {
+            console.log(error);
+            return res.json({
+                ok: false,
+                mensaje: "Error al obtener autores"
+            });
+        }
+
+        res.json({
+            ok: true,
+            autores: resultados
+        });
+    });
+});
+
+/* OBTENER AUTOR POR ID */
+
+app.get("/autor/:id_autor", (req, res) => {
+    const id_autor = req.params.id_autor;
+
+    const sql = "SELECT * FROM perfil_autor WHERE id_autor = ?";
+
+    conexion.query(sql, [id_autor], (error, resultados) => {
+        if (error) {
+            console.log(error);
+            return res.json({
+                ok: false,
+                mensaje: "Error al obtener autor"
+            });
+        }
+
+        if (resultados.length === 0) {
+            return res.json({
+                ok: true,
+                autor: null
+            });
+        }
+
+        res.json({
+            ok: true,
+            autor: resultados[0]
+        });
+    });
+});
+
+/* OBTENER PORTAFOLIOS POR AUTOR */
+
+app.get("/portafoliosAutor/:id_autor", (req, res) => {
+    const id_autor = req.params.id_autor;
+
+    const sql = `
+        SELECT *
+        FROM portafolios
+        WHERE id_autor = ?
+        ORDER BY fecha_publicacion DESC
+    `;
+
+    conexion.query(sql, [id_autor], (error, resultados) => {
+        if (error) {
+            console.log(error);
+            return res.json({
+                ok: false,
+                mensaje: "Error al obtener portafolios del autor"
+            });
+        }
+
+        res.json({
+            ok: true,
+            portafolios: resultados
+        });
+    });
+});
+
 /* RUTA PRINCIPAL */
 
 app.get("/", (req, res) => {

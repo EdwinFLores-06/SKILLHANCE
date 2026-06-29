@@ -213,6 +213,8 @@
 <script src="config.js"></script>
 
 <script>
+const autoresGrid = document.querySelector(".autores-grid");
+
 async function agregarFavorito(titulo, categoria, imagen, tipo = "autor") {
     const idUsuario = localStorage.getItem("id_usuario");
     const usuario = localStorage.getItem("usuario");
@@ -224,7 +226,9 @@ async function agregarFavorito(titulo, categoria, imagen, tipo = "autor") {
 
     const respuesta = await fetch(`${API_URL}/favoritos`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+            "Content-Type": "application/json"
+        },
         body: JSON.stringify({
             id_usuario: idUsuario,
             titulo,
@@ -249,6 +253,89 @@ function seguirAutor(nombreAutor) {
 
     alert("Ahora sigues a " + nombreAutor);
 }
+
+async function cargarAutoresDinamicos() {
+    try {
+        const respuesta = await fetch(`${API_URL}/autores/Moda`);
+        const resultado = await respuesta.json();
+
+        if (resultado.ok && resultado.autores.length > 0) {
+
+            resultado.autores.forEach(autor => {
+
+                autoresGrid.innerHTML += `
+                    <article class="autor-card">
+
+                        <div class="autor-banner">
+                            <img src="${API_URL}/${autor.banner_autor}" alt="${autor.nombre_autor}">
+                        </div>
+
+                        <div class="autor-info">
+
+                            <img class="autor-foto"
+                                src="${API_URL}/${autor.foto_autor}"
+                                alt="${autor.nombre_autor}">
+
+                            <h3>${autor.nombre_autor}</h3>
+
+                            <p class="autor-rol">
+                                ${autor.rol}
+                            </p>
+
+                            <p class="autor-descripcion">
+                                ${autor.descripcion || "Autor de Skillhance."}
+                            </p>
+
+                            <div class="autor-stats">
+                                <span>
+                                    <i class="fa-solid fa-folder-open"></i>
+                                    Portafolios publicados
+                                </span>
+
+                                <span>
+                                    <i class="fa-solid fa-crown"></i>
+                                    Autor Premium
+                                </span>
+                            </div>
+
+                            <div class="autor-botones">
+
+                                <a href="perfil-autor-dinamico.html?id_autor=${autor.id_autor}"
+                                    class="btn-ver-portafolio">
+                                    Ver portafolio
+                                </a>
+
+                                <button class="btn-favorito"
+                                    onclick="agregarFavorito('${autor.nombre_autor}','Autor Moda','${autor.foto_autor}','autor')">
+
+                                    <i class="fa-regular fa-heart"></i>
+                                    Favorito
+                                </button>
+
+                                <button class="btn-seguir"
+                                    onclick="seguirAutor('${autor.nombre_autor}')">
+
+                                    <i class="fa-solid fa-user-plus"></i>
+                                    Seguir
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+                `;
+            });
+
+        }
+
+    } catch (error) {
+        console.log("Error al cargar autores dinámicos:", error);
+    }
+}
+
+cargarAutoresDinamicos();
+
 </script>
 
 </body>

@@ -104,22 +104,54 @@
     </div>
 </div>
 
+<script src="config.js"></script>
+
 <script>
 const modal = document.getElementById("imgModal");
 const modalImg = document.getElementById("modalImg");
 const closeBtn = document.getElementById("closeImg");
+const projectsGrid = document.querySelector(".projects-grid");
 
-const cards = document.querySelectorAll(".card");
+function activarModal() {
+    const cards = document.querySelectorAll(".card");
 
-cards.forEach(card => {
-    card.addEventListener("click", () => {
-        const portfolioImg = card.dataset.portfolio;
-        modalImg.src = portfolioImg;
+    cards.forEach(card => {
+        card.onclick = () => {
+            const portfolioImg = card.dataset.portfolio;
+            modalImg.src = portfolioImg;
 
-        modal.classList.add("show");
-        document.body.classList.add("modal-open");
+            modal.classList.add("show");
+            document.body.classList.add("modal-open");
+        };
     });
-});
+}
+
+async function cargarPortafoliosDinamicos() {
+    try {
+        const respuesta = await fetch(`${API_URL}/portafolios`);
+        const resultado = await respuesta.json();
+
+        if (resultado.ok && resultado.portafolios.length > 0) {
+            resultado.portafolios.forEach(portafolio => {
+                projectsGrid.innerHTML += `
+                    <article class="card" data-portfolio="${API_URL}/${portafolio.imagen}">
+                        <img src="${API_URL}/${portafolio.imagen}" alt="${portafolio.titulo}">
+                        <div class="card-content">
+                            <span>${portafolio.categoria}</span>
+                            <h3>${portafolio.titulo}</h3>
+                            <p>${portafolio.nombre_autor}</p>
+                        </div>
+                    </article>
+                `;
+            });
+        }
+
+        activarModal();
+
+    } catch (error) {
+        console.log("Error al cargar portafolios:", error);
+    }
+}
 
 closeBtn.addEventListener("click", closeModal);
 
@@ -133,6 +165,8 @@ function closeModal() {
     modal.classList.remove("show");
     document.body.classList.remove("modal-open");
 }
+
+cargarPortafoliosDinamicos();
 </script>
 
 </body>
