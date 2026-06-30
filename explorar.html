@@ -282,7 +282,6 @@ const buscador = document.getElementById("buscarProyecto");
 
 let categoriaActual = "Todos";
 
-// Abrir modal
 function abrirModal(imagen) {
     if (!imagen) {
         alert("Este portafolio no tiene imagen.");
@@ -300,29 +299,32 @@ function abrirModal(imagen) {
     document.body.classList.add("modal-open");
 }
 
-// Cerrar modal
 function closeModal() {
     modal.classList.remove("show");
     document.body.classList.remove("modal-open");
 }
 
-// Activar modal en cards
+function convertirRutaImagen(ruta) {
+    if (!ruta) return "";
+
+    if (ruta.startsWith("http://") || ruta.startsWith("https://")) {
+        return ruta;
+    }
+
+    return ruta;
+}
+
 function activarModal() {
     const cards = document.querySelectorAll(".card");
 
     cards.forEach(card => {
-        if (card.dataset.listenerAdded) return;
-
-        card.addEventListener("click", () => {
-            const portfolioImg = card.dataset.portfolio;
+        card.onclick = () => {
+            const portfolioImg = convertirRutaImagen(card.dataset.portfolio);
             abrirModal(portfolioImg);
-        });
-
-        card.dataset.listenerAdded = "true";
+        };
     });
 }
 
-// FILTROS
 function filtrarCards() {
     const texto = buscador.value.toLowerCase();
     const cards = document.querySelectorAll(".card");
@@ -341,15 +343,10 @@ function filtrarCards() {
             autor.includes(texto) ||
             categoria.toLowerCase().includes(texto);
 
-        if (coincideCategoria && coincideBusqueda) {
-            card.style.display = "block";
-        } else {
-            card.style.display = "none";
-        }
+        card.style.display = coincideCategoria && coincideBusqueda ? "block" : "none";
     });
 }
 
-// Eventos filtros
 filtroBtns.forEach(btn => {
     btn.addEventListener("click", () => {
         filtroBtns.forEach(b => b.classList.remove("selected"));
@@ -362,7 +359,6 @@ filtroBtns.forEach(btn => {
 
 buscador.addEventListener("input", filtrarCards);
 
-// Cargar portafolios desde backend
 async function cargarPortafoliosDinamicos() {
     try {
         const respuesta = await fetch(`${API_URL}/portafolios`);
@@ -381,17 +377,18 @@ async function cargarPortafoliosDinamicos() {
                     </article>
                 `;
             });
-
-            activarModal();
-            filtrarCards();
         }
+
+        activarModal();
+        filtrarCards();
 
     } catch (error) {
         console.log("Error al cargar portafolios:", error);
+        activarModal();
+        filtrarCards();
     }
 }
 
-// Eventos modal
 closeBtn.addEventListener("click", closeModal);
 
 modal.addEventListener("click", (e) => {
@@ -400,7 +397,6 @@ modal.addEventListener("click", (e) => {
     }
 });
 
-// Inicializar
 document.addEventListener("DOMContentLoaded", () => {
     activarModal();
     cargarPortafoliosDinamicos();

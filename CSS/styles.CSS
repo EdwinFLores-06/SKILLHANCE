@@ -1162,6 +1162,52 @@ button,
     }
 }
 
+/* NOTIFICACIÓN FLOTANTE */
+
+.toast{
+    position:fixed;
+    top:25px;
+    right:25px;
+    background:#162447;
+    color:white;
+    padding:18px 24px;
+    border-radius:14px;
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
+    font-weight:700;
+    z-index:999999;
+    opacity:0;
+    transform:translateY(-20px);
+    pointer-events:none;
+    transition:.35s ease;
+    border-left:6px solid #f9a602;
+}
+
+.toast.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.toast.success{
+    border-left-color:#f9a602;
+}
+
+.toast.error{
+    border-left-color:#d32f2f;
+}
+
+.toast.info{
+    border-left-color:#2196f3;
+}
+
+@media(max-width:600px){
+    .toast{
+        left:20px;
+        right:20px;
+        top:20px;
+        text-align:center;
+    }
+}
+
 /* CELULAR */
 @media (max-width: 768px) {
     header {

@@ -65,9 +65,21 @@
 
 </main>
 
+<div id="toast" class="toast"></div>
+
 <script src="config.js"></script>
 
 <script>
+function mostrarToast(mensaje, tipo = "success") {
+    const toast = document.getElementById("toast");
+    toast.textContent = mensaje;
+    toast.className = "toast show " + tipo;
+
+    setTimeout(() => {
+        toast.className = "toast";
+    }, 2800);
+}
+
 const idUsuario = localStorage.getItem("id_usuario");
 
 if (!idUsuario || idUsuario === "undefined") {
@@ -84,8 +96,11 @@ async function verificarPremium() {
         resultado.suscripcion.estado !== "Activa" ||
         resultado.suscripcion.plan !== "Premium"
     ) {
-        alert("Solo los usuarios Premium pueden crear un perfil de autor.");
-        window.location.href = "suscripciones.html";
+        mostrarToast("Solo los usuarios Premium pueden crear un perfil de autor.", "error");
+
+        setTimeout(() => {
+            window.location.href = "suscripciones.html";
+        }, 1400);
     }
 }
 
@@ -114,10 +129,13 @@ document.getElementById("formAutor").addEventListener("submit", async (e) => {
     });
 
     const resultado = await respuesta.json();
-    alert(resultado.mensaje);
+
+    mostrarToast(resultado.mensaje, resultado.ok ? "success" : "error");
 
     if (resultado.ok) {
-        window.location.href = "subir-portafolio.html";
+        setTimeout(() => {
+            window.location.href = "subir-portafolio.html";
+        }, 1400);
     }
 });
 </script>

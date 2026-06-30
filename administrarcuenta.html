@@ -89,74 +89,84 @@
 
 </main>
 
+
+<div id="toast" class="toast"></div>
+
 <script src="config.js"></script>
 
 <script>
-    const idUsuario = localStorage.getItem("id_usuario");
-    const usuario = localStorage.getItem("usuario");
-    const correo = localStorage.getItem("correo");
+function mostrarToast(mensaje, tipo = "success") {
+    const toast = document.getElementById("toast");
+    toast.textContent = mensaje;
+    toast.className = "toast show " + tipo;
 
-    if (!idUsuario || !usuario) {
-        window.location.href = "iniciosesion.html";
-    }
+    setTimeout(() => {
+        toast.className = "toast";
+    }, 2800);
+}
 
-    document.getElementById("nombre").value = usuario || "";
-    document.getElementById("correo").value = correo || "";
+const idUsuario = localStorage.getItem("id_usuario");
+const usuario = localStorage.getItem("usuario");
+const correo = localStorage.getItem("correo");
 
-    document.getElementById("formPerfil").addEventListener("submit", async (e) => {
-        e.preventDefault();
+if (!idUsuario || !usuario) {
+    window.location.href = "iniciosesion.html";
+}
 
-        const profesion = document.getElementById("profesion").value;
-        const biografia = document.getElementById("biografia").value;
-        const archivoFoto = document.getElementById("fotoPerfilInput").files[0];
+document.getElementById("nombre").value = usuario || "";
+document.getElementById("correo").value = correo || "";
 
-        const respuesta = await fetch(`${API_URL}/guardarPerfil`, {
+document.getElementById("formPerfil").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const profesion = document.getElementById("profesion").value;
+    const biografia = document.getElementById("biografia").value;
+    const archivoFoto = document.getElementById("fotoPerfilInput").files[0];
+
+    const respuesta = await fetch(`${API_URL}/guardarPerfil`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            id_usuario: idUsuario,
+            profesion: profesion,
+            biografia: biografia
+        })
+    });
+
+    const resultado = await respuesta.json();
+
+    if (archivoFoto) {
+        const formData = new FormData();
+        formData.append("foto", archivoFoto);
+        formData.append("id_usuario", idUsuario);
+
+        const respuestaFoto = await fetch(`${API_URL}/subirFoto`, {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                id_usuario: idUsuario,
-                profesion: profesion,
-                biografia: biografia
-            })
+            body: formData
         });
 
-        const resultado = await respuesta.json();
+        const resultadoFoto = await respuestaFoto.json();
 
-        if (archivoFoto) {
-            const formData = new FormData();
+        mostrarToast(resultado.mensaje + " / " + resultadoFoto.mensaje, "success");
+    } else {
+        mostrarToast(resultado.mensaje, resultado.ok ? "success" : "error");
+    }
+});
 
-            formData.append("foto", archivoFoto);
-            formData.append("id_usuario", idUsuario);
+document.getElementById("formPassword").addEventListener("submit", (e) => {
+    e.preventDefault();
+    mostrarToast("Después conectaremos el cambio de contraseña con la base de datos.", "info");
+});
 
-            const respuestaFoto = await fetch(`${API_URL}/subirFoto`, {
-                method: "POST",
-                body: formData
-            });
+document.getElementById("cerrarSesion").addEventListener("click", (e) => {
+    e.preventDefault();
 
-            const resultadoFoto = await respuestaFoto.json();
+    localStorage.removeItem("id_usuario");
+    localStorage.removeItem("usuario");
+    localStorage.removeItem("correo");
 
-            alert(resultado.mensaje + "\n" + resultadoFoto.mensaje);
-        } else {
-            alert(resultado.mensaje);
-        }
-    });
-
-    document.getElementById("formPassword").addEventListener("submit", (e) => {
-        e.preventDefault();
-        alert("Después conectaremos el cambio de contraseña con la base de datos.");
-    });
-
-    document.getElementById("cerrarSesion").addEventListener("click", (e) => {
-        e.preventDefault();
-
-        localStorage.removeItem("id_usuario");
-        localStorage.removeItem("usuario");
-        localStorage.removeItem("correo");
-
-        window.location.href = "index.html";
-    });
+    window.location.href = "index.html";
+});
 </script>
 
 </body>
