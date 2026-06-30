@@ -6,9 +6,11 @@
     <title>Explorar Proyectos | Skillhance</title>
     <link rel="stylesheet" href="CSS/explorar.css">
 
-      <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
 
@@ -25,7 +27,7 @@
             <li><a href="index.html">Home</a></li>
             <li><a class="active" href="explorar.html">Explorar</a></li>
             <li><a href="suscripciones.html">Suscripciones</a></li>
-            <li><a href="#">Contactos</a></li>
+            <li><a href="#contactos">Contactos</a></li>
             <li><a href="miperfil.html">Mi perfil</a></li>
         </ul>
     </nav>
@@ -33,80 +35,240 @@
 
 <main>
 
-    <section class="hero">
-        <p class="tag">PROYECTOS</p>
+<section class="hero">
+    <p class="tag">PROYECTOS</p>
 
-        <div class="hero-content">
-            <h1>Explora proyectos <span>creativos.</span></h1>
-            <p>Descubre trabajos increíbles de diseñadores de todo el mundo.</p>
+    <div class="hero-content">
+        <h1>Explora proyectos <span>creativos.</span></h1>
+        <p>Descubre trabajos increíbles de diseñadores de todo el mundo.</p>
+    </div>
+</section>
+
+<section class="filters">
+
+    <div class="categories">
+
+        <button class="filter-btn selected" data-filter="Todos">Todos</button>
+
+        <button class="filter-btn" data-filter="Diseño Gráfico">
+            Diseño Gráfico
+        </button>
+
+        <button class="filter-btn" data-filter="Fotografía">
+            Fotografía
+        </button>
+
+        <button class="filter-btn" data-filter="Diseño Industrial">
+            Industrial
+        </button>
+
+        <button class="filter-btn" data-filter="Arquitectura">
+            Arquitectura
+        </button>
+
+        <button class="filter-btn" data-filter="Educación">
+            Educación
+        </button>
+
+        <button class="filter-btn" data-filter="Moda">
+            Moda
+        </button>
+
+    </div>
+
+    <input
+        type="text"
+        id="buscarProyecto"
+        placeholder="Buscar proyecto o autor..."
+    >
+
+</section>
+
+<section class="projects-grid">
+
+    <!-- Diseño Gráfico -->
+    <article class="card" data-portfolio="portafolios/diseño-grafico1.jpeg">
+        <img src="portafolios/imagen-diseño-grafico1.jpeg" alt="Diseño gráfico">
+        <div class="card-content">
+            <span>Diseño Gráfico</span>
+            <h3>Brand Identity</h3>
+            <p>Adrian Valdes</p>
         </div>
-    </section>
+    </article>
 
-    <section class="filters">
-        <div class="categories">
-            <button class="selected">Todos</button>
-            <button>Industrial</button>
-            <button>UX/UI</button>
-            <button>Branding</button>
-            <button>Arquitectura</button>
+    <article class="card" data-portfolio="portafolios/diseño-grafico2.jpeg">
+        <img src="portafolios/imagen-diseño-grafico2.webp" alt="Diseño gráfico">
+        <div class="card-content">
+            <span>Diseño Gráfico</span>
+            <h3>Diseño Editorial</h3>
+            <p>Camila Gil</p>
         </div>
+    </article>
 
-        <input type="text" placeholder="Buscar proyectos...">
-    </section>
+    <!-- Fotografía -->
+    <article class="card" data-portfolio="portafolios/fotografia1.jpeg">
+        <img src="portafolios/imagen-fotografia1.jpeg" alt="Fotografía">
+        <div class="card-content">
+            <span>Fotografía</span>
+            <h3>Fotografía Profesional</h3>
+            <p>Thiago Echeverría</p>
+        </div>
+    </article>
 
-    <section class="projects-grid">
+    <!-- Diseño Industrial -->
+    <article class="card" data-portfolio="portafolios/portafolio-1-industrial.png">
+        <img src="portafolios/imagen-industrial.png" alt="Industrial">
+        <div class="card-content">
+            <span>Diseño Industrial</span>
+            <h3>Producto Industrial</h3>
+            <p>Jose Lopez</p>
+        </div>
+    </article>
 
-        <article class="card" data-portfolio="portafolios/portafolio_moda1.png">
-            <img src="Img/img_portafolio1.jpg" alt="">
-            <div class="card-content">
-                <span>Diseño de moda</span>
-                <h3>Diseño</h3>
-            </div>
-        </article>
+    <!-- Arquitectura -->
+    <article class="card" data-portfolio="portafolios/portafolio-arquitectura1.jpeg">
+        <img src="portafolios/imagen-arqui1.jpg" alt="Arquitectura">
+        <div class="card-content">
+            <span>Arquitectura</span>
+            <h3>Espacios Modernos</h3>
+            <p>Isabela Morales</p>
+        </div>
+    </article>
 
-        <article class="card" data-portfolio="portafolios/portafolio_moda2.png">
-            <img src="Img/img_portafolio2.jpg" alt="" width=auto height=auto>
-            <div class="card-content">
-                <span>Diseño de moda</span>
-                <h3></h3>
-                <p>Camila Gil</p>
-            </div>
-        </article>
+    <article class="card" data-portfolio="portafolios/portafolio-arquitectura2.jpeg">
+        <img src="portafolios/imagen-arqui2.jpg" alt="Arquitectura">
+        <div class="card-content">
+            <span>Arquitectura</span>
+            <h3>Diseño Interior</h3>
+            <p>Valeria Quintero</p>
+        </div>
+    </article>
 
-        <article class="card" data-portfolio="portafolios/thiago.jpeg">
-            <img src="Img/Thiago_foto.jpeg" alt="">
-            <div class="card-content">
-                <span>Fotografia</span>
-                <h3>Producto</h3>
-                <p>Thiago Echeverria</p>
-            </div>
-        </article>
+    <!-- Educación -->
+    <article class="card" data-portfolio="portafolios/portafolio-educacion1.webp">
+        <img src="portafolios/imagen-educacion.png" alt="Educación">
+        <div class="card-content">
+            <span>Educación</span>
+            <h3>Proyecto Educativo</h3>
+            <p>María López</p>
+        </div>
+    </article>
 
-        <article class="card" data-portfolio="portafolios/adrian_valdes.jpeg">
-            <img src="Img/Adrian_valdes.jpeg" alt="">
-            <div class="card-content">
-                <span>Industrial</span>
-                <h3>Prototipo Ergonómico</h3>
-                <p>Skillhance Studio</p>
-            </div>
-        </article>
+    <!-- Moda -->
+    <article class="card" data-portfolio="portafolios/portafolio-moda1.png">
+        <img src="portafolios/imagen-moda1 (1).jpg" alt="Moda">
+        <div class="card-content">
+            <span>Moda</span>
+            <h3>Colección Primavera</h3>
+            <p>Camila Payton</p>
+        </div>
+    </article>
 
-        <article class=""> 
-        </article>
+    <article class="card" data-portfolio="portafolios/portafolio-moda2.png">
+        <img src="portafolios/imagen-moda2.jpg" alt="Moda">
+        <div class="card-content">
+            <span>Moda</span>
+            <h3>Fashion Editorial</h3>
+            <p>Megan Garcia</p>
+        </div>
+    </article>
 
-    </section>
+    <article class="card" data-portfolio="portafolios/portafolio-moda3.png">
+        <img src="portafolios/imagen-moda-portafolio3.png" alt="Moda">
+        <div class="card-content">
+            <span>Moda</span>
+            <h3>Alta Costura</h3>
+            <p>Christi Tasker</p>
+        </div>
+    </article>
+
+     <article class="card" data-portfolio="portafolios/portafolio-3-industrial.png">
+        <img src="portafolios/imagen-3-industrial.png" alt="Moda">
+        <div class="card-content">
+            <span>Industrial</span>
+            <h3>Diseño industrial</h3>
+            <p>Sofia Hernández</p>
+        </div>
+    </article>
+
+      <article class="card" data-portfolio="portafolios/portafolio-marco.png">
+        <img src="portafolios/marco-foto.png" alt="Moda">
+        <div class="card-content">
+            <span>Industrial</span>
+            <h3>Diseño industrial</h3>
+            <p>Marco</p>
+        </div>
+    </article>
+
+
+</section>
 
 </main>
 
 <!-- MODAL -->
 <div id="imgModal" class="img-modal">
     <span id="closeImg" class="close-img">&times;</span>
-
     <div class="modal-wrapper">
         <img id="modalImg" src="" alt="">
     </div>
 </div>
+<footer id="contactos" class="footer">
 
+    <div class="footer-top-line"></div>
+
+    <div class="footer-container">
+
+        <!-- Columna 1 -->
+        <div class="footer-column">
+            <h2 class="footer-logo">SKILLHANCE</h2>
+
+            <p class="footer-description">
+                Aprende, practica y domina nuevas habilidades con nuestra
+                plataforma educativa.
+            </p>
+
+            <div class="social-links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-x-twitter"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+
+            <p class="copyright">
+                © 2026 Skillhance. Todos los derechos reservados.
+            </p>
+        </div>
+
+        <!-- Columna 2 -->
+        <div class="footer-column">
+            <h3>Enlaces Útiles</h3>
+
+            <ul>
+                <li><a href="#">Política de Privacidad</a></li>
+                <li><a href="#">Términos y Condiciones</a></li>
+                <li><a href="#">Preguntas Frecuentes</a></li>
+                <li><a href="#">Centro de Ayuda</a></li>
+            </ul>
+        </div>
+
+        <!-- Columna 3 -->
+        <div class="footer-column">
+            <h3>
+                <i class="fas fa-location-dot"></i>
+                Nuestra Ubicación
+            </h3>
+
+            <p>
+                Décima Avenida Norte<br>
+                Entre la Tercera y Quinta Avenida Sur<br>
+                Frente al puesto de la PNC<br>
+                Santa Ana, El Salvador
+            </p>
+        </div>
+
+    </div>
+
+</footer>
 <script src="config.js"></script>
 
 <script>
@@ -115,20 +277,92 @@ const modalImg = document.getElementById("modalImg");
 const closeBtn = document.getElementById("closeImg");
 const projectsGrid = document.querySelector(".projects-grid");
 
+const filtroBtns = document.querySelectorAll(".filter-btn");
+const buscador = document.getElementById("buscarProyecto");
+
+let categoriaActual = "Todos";
+
+// Abrir modal
+function abrirModal(imagen) {
+    if (!imagen) {
+        alert("Este portafolio no tiene imagen.");
+        return;
+    }
+
+    modalImg.src = imagen;
+
+    modalImg.onerror = () => {
+        alert("No se pudo cargar la imagen.");
+        closeModal();
+    };
+
+    modal.classList.add("show");
+    document.body.classList.add("modal-open");
+}
+
+// Cerrar modal
+function closeModal() {
+    modal.classList.remove("show");
+    document.body.classList.remove("modal-open");
+}
+
+// Activar modal en cards
 function activarModal() {
     const cards = document.querySelectorAll(".card");
 
     cards.forEach(card => {
-        card.onclick = () => {
-            const portfolioImg = card.dataset.portfolio;
-            modalImg.src = portfolioImg;
+        if (card.dataset.listenerAdded) return;
 
-            modal.classList.add("show");
-            document.body.classList.add("modal-open");
-        };
+        card.addEventListener("click", () => {
+            const portfolioImg = card.dataset.portfolio;
+            abrirModal(portfolioImg);
+        });
+
+        card.dataset.listenerAdded = "true";
     });
 }
 
+// FILTROS
+function filtrarCards() {
+    const texto = buscador.value.toLowerCase();
+    const cards = document.querySelectorAll(".card");
+
+    cards.forEach(card => {
+        const categoria = card.querySelector("span").textContent.trim();
+        const titulo = card.querySelector("h3").textContent.toLowerCase();
+        const autor = card.querySelector("p").textContent.toLowerCase();
+
+        const coincideCategoria =
+            categoriaActual === "Todos" ||
+            categoria === categoriaActual;
+
+        const coincideBusqueda =
+            titulo.includes(texto) ||
+            autor.includes(texto) ||
+            categoria.toLowerCase().includes(texto);
+
+        if (coincideCategoria && coincideBusqueda) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+    });
+}
+
+// Eventos filtros
+filtroBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+        filtroBtns.forEach(b => b.classList.remove("selected"));
+        btn.classList.add("selected");
+
+        categoriaActual = btn.dataset.filter;
+        filtrarCards();
+    });
+});
+
+buscador.addEventListener("input", filtrarCards);
+
+// Cargar portafolios desde backend
 async function cargarPortafoliosDinamicos() {
     try {
         const respuesta = await fetch(`${API_URL}/portafolios`);
@@ -147,15 +381,17 @@ async function cargarPortafoliosDinamicos() {
                     </article>
                 `;
             });
-        }
 
-        activarModal();
+            activarModal();
+            filtrarCards();
+        }
 
     } catch (error) {
         console.log("Error al cargar portafolios:", error);
     }
 }
 
+// Eventos modal
 closeBtn.addEventListener("click", closeModal);
 
 modal.addEventListener("click", (e) => {
@@ -164,12 +400,11 @@ modal.addEventListener("click", (e) => {
     }
 });
 
-function closeModal() {
-    modal.classList.remove("show");
-    document.body.classList.remove("modal-open");
-}
-
-cargarPortafoliosDinamicos();
+// Inicializar
+document.addEventListener("DOMContentLoaded", () => {
+    activarModal();
+    cargarPortafoliosDinamicos();
+});
 </script>
 
 </body>
