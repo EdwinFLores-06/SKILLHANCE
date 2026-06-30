@@ -21,9 +21,9 @@
             <ul>
                 <li><a href="sobre-nosotros.html">Nosotros</a></li> 
                 <li><a href="index.html">Home</a></li>
-                 <li><a id="loginLink" href="industrial.html">Explorar</a></li>
+                 <li><a id="loginLink" href="explorar.html">Explorar</a></li>
                  <li><a href="suscripciones.html">Suscripciones</a></li>
-                 <li><a href="#">Contactos</a></li>
+                 <li><a href="#contactos">Contactos</a></li>
                   <li><a id="perfilLink" href="miperfil.html"">Mi perfil</a></li>
 
                 </ul>
@@ -55,7 +55,7 @@
             <p class="gratis">+3 months free</p>
 
             <button onclick="suscribirse('Básico', 4.99)">
-                Choose plan
+                Escoger plan
             </button>
 
             <ul class="beneficios">
@@ -71,7 +71,7 @@
         <article class="plan-card destacado">
 
             <div class="popular">
-                MOST POPULAR
+                Mas popular
             </div>
 
             <div class="plan-header">
@@ -92,7 +92,7 @@
             <p class="gratis">+3 months free</p>
 
             <button onclick="suscribirse('Creativo', 9.99)">
-                Choose plan
+                Escoger plan
             </button>
 
             <ul class="beneficios">
@@ -124,7 +124,7 @@
             <p class="gratis">+3 months free</p>
 
             <button onclick="suscribirse('Premium', 19.99)">
-                Choose plan
+                Escoger plan
             </button>
 
             <ul class="beneficios">
@@ -139,48 +139,62 @@
     </section>
 </main>
 
-<footer class="footer">
-    <div class="footer-bg"></div>
+<footer id="contactos" class="footer">
+
+    <div class="footer-top-line"></div>
 
     <div class="footer-container">
 
-        <div class="footer-social">
-            <div class="social-icons">
+        <!-- Columna 1 -->
+        <div class="footer-column">
+            <h2 class="footer-logo">SKILLHANCE</h2>
+
+            <p class="footer-description">
+                Aprende, practica y domina nuevas habilidades con nuestra
+                plataforma educativa.
+            </p>
+
+            <div class="social-links">
                 <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-x-twitter"></i></a>
                 <a href="#"><i class="fab fa-tiktok"></i></a>
             </div>
 
-            <p>© 2026 Skillhance. Todos los derechos reservados</p>
+            <p class="copyright">
+                © 2026 Skillhance. Todos los derechos reservados.
+            </p>
         </div>
 
-        <div class="footer-links">
-            <h4>Enlaces Útiles</h4>
+        <!-- Columna 2 -->
+        <div class="footer-column">
+            <h3>Enlaces Útiles</h3>
 
-            <a href="#">Política de Privacidad</a>
-            <a href="#">Términos y Condiciones</a>
-            <a href="#">Preguntas Frecuentes</a>
+            <ul>
+                <li><a href="#">Política de Privacidad</a></li>
+                <li><a href="#">Términos y Condiciones</a></li>
+                <li><a href="#">Preguntas Frecuentes</a></li>
+                <li><a href="#">Centro de Ayuda</a></li>
+            </ul>
         </div>
 
-        <div class="footer-location">
-            <div class="location-icon">
-                <i class="fas fa-map-marker-alt"></i>
-            </div>
+        <!-- Columna 3 -->
+        <div class="footer-column">
+            <h3>
+                <i class="fas fa-location-dot"></i>
+                Nuestra Ubicación
+            </h3>
 
-            <div>
-                <h4>Nuestra Ubicación</h4>
-
-                <p>
-                    Décima Avenida Norte<br>
-                    Entre la Tercera y Quinta<br>
-                    Avenida Sur frente al puesto<br>
-                    de la PNC Santa Ana, El Salvador
-                </p>
-            </div>
+            <p>
+                Décima Avenida Norte<br>
+                Entre la Tercera y Quinta Avenida Sur<br>
+                Frente al puesto de la PNC<br>
+                Santa Ana, El Salvador
+            </p>
         </div>
 
     </div>
+
 </footer>
 
 
