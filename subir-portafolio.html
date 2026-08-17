@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subir Portafolio - Skillhance</title>
+
+    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="CSS/toast.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <a href="index.html">
+            <img src="Img/LOGO-PROVISIONAL.png" alt="Logo Skillhance" width="250">
+        </a>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="crear-perfil-autor.html">Perfil Autor</a></li>
+            <li><a href="mis-portafolios.html">Mis Portafolios</a></li>
+            <li><a href="miperfil.html">Mi Perfil</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="perfil-contenedor">
+
+    <section class="perfil-card">
+        <h1>Subir Portafolio</h1>
+        <p>Comparte tus proyectos creativos con la comunidad Skillhance.</p>
+
+        <form id="formPortafolio">
+            <label>Título del proyecto</label>
+            <input type="text" id="titulo" placeholder="Ejemplo: Mobiliario Modular" required>
+
+            <label>Descripción</label>
+            <textarea id="descripcion" placeholder="Describe brevemente tu proyecto"></textarea>
+
+            <label>Imagen del portafolio</label>
+            <input type="file" id="imagen" accept="image/*" required>
+
+            <button type="submit">Publicar Portafolio</button>
+        </form>
+    </section>
+
+</main>
+
+<div id="toast" class="toast"></div>
+
+<script src="config.js"></script>
+
+<script>
+const idUsuario = localStorage.getItem("id_usuario");
+
+if (!idUsuario || idUsuario === "undefined") {
+    window.location.href = "iniciosesion.html";
+}
+
+function mostrarToast(mensaje, tipo = "success") {
+    const toast = document.getElementById("toast");
+
+    toast.textContent = mensaje;
+    toast.className = "toast show " + tipo;
+
+    setTimeout(() => {
+        toast.className = "toast";
+    }, 2800);
+}
+
+async function verificarAcceso() {
+    const respuesta = await fetch(`${API_URL}/suscripcion/${idUsuario}`);
+    const resultado = await respuesta.json();
+
+    if (
+        !resultado.ok ||
+        !resultado.suscripcion ||
+        resultado.suscripcion.estado !== "Activa" ||
+        resultado.suscripcion.plan !== "Premium"
+    ) {
+        mostrarToast("Solo los usuarios Premium pueden subir portafolios.", "error");
+
+        setTimeout(() => {
+            window.location.href = "suscripciones.html";
+        }, 1400);
+
+        return;
+    }
+
+    const perfil = await fetch(`${API_URL}/perfilAutor/${idUsuario}`);
+    const perfilResultado = await perfil.json();
+
+    if (!perfilResultado.ok || !perfilResultado.autor) {
+        mostrarToast("Primero debes crear tu perfil de autor.", "info");
+
+        setTimeout(() => {
+            window.location.href = "crear-perfil-autor.html";
+        }, 1400);
+    }
+}
+
+verificarAcceso();
+
+document.getElementById("formPortafolio").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData();
+
+    formData.append("id_usuario", idUsuario);
+    formData.append("titulo", document.getElementById("titulo").value);
+    formData.append("descripcion", document.getElementById("descripcion").value);
+    formData.append("imagen", document.getElementById("imagen").files[0]);
+
+    const respuesta = await fetch(`${API_URL}/subirPortafolio`, {
+        method: "POST",
+        body: formData
+    });
+
+    const resultado = await respuesta.json();
+    mostrarToast(resultado.mensaje, resultado.ok ? "success" : "error");
+
+    if (resultado.ok) {
+        setTimeout(() => {
+            window.location.href = "mis-portafolios.html";
+        }, 1400);
+    }
+});
+</script>
+
+</body>
+</html>

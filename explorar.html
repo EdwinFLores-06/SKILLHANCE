@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorar Proyectos | Skillhance</title>
+    <link rel="stylesheet" href="CSS/explorar.css">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <a href="index.html">
+            <img src="Img/LOGO-PROVISIONAL.png" alt="Logo" width="400" height="50">
+        </a>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="sobre-nosotros.html">Nosotros</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a class="active" href="explorar.html">Explorar</a></li>
+            <li><a href="suscripciones.html">Suscripciones</a></li>
+            <li><a href="#contactos">Contactos</a></li>
+            <li><a href="miperfil.html">Mi perfil</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+<section class="hero">
+    <p class="tag">PROYECTOS</p>
+
+    <div class="hero-content">
+        <h1>Explora proyectos <span>creativos.</span></h1>
+        <p>Descubre trabajos increíbles de diseñadores de todo el mundo.</p>
+    </div>
+</section>
+
+<section class="filters">
+
+    <div class="categories">
+
+        <button class="filter-btn selected" data-filter="Todos">Todos</button>
+
+        <button class="filter-btn" data-filter="Diseño Gráfico">
+            Diseño Gráfico
+        </button>
+
+        <button class="filter-btn" data-filter="Fotografía">
+            Fotografía
+        </button>
+
+        <button class="filter-btn" data-filter="Diseño Industrial">
+            Industrial
+        </button>
+
+        <button class="filter-btn" data-filter="Arquitectura">
+            Arquitectura
+        </button>
+
+        <button class="filter-btn" data-filter="Educación">
+            Educación
+        </button>
+
+        <button class="filter-btn" data-filter="Moda">
+            Moda
+        </button>
+
+    </div>
+
+    <input
+        type="text"
+        id="buscarProyecto"
+        placeholder="Buscar proyecto o autor..."
+    >
+
+</section>
+
+<section class="projects-grid">
+
+    <!-- Diseño Gráfico -->
+    <article class="card" data-portfolio="portafolios/diseño-grafico1.jpeg">
+        <img src="portafolios/imagen-diseño-grafico1.jpeg" alt="Diseño gráfico">
+        <div class="card-content">
+            <span>Diseño Gráfico</span>
+            <h3>Brand Identity</h3>
+            <p>Adrian Valdes</p>
+        </div>
+    </article>
+
+    <article class="card" data-portfolio="portafolios/diseño-grafico2.jpeg">
+        <img src="portafolios/imagen-diseño-grafico2.webp" alt="Diseño gráfico">
+        <div class="card-content">
+            <span>Diseño Gráfico</span>
+            <h3>Diseño Editorial</h3>
+            <p>Camila Gil</p>
+        </div>
+    </article>
+
+    <!-- Fotografía -->
+    <article class="card" data-portfolio="portafolios/fotografia1.jpeg">
+        <img src="portafolios/imagen-fotografia1.jpeg" alt="Fotografía">
+        <div class="card-content">
+            <span>Fotografía</span>
+            <h3>Fotografía Profesional</h3>
+            <p>Thiago Echeverría</p>
+        </div>
+    </article>
+
+    <!-- Diseño Industrial -->
+    <article class="card" data-portfolio="portafolios/portafolio-1-industrial.png">
+        <img src="portafolios/imagen-industrial.png" alt="Industrial">
+        <div class="card-content">
+            <span>Diseño Industrial</span>
+            <h3>Producto Industrial</h3>
+            <p>Jose Lopez</p>
+        </div>
+    </article>
+
+    <!-- Arquitectura -->
+    <article class="card" data-portfolio="portafolios/portafolio-arquitectura1.jpeg">
+        <img src="portafolios/imagen-arqui1.jpg" alt="Arquitectura">
+        <div class="card-content">
+            <span>Arquitectura</span>
+            <h3>Espacios Modernos</h3>
+            <p>Isabela Morales</p>
+        </div>
+    </article>
+
+    <article class="card" data-portfolio="portafolios/portafolio-arquitectura2.jpeg">
+        <img src="portafolios/imagen-arqui2.jpg" alt="Arquitectura">
+        <div class="card-content">
+            <span>Arquitectura</span>
+            <h3>Diseño Interior</h3>
+            <p>Valeria Quintero</p>
+        </div>
+    </article>
+
+    <!-- Educación -->
+    <article class="card" data-portfolio="portafolios/portafolio-educacion1.webp">
+        <img src="portafolios/imagen-educacion.png" alt="Educación">
+        <div class="card-content">
+            <span>Educación</span>
+            <h3>Proyecto Educativo</h3>
+            <p>María López</p>
+        </div>
+    </article>
+
+    <!-- Moda -->
+    <article class="card" data-portfolio="portafolios/portafolio-moda1.png">
+        <img src="portafolios/imagen-moda1 (1).jpg" alt="Moda">
+        <div class="card-content">
+            <span>Moda</span>
+            <h3>Colección Primavera</h3>
+            <p>Camila Payton</p>
+        </div>
+    </article>
+
+    <article class="card" data-portfolio="portafolios/portafolio-moda2.png">
+        <img src="portafolios/imagen-moda2.jpg" alt="Moda">
+        <div class="card-content">
+            <span>Moda</span>
+            <h3>Fashion Editorial</h3>
+            <p>Megan Garcia</p>
+        </div>
+    </article>
+
+    <article class="card" data-portfolio="portafolios/portafolio-moda3.png">
+        <img src="portafolios/imagen-moda-portafolio3.png" alt="Moda">
+        <div class="card-content">
+            <span>Moda</span>
+            <h3>Alta Costura</h3>
+            <p>Christi Tasker</p>
+        </div>
+    </article>
+
+     <article class="card" data-portfolio="portafolios/portafolio-3-industrial.png">
+        <img src="portafolios/imagen-3-industrial.png" alt="Moda">
+        <div class="card-content">
+            <span>Industrial</span>
+            <h3>Diseño industrial</h3>
+            <p>Sofia Hernández</p>
+        </div>
+    </article>
+
+      <article class="card" data-portfolio="portafolios/portafolio-marco.png">
+        <img src="portafolios/marco-foto.png" alt="Moda">
+        <div class="card-content">
+            <span>Industrial</span>
+            <h3>Diseño industrial</h3>
+            <p>Marco</p>
+        </div>
+    </article>
+
+
+</section>
+
+</main>
+
+<!-- MODAL -->
+<div id="imgModal" class="img-modal">
+    <span id="closeImg" class="close-img">&times;</span>
+    <div class="modal-wrapper">
+        <img id="modalImg" src="" alt="">
+    </div>
+</div>
+<footer id="contactos" class="footer">
+
+    <div class="footer-top-line"></div>
+
+    <div class="footer-container">
+
+        <!-- Columna 1 -->
+        <div class="footer-column">
+            <h2 class="footer-logo">SKILLHANCE</h2>
+
+            <p class="footer-description">
+                Aprende, practica y domina nuevas habilidades con nuestra
+                plataforma educativa.
+            </p>
+
+            <div class="social-links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-x-twitter"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+
+            <p class="copyright">
+                © 2026 Skillhance. Todos los derechos reservados.
+            </p>
+        </div>
+
+        <!-- Columna 2 -->
+        <div class="footer-column">
+            <h3>Enlaces Útiles</h3>
+
+            <ul>
+                <li><a href="#">Política de Privacidad</a></li>
+                <li><a href="#">Términos y Condiciones</a></li>
+                <li><a href="#">Preguntas Frecuentes</a></li>
+                <li><a href="#">Centro de Ayuda</a></li>
+            </ul>
+        </div>
+
+        <!-- Columna 3 -->
+        <div class="footer-column">
+            <h3>
+                <i class="fas fa-location-dot"></i>
+                Nuestra Ubicación
+            </h3>
+
+            <p>
+                Décima Avenida Norte<br>
+                Entre la Tercera y Quinta Avenida Sur<br>
+                Frente al puesto de la PNC<br>
+                Santa Ana, El Salvador
+            </p>
+        </div>
+
+    </div>
+
+</footer>
+<script src="config.js"></script>
+
+<script>
+const modal = document.getElementById("imgModal");
+const modalImg = document.getElementById("modalImg");
+const closeBtn = document.getElementById("closeImg");
+const projectsGrid = document.querySelector(".projects-grid");
+
+const filtroBtns = document.querySelectorAll(".filter-btn");
+const buscador = document.getElementById("buscarProyecto");
+
+let categoriaActual = "Todos";
+
+function abrirModal(imagen) {
+    if (!imagen) {
+        alert("Este portafolio no tiene imagen.");
+        return;
+    }
+
+    modalImg.src = imagen;
+
+    modalImg.onerror = () => {
+        alert("No se pudo cargar la imagen.");
+        closeModal();
+    };
+
+    modal.classList.add("show");
+    document.body.classList.add("modal-open");
+}
+
+function closeModal() {
+    modal.classList.remove("show");
+    document.body.classList.remove("modal-open");
+}
+
+function convertirRutaImagen(ruta) {
+    if (!ruta) return "";
+
+    if (ruta.startsWith("http://") || ruta.startsWith("https://")) {
+        return ruta;
+    }
+
+    return ruta;
+}
+
+function activarModal() {
+    const cards = document.querySelectorAll(".card");
+
+    cards.forEach(card => {
+        card.onclick = () => {
+            const portfolioImg = convertirRutaImagen(card.dataset.portfolio);
+            abrirModal(portfolioImg);
+        };
+    });
+}
+
+function filtrarCards() {
+    const texto = buscador.value.toLowerCase();
+    const cards = document.querySelectorAll(".card");
+
+    cards.forEach(card => {
+        const categoria = card.querySelector("span").textContent.trim();
+        const titulo = card.querySelector("h3").textContent.toLowerCase();
+        const autor = card.querySelector("p").textContent.toLowerCase();
+
+        const coincideCategoria =
+            categoriaActual === "Todos" ||
+            categoria === categoriaActual;
+
+        const coincideBusqueda =
+            titulo.includes(texto) ||
+            autor.includes(texto) ||
+            categoria.toLowerCase().includes(texto);
+
+        card.style.display = coincideCategoria && coincideBusqueda ? "block" : "none";
+    });
+}
+
+filtroBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+        filtroBtns.forEach(b => b.classList.remove("selected"));
+        btn.classList.add("selected");
+
+        categoriaActual = btn.dataset.filter;
+        filtrarCards();
+    });
+});
+
+buscador.addEventListener("input", filtrarCards);
+
+async function cargarPortafoliosDinamicos() {
+    try {
+        const respuesta = await fetch(`${API_URL}/portafolios`);
+        const resultado = await respuesta.json();
+
+        if (resultado.ok && resultado.portafolios.length > 0) {
+            resultado.portafolios.forEach(portafolio => {
+                projectsGrid.innerHTML += `
+                    <article class="card" data-portfolio="${API_URL}/${portafolio.imagen}">
+                        <img src="${API_URL}/${portafolio.imagen}" alt="${portafolio.titulo}">
+                        <div class="card-content">
+                            <span>${portafolio.categoria}</span>
+                            <h3>${portafolio.titulo}</h3>
+                            <p>${portafolio.nombre_autor}</p>
+                        </div>
+                    </article>
+                `;
+            });
+        }
+
+        activarModal();
+        filtrarCards();
+
+    } catch (error) {
+        console.log("Error al cargar portafolios:", error);
+        activarModal();
+        filtrarCards();
+    }
+}
+
+closeBtn.addEventListener("click", closeModal);
+
+modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+        closeModal();
+    }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    activarModal();
+    cargarPortafoliosDinamicos();
+});
+</script>
+
+</body>
+</html>

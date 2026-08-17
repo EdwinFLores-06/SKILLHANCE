@@ -1,101 +1,412 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: #f4f4f4;
+body{
+
+    font-family:'Montserrat',sans-serif;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    min-height:100vh;
+
+    overflow:hidden;
+
+    position:relative;
+
+    background:#f5f7fb;
+
 }
 
-.contenedor {
-    width: 400px;
-    background: white;
-    border-radius: 18px;
-    padding: 35px;
-    box-shadow: 0 8px 22px rgba(0,0,0,0.15);
+/* ===========================
+   RED GEOMÉTRICA
+=========================== */
+
+.red{
+
+    position:absolute;
+
+    inset:0;
+
+    overflow:hidden;
+
+    z-index:0;
+
 }
 
-.tabs {
-    display: flex;
-    margin-bottom: 25px;
-    gap: 10px;
+.linea{
+
+    position:absolute;
+
+    height:2px;
+
+    background:rgba(22,36,71,.18);
+
+    transform-origin:left center;
+
+    border-radius:5px;
+
 }
 
-.tabs button {
-    flex: 1;
-    padding: 12px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    background: #e0e0e0;
-    font-weight: bold;
+.punto{
+
+    position:absolute;
+
+    width:12px;
+    height:12px;
+
+    border-radius:50%;
+
+    background:#f9a602;
+
+    box-shadow:0 0 12px rgba(249,166,2,.55);
+
 }
 
-.tabs button.activo {
-    background: #8b5e34;
-    color: white;
+.decoracion1{
+
+    position:absolute;
+
+    width:90px;
+    height:90px;
+
+    border-radius:50%;
+
+    background:#f9a602;
+
+    opacity:.15;
+
+    top:120px;
+    left:180px;
+
 }
 
-.formulario h2 {
-    text-align: center;
-    margin-bottom: 10px;
-    color: #111;
+.decoracion2{
+
+    position:absolute;
+
+    width:70px;
+    height:70px;
+
+    border-radius:50%;
+
+    background:#162447;
+
+    opacity:.15;
+
+    bottom:140px;
+    right:200px;
+
 }
 
-.formulario p {
-    text-align: center;
-    margin-bottom: 20px;
-    color: gray;
+.contenedor{
+
+    position:relative;
+
+    z-index:10;
+
+    width:430px;
+
+    background:white;
+
+    border-radius:22px;
+
+    padding:38px;
+
+    box-shadow:
+    0 18px 40px rgba(0,0,0,.12);
+
+    border-top:6px solid #f9a602;
+
 }
 
-.formulario input {
-    width: 100%;
-    padding: 13px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 12px;
-    outline: none;
+.tabs{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-bottom:30px;
+
 }
 
-.formulario input:focus {
-    border-color: #8b5e34;
-    box-shadow: 0 0 0 3px rgba(139, 94, 52, 0.15);
+.tabs button{
+
+    flex:1;
+
+    padding:13px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#e8edf7;
+
+    color:#162447;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.30s;
+
 }
 
-.formulario button {
-    width: 100%;
-    padding: 13px;
-    border: none;
-    border-radius: 12px;
-    background: #8b5e34;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
+.tabs button:hover{
+
+    background:#dfe6f4;
+
 }
 
-.formulario button:hover {
-    background: #6f4825;
+.tabs button.activo{
+
+    background:#162447;
+
+    color:white;
+
 }
 
-.oculto {
-    display: none;
+.formulario h2{
+
+    text-align:center;
+
+    color:#162447;
+
+    font-size:42px;
+
+    font-weight:900;
+
+    margin-bottom:12px;
+
 }
 
-.mensaje-error {
-    margin-top: 12px;
-    text-align: center;
-    color: #c62828;
-    font-size: 14px;
-    font-weight: bold;
+.formulario p{
+
+    text-align:center;
+
+    color:#666;
+
+    margin-bottom:30px;
+
 }
 
-.mensaje-exito {
-    color: #2e7d32;
+.formulario input{
+
+    width:100%;
+
+    padding:15px;
+
+    margin-bottom:16px;
+
+    border:1px solid #ddd;
+
+    border-radius:12px;
+
+    outline:none;
+
+    font-size:15px;
+
+    transition:.25s;
+
 }
 
+.formulario input:focus{
+
+    border-color:#f9a602;
+
+    box-shadow:0 0 0 4px rgba(249,166,2,.18);
+
+}
+
+.formulario button{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#f9a602;
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.30s;
+
+}
+
+.formulario button:hover{
+
+    background:#d98a00;
+
+    transform:translateY(-2px);
+
+}
+
+.oculto{
+
+    display:none;
+
+}
+
+.mensaje-error{
+
+    color:#d32f2f;
+
+    text-align:center;
+
+    font-weight:600;
+
+    margin-top:15px;
+
+}
+
+.mensaje-exito{
+
+    color:#2e7d32;
+
+    text-align:center;
+
+    font-weight:600;
+
+    margin-top:15px;
+
+}
+
+/* ===============================
+   RESPONSIVE EXTRA - LOGIN
+================================ */
+
+/* TABLET */
+@media (max-width: 1024px){
+
+    body{
+        padding:30px;
+    }
+
+    .contenedor{
+        width:100%;
+        max-width:430px;
+    }
+
+    .decoracion1{
+        left:60px;
+        top:80px;
+    }
+
+    .decoracion2{
+        right:60px;
+        bottom:80px;
+    }
+}
+
+
+/* CELULAR */
+@media (max-width:768px){
+
+    body{
+        padding:20px;
+        overflow:auto;
+    }
+
+    .contenedor{
+        width:100%;
+        max-width:100%;
+        padding:30px 24px;
+        border-radius:18px;
+    }
+
+    .tabs{
+        flex-direction:column;
+        gap:12px;
+    }
+
+    .tabs button{
+        width:100%;
+    }
+
+    .formulario h2{
+        font-size:34px;
+    }
+
+    .formulario p{
+        font-size:15px;
+    }
+
+    .formulario input{
+        padding:14px;
+        font-size:15px;
+    }
+
+    .formulario button{
+        padding:14px;
+        font-size:15px;
+    }
+
+    .decoracion1,
+    .decoracion2{
+        display:none;
+    }
+
+    .linea{
+        opacity:.12;
+    }
+
+    .punto{
+        width:9px;
+        height:9px;
+    }
+}
+
+
+/* CELULARES PEQUEÑOS */
+@media (max-width:480px){
+
+    body{
+        padding:15px;
+    }
+
+    .contenedor{
+        padding:24px 18px;
+        border-radius:16px;
+    }
+
+    .formulario h2{
+        font-size:28px;
+    }
+
+    .formulario p{
+        font-size:14px;
+        margin-bottom:22px;
+    }
+
+    .formulario input{
+        padding:13px;
+        margin-bottom:14px;
+    }
+
+    .formulario button{
+        padding:13px;
+    }
+
+    .tabs button{
+        padding:12px;
+        font-size:14px;
+    }
+
+    .mensaje-error,
+    .mensaje-exito{
+        font-size:14px;
+    }
+}

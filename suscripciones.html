@@ -4,37 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Suscripciones - SKILLHANCE</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="CSS/suscripciones.CSS">
-   <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="CSS/toast.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
+
 <body>
 
 <header>
-     <div class="logo">
-         <a href="index.html"><img  src="img/LOGO-PROVISIONAL.png" alt="Logo" width="400" height="50" ></a>
-         </div> 
-        
-         <nav> 
-            <ul> <li><a href="index.html">Nosotros</a></li>
-                 <li><a id="loginLink" href="industrial.html">Explorar</a></li>
-                 <li><a href="suscripciones.html">Suscripciones</a></li>
-                 <li><a href="#">Contactos</a></li>
-                  <li><a id="perfilLink" href="miperfil.html"">Mi perfil</a></li>
+    <div class="logo">
+        <a href="index.html">
+            <img src="img/LOGO-PROVISIONAL.png" alt="Logo" width="400" height="50">
+        </a>
+    </div>
 
-                </ul>
-             </nav> 
+    <nav>
+        <ul>
+            <li><a href="sobre-nosotros.html">Nosotros</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a id="loginLink" href="explorar.html">Explorar</a></li>
+            <li><a href="suscripciones.html">Suscripciones</a></li>
+            <li><a href="#contactos">Contactos</a></li>
+            <li><a id="perfilLink" href="miperfil.html">Mi perfil</a></li>
+        </ul>
+    </nav>
 </header>
-   <main class="suscripciones">
+
+<main class="suscripciones">
 
     <h1 class="titulo-seccion">SUSCRIPCIONES</h1>
 
     <section class="planes-grid">
 
-        <!-- PLAN BASICO -->
         <article class="plan-card">
             <div class="plan-header">
                 <h2>Plan Básico</h2>
@@ -54,7 +60,7 @@
             <p class="gratis">+3 months free</p>
 
             <button onclick="suscribirse('Básico', 4.99)">
-                Choose plan
+                Escoger plan
             </button>
 
             <ul class="beneficios">
@@ -66,11 +72,10 @@
             </ul>
         </article>
 
-        <!-- PLAN CREATIVO -->
         <article class="plan-card destacado">
 
             <div class="popular">
-                MOST POPULAR
+                Mas popular
             </div>
 
             <div class="plan-header">
@@ -91,7 +96,7 @@
             <p class="gratis">+3 months free</p>
 
             <button onclick="suscribirse('Creativo', 9.99)">
-                Choose plan
+                Escoger plan
             </button>
 
             <ul class="beneficios">
@@ -103,7 +108,6 @@
             </ul>
         </article>
 
-        <!-- PLAN PREMIUM -->
         <article class="plan-card">
             <div class="plan-header">
                 <h2>Plan Premium</h2>
@@ -123,7 +127,7 @@
             <p class="gratis">+3 months free</p>
 
             <button onclick="suscribirse('Premium', 19.99)">
-                Choose plan
+                Escoger plan
             </button>
 
             <ul class="beneficios">
@@ -138,92 +142,120 @@
     </section>
 </main>
 
-<footer class="footer">
-    <div class="footer-bg"></div>
+<footer id="contactos" class="footer">
+
+    <div class="footer-top-line"></div>
 
     <div class="footer-container">
 
-        <div class="footer-social">
-            <div class="social-icons">
+        <div class="footer-column">
+            <h2 class="footer-logo">SKILLHANCE</h2>
+
+            <p class="footer-description">
+                Aprende, practica y domina nuevas habilidades con nuestra
+                plataforma educativa.
+            </p>
+
+            <div class="social-links">
                 <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-x-twitter"></i></a>
                 <a href="#"><i class="fab fa-tiktok"></i></a>
             </div>
 
-            <p>© 2026 Skillhance. Todos los derechos reservados</p>
+            <p class="copyright">
+                © 2026 Skillhance. Todos los derechos reservados.
+            </p>
         </div>
 
-        <div class="footer-links">
-            <h4>Enlaces Útiles</h4>
+        <div class="footer-column">
+            <h3>Enlaces Útiles</h3>
 
-            <a href="#">Política de Privacidad</a>
-            <a href="#">Términos y Condiciones</a>
-            <a href="#">Preguntas Frecuentes</a>
+            <ul>
+                <li><a href="#">Política de Privacidad</a></li>
+                <li><a href="#">Términos y Condiciones</a></li>
+                <li><a href="#">Preguntas Frecuentes</a></li>
+                <li><a href="#">Centro de Ayuda</a></li>
+            </ul>
         </div>
 
-        <div class="footer-location">
-            <div class="location-icon">
-                <i class="fas fa-map-marker-alt"></i>
-            </div>
+        <div class="footer-column">
+            <h3>
+                <i class="fas fa-location-dot"></i>
+                Nuestra Ubicación
+            </h3>
 
-            <div>
-                <h4>Nuestra Ubicación</h4>
-
-                <p>
-                    Décima Avenida Norte<br>
-                    Entre la Tercera y Quinta<br>
-                    Avenida Sur frente al puesto<br>
-                    de la PNC Santa Ana, El Salvador
-                </p>
-            </div>
+            <p>
+                Décima Avenida Norte<br>
+                Entre la Tercera y Quinta Avenida Sur<br>
+                Frente al puesto de la PNC<br>
+                Santa Ana, El Salvador
+            </p>
         </div>
 
     </div>
+
 </footer>
 
+<div id="toast" class="toast"></div>
+
+<script src="config.js"></script>
+
+<div id="toast" class="toast"></div>
+
+<script src="config.js"></script>
 
 <script>
-    const idUsuario = localStorage.getItem("id_usuario");
-    const usuario = localStorage.getItem("usuario");
+const idUsuario = localStorage.getItem("id_usuario");
+const usuario = localStorage.getItem("usuario");
 
-    const loginLink = document.getElementById("loginLink");
-    const perfilLink = document.getElementById("perfilLink");
-    const adminLink = document.getElementById("adminLink");
+const loginLink = document.getElementById("loginLink");
+const perfilLink = document.getElementById("perfilLink");
+const adminLink = document.getElementById("adminLink");
 
-    if (idUsuario && usuario && idUsuario !== "undefined") {
-        loginLink.style.display = "none";
-        perfilLink.style.display = "inline-block";
-        adminLink.style.display = "inline-block";
+if (idUsuario && usuario && idUsuario !== "undefined") {
+    if (loginLink) loginLink.style.display = "none";
+    if (perfilLink) perfilLink.style.display = "inline-block";
+    if (adminLink) adminLink.style.display = "inline-block";
+}
+
+function mostrarToast(mensaje, tipo = "success") {
+    const toast = document.getElementById("toast");
+
+    toast.textContent = mensaje;
+    toast.className = "toast show " + tipo;
+
+    setTimeout(() => {
+        toast.className = "toast";
+    }, 2800);
+}
+
+async function suscribirse(plan, precio) {
+    if (!idUsuario || !usuario || idUsuario === "undefined") {
+        window.location.href = "iniciosesion.html";
+        return;
     }
 
-    async function suscribirse(plan, precio) {
-        if (!idUsuario || !usuario || idUsuario === "undefined") {
-            window.location.href = "iniciosesion.html";
-            return;
-        }
+    const respuesta = await fetch(`${API_URL}/suscribirse`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            id_usuario: idUsuario,
+            plan: plan,
+            precio: precio
+        })
+    });
 
-        const respuesta = await fetch("http://localhost:3000/suscribirse", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                id_usuario: idUsuario,
-                plan: plan,
-                precio: precio
-            })
-        });
+    const resultado = await respuesta.json();
 
-        const resultado = await respuesta.json();
-
-        if (resultado.ok) {
-            alert("Te suscribiste al plan " + plan);
-        } else {
-            alert(resultado.mensaje);
-        }
+    if (resultado.ok) {
+        mostrarToast("Te suscribiste al plan " + plan, "success");
+    } else {
+        mostrarToast(resultado.mensaje, "error");
     }
+}
 </script>
-
 </body>
 </html>

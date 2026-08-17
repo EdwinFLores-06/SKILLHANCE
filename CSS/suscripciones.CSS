@@ -3,6 +3,31 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+
+/* HEADER */
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 80px;
+    background:white;
+}
+
+nav ul{
+    display:flex;
+    gap:40px;
+    list-style:none;
+}
+
+nav a{
+    text-decoration:none;
+    color:#0f1f4d;
+    font-weight:600;
+}
+
+
+
 .suscripciones{
     max-width:1200px;
     margin:40px auto;
@@ -133,134 +158,271 @@ body {
     letter-spacing:.5px;
 }
 
-
-header{
-    background:white;
-}
-
-nav{
-    background:#162447;
-    padding:15px 0;
-
-}
-
-nav ul{
-    display:flex;
-    justify-content:flex-end;
-    gap:40px;
-    list-style:none;
-    margin-right: 40px;
-}
-
-nav a{
+.footer{
+    background: linear-gradient(
+        135deg,
+        #ff9800,
+        #ffad14,
+        #ff9800
+    );
     color:white;
-    text-decoration:none;
-    font-weight:bold;
-    text-transform:uppercase;
-}
-
-
-.footer{
-    position: relative;
-    background:#f9a602;
+    position:relative;
     overflow:hidden;
-    color:#fff;
-    padding:45px 70px 18px;
 }
 
-/* Figura azul inclinada */
-
-.footer{
-    background-image:url(Img/footer);
+.footer-top-line{
+    height:5px;
+    background:#1d2b57;
 }
 
 .footer-container{
-    position:relative;
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-start;
-    z-index:2;
+    max-width:1400px;
+    margin:auto;
+    padding:70px 80px;
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr;
+    gap:80px;
 }
 
-.footer-social{
-    width:35%;
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-end;
+.footer-column h3{
+    font-size:1.5rem;
+    margin-bottom:25px;
+    font-weight:700;
 }
 
-.social-icons{
+.footer-logo{
+    font-size:2.5rem;
+    font-weight:900;
+    margin-bottom:15px;
+    letter-spacing:2px;
+}
+
+.footer-description{
+    max-width:350px;
+    line-height:1.7;
+    margin-bottom:25px;
+    opacity:.95;
+}
+
+.social-links{
     display:flex;
-    gap:12px;
+    gap:15px;
     margin-bottom:25px;
 }
 
-.social-icons a{
-    width:42px;
-    height:42px;
+.social-links a{
+    width:45px;
+    height:45px;
+    border:2px solid rgba(255,255,255,.3);
     border-radius:50%;
     display:flex;
     justify-content:center;
     align-items:center;
     color:white;
-    font-size:26px;
     text-decoration:none;
+    transition:.3s;
 }
 
-.social-icons a:nth-child(1){
-    color:#E4405F;
+.social-links a:hover{
+    background:white;
+    color:#ff9800;
+    transform:translateY(-4px);
 }
 
-.social-icons a:nth-child(2){
-    color:#1877F2;
+.footer-column ul{
+    list-style:none;
 }
 
-.social-icons a:nth-child(3){
-    color:#25D366;
+.footer-column ul li{
+    margin-bottom:15px;
 }
 
-.social-icons a:nth-child(4){
-    color:#000;
-}
-
-.footer-social p{
-    font-size:13px;
-}
-
-.footer-links{
-    display:flex;
-    flex-direction:column;
-    gap:7px;
-}
-
-.footer-links h4{
-    color:black;
-    margin-bottom:10px;
-}
-
-.footer-links a{
-    color:white;
+.footer-column ul li a{
     text-decoration:none;
-    font-size:14px;
-}
-
-.footer-location{
-    display:flex;
-    gap:15px;
-}
-
-.location-icon{
-    font-size:35px;
     color:white;
-    margin-top:10px;
+    transition:.3s;
+    font-size:1.05rem;
 }
 
-.footer-location h4{
-    color:black;
-    margin-bottom:8px;
+.footer-column ul li a:hover{
+    padding-left:8px;
+    opacity:.8;
 }
 
-.footer-location p{
-    font-size:14px;
-    line-height:1.5;
+.footer-column p{
+    line-height:1.9;
+    font-size:1.05rem;
 }
+
+.copyright{
+    margin-top:20px;
+    font-size:.95rem;
+    opacity:.9;
+}
+
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    .filters input {
+        padding: 13px 15px;
+    }
+
+    .card-content h3 {
+        font-size: 18px;
+    }
+
+    .modal-wrapper {
+        width: 95%;
+        height: 78vh;
+        border-radius: 14px;
+    }
+}
+
+/* Línea divisoria elegante */
+.footer-column:nth-child(2){
+    border-left:1px solid rgba(255,255,255,.25);
+    border-right:1px solid rgba(255,255,255,.25);
+    padding:0 40px;
+}
+
+/* Responsive */
+@media(max-width:900px){
+
+    .footer-container{
+        grid-template-columns:1fr;
+        gap:50px;
+        padding:50px 30px;
+    }
+
+    .footer-column:nth-child(2){
+        border:none;
+        padding:0;
+    }
+
+    .footer-logo{
+        font-size:2rem;
+    }
+}
+
+/* ===============================
+   RESPONSIVE EXTRA - SUSCRIPCIONES
+================================ */
+
+/* TABLET */
+@media (max-width:1024px){
+
+    header{
+        padding:20px 35px;
+        flex-wrap:wrap;
+        gap:20px;
+    }
+
+    nav ul{
+        gap:22px;
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .suscripciones{
+        padding:0 30px;
+    }
+
+    .planes-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:35px;
+    }
+
+    .footer{
+        padding:40px 35px 18px;
+    }
+
+    .footer-container{
+        gap:35px;
+    }
+}
+
+/* CELULAR */
+@media (max-width:768px){
+
+    header{
+        flex-direction:column;
+        text-align:center;
+        padding:20px;
+    }
+
+    nav ul{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    header img{
+        width:180px;
+        height:auto;
+    }
+
+    .suscripciones{
+        margin:30px auto;
+        padding:0 20px;
+    }
+
+    .titulo-seccion{
+        font-size:2.2rem;
+        text-align:center;
+    }
+
+    .planes-grid{
+        grid-template-columns:1fr;
+        gap:30px;
+    }
+
+    .plan-card{
+        width:100%;
+    }
+
+    .precio span{
+        font-size:2.5rem;
+    }
+
+}
+
+/* CELULAR PEQUEÑO */
+@media (max-width:480px){
+
+    .titulo-seccion{
+        font-size:1.8rem;
+    }
+
+    .plan-header{
+        padding:22px 18px;
+    }
+
+    .precio,
+    .precio-antiguo,
+    .gratis,
+    .beneficios{
+        padding-left:18px;
+        padding-right:18px;
+    }
+
+    .plan-card button{
+        width:calc(100% - 36px);
+        margin:18px;
+    }
+
+    .descuento{
+        display:inline-block;
+        margin-left:0;
+        margin-top:8px;
+    }
+
+   
+}
+
+/* Responsive */

@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Autor - Skillhance</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="CSS/styles.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <a href="index.html">
+            <img src="Img/LOGO-PROVISIONAL.png" alt="Logo Skillhance" width="250px">
+        </a>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Nosotros</a></li>
+
+            <li class="tiene-submenu">
+                <a href="explorar.html">Explorar</a>
+                <ul class="submenu">
+                    <li><a href="explorar.html#industrial">Industrial</a></li>
+                    <li><a href="explorar.html#grafico">Diseño Gráfico</a></li>
+                    <li><a href="explorar.html#moda">Moda</a></li>
+                    <li><a href="explorar.html#arquitectonico">Arquitectónico</a></li>
+                </ul>
+            </li>
+
+            <li><a href="suscripciones.html">Suscripciones</a></li>
+            <li><a href="index.html#contacto">Contactos</a></li>
+            <li><a href="miperfil.html">Mi Perfil</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="perfil-autor-contenedor">
+
+    <section class="perfil-autor-header">
+        <img id="bannerAutor" class="banner-autor" src="" alt="Banner autor">
+
+        <div class="perfil-autor-info">
+            <img id="fotoAutor" class="foto-autor-grande" src="" alt="Foto autor">
+
+            <h1 id="nombreAutor">Autor</h1>
+            <p id="rolAutor" class="autor-rol"></p>
+            <p id="descripcionAutor"></p>
+
+            <div class="autor-stats">
+                <span id="proyectosAutor"></span>
+                <span id="favoritosAutor"></span>
+                <span id="categoriaAutor"></span>
+            </div>
+
+            <div class="autor-botones perfil-botones">
+                <button class="btn-favorito" id="btnFavoritoAutor">
+                    ♡ Guardar autor
+                </button>
+
+                <button class="btn-seguir" id="btnSeguirAutor">
+                    + Seguir autor
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="portafolio-hero">
+        <h2>Portafolios del Autor</h2>
+        <p>Explora sus proyectos y guarda tus portafolios favoritos.</p>
+    </section>
+
+    <section id="proyectosGrid" class="portfolio-grid"></section>
+
+</main>
+
+<div id="imgModal" class="img-modal">
+    <span id="closeImg" class="close-img">&times;</span>
+
+    <div class="modal-wrapper">
+        <img id="modalImg" src="" alt="">
+    </div>
+</div>
+
+<script src="config.js"></script>
+
+<script>
+const imgModal = document.getElementById("imgModal");
+const modalImg = document.getElementById("modalImg");
+const closeImg = document.getElementById("closeImg");
+
+document.addEventListener("click", (e) => {
+    const card = e.target.closest(".portfolio-card");
+
+    if (!card) return;
+
+    const imagen = card.querySelector("img");
+
+    if (!imagen) return;
+
+    modalImg.src = imagen.src;
+    imgModal.classList.add("show");
+    document.body.style.overflow = "hidden";
+});
+
+closeImg.addEventListener("click", () => {
+    imgModal.classList.remove("show");
+    document.body.style.overflow = "auto";
+});
+
+imgModal.addEventListener("click", (e) => {
+    if (e.target === imgModal) {
+        imgModal.classList.remove("show");
+        document.body.style.overflow = "auto";
+    }
+});
+
+const autores = {
+    industrial: {
+        jose: {
+            nombre: "Jose Lopez",
+            rol: "Diseñador Industrial",
+            categoria: "Industrial",
+            foto: "Img/Autores/José López.png",
+            banner: "Img/Imagen de Referencia.png",
+            descripcion: "Diseñador industrial especializado en el bocetaje y concentualizacion en 3D..",
+            proyectos: "8 proyectos",
+            favoritos: "124 favoritos",
+            portafolios: [
+                {
+                    titulo: "Diseño Industrial Moderno",
+                    imagen: "Img/Portafolio 1 INDUSTRIAL.png",
+                    descripcion: "Modelo 3D y prototipado."
+                }
+            ]
+        },
+
+        marco: {
+            nombre: "Marco",
+            rol: "Diseñador de Producto",
+            categoria: "Industrial",
+            foto: "portafolios/marco-foto.png",
+            banner: "Img/Imagen de Referencia.png",
+            descripcion: "Diseñador industrial enfocado en innovación, modelado 3D y desarrollo de productos funcionales.",
+            proyectos: "6 proyectos",
+            favoritos: "98 favoritos",
+            portafolios: [
+                {
+                    titulo: "Prototipo Funcional",
+                    imagen: "portafolios/marco-portafolio.png",
+                    descripcion: "Prototipo práctico para resolver necesidades cotidianas."
+                }
+            ]
+        },
+
+        sofia: {
+            nombre: "Sofia hernandez",
+            rol: "Diseñadora de Mobiliario",
+            categoria: "Industrial",
+            foto: "Img/Autores/sofia-h.png",
+            banner: "Img/Portafolio-industrial2.jpg",
+            descripcion: "Creadora de propuestas minimalistas enfocadas en espacios modernos, ergonomía y estética visual.",
+            proyectos: "12 proyectos",
+            favoritos: "210 favoritos",
+            portafolios: [
+                {
+                    titulo: "Silla Minimalista",
+                    imagen: "portafolios/industrial-3-p.png",
+                    descripcion: "Mobiliario limpio, moderno y funcional."
+                }
+            ]
+        },
+
+        andres: {
+            nombre: "Andrés Molina",
+            rol: "Diseñador de Producto",
+            categoria: "Industrial",
+            foto: "Img/Autores/Andres Molina.jpg",
+            banner: "Img/Portafolio-industrial3.jpg",
+            descripcion: "Diseñador enfocado en productos tecnológicos, innovación y experiencia del usuario.",
+            proyectos: "6 proyectos",
+            favoritos: "98 favoritos",
+            portafolios: [
+                {
+                    titulo: "Producto Tecnológico",
+                    imagen: "Img/Portafolio-industrial3.jpg",
+                    descripcion: "Concepto tecnológico orientado a la experiencia de usuario."
+                },
+                {
+                    titulo: "Prototipo Funcional",
+                    imagen: "Img/Portafolio-industrial.webp",
+                    descripcion: "Prototipo práctico para resolver necesidades cotidianas."
+                }
+            ]
+        }
+    },
+
+    grafico: {
+        adrian: {
+            nombre: "Adrian Valdes",
+            rol: "Diseñador Gráfico",
+            categoria: "Diseño Gráfico",
+            foto: "Img/Adrian_valdes.jpeg",
+            banner: "Img/banner Adrian.jpg",
+            descripcion: "Diseñador enfocado en identidad visual, branding y piezas publicitarias.",
+            proyectos: "10 proyectos",
+            favoritos: "180 favoritos",
+            portafolios: [
+                {
+                    titulo: "Diseño UI/UX",
+                    imagen: "Img/Adrian valdes portafolio.jpeg",
+                    descripcion: "Identidad visual para una cafetería moderna."
+                }
+            ]
+        },
+
+        thiago: {
+            nombre: "Thiago Echeverria",
+            rol: "Diseñador y fotografo",
+            categoria: "Diseño Gráfico",
+            foto: "Img/Thiago_foto.jpeg",
+            banner: "Img/Banner Thiago.jpg",
+            descripcion: "Diseñador grafico y fotografia creativa.",
+            proyectos: "9 proyectos",
+            favoritos: "155 favoritos",
+            portafolios: [
+                {
+                    titulo: "Fotografia Publicitaria",
+                    imagen: "Img/Thiago echeverría portafolio.jpg.jpeg",
+                    descripcion: "Branding visual."
+                }
+            ]
+        },
+
+        camila: {
+            nombre: "Camila Gil",
+            rol: "Diseñadora e ilustradora",
+            categoria: "Diseño Gráfico",
+            foto: "Img/Autores/Camila Gil.jpg",
+            banner: "Img/banner Camila.webp",
+            descripcion: "Diseñadora enfocada en branding e identidad visual.",
+            proyectos: "7 proyectos",
+            favoritos: "120 favoritos",
+            portafolios: [
+                {
+                    titulo: "Revista Creativa",
+                    imagen: "Img/Camila gil Portafolio.jpeg",
+                    descripcion: "Diseño editorial para revista visual."
+                }
+            ]
+        }
+    },
+
+    moda: {
+        peyton: {
+            nombre: "Peyton Harvard",
+            rol: "Diseñadora de Modas",
+            categoria: "Moda",
+            foto: "Img/Autores/Peyton Harvard.png",
+            banner: "Img/img_portafolio1.jpg",
+            descripcion: "Creadora de colecciones modernas con enfoque juvenil y urbano.",
+            proyectos: "11 proyectos",
+            favoritos: "220 favoritos",
+            portafolios: [
+                {
+                    titulo: "Colección Urbana",
+                    imagen: "Img/Portafolio de MODA 1.png",
+                    descripcion: "Propuesta de moda urbana moderna."
+                }
+            ]
+        },
+
+        christi: {
+            nombre: "Christi Tasker",
+            rol: "Diseñador Textil",
+            categoria: "Moda",
+            foto: "Img/Autores/Christi Tasker.png",
+            banner: "Img/img_portafolio2.jpg",
+            descripcion: "Especialista en texturas, estampados, patrones y prendas conceptuales.",
+            proyectos: "8 proyectos",
+            favoritos: "145 favoritos",
+            portafolios: [
+                {
+                    titulo: "Texturas Naturales",
+                    imagen: "Img/Portafolio de MODA 2.png",
+                    descripcion: "Exploración de patrones textiles."
+                }
+            ]
+        },
+
+        megan: {
+            nombre: "Megan Garcia",
+            rol: "Estilista Creativa",
+            categoria: "Moda",
+            foto: "Img/Autores/Megan García.png",
+            banner: "Img/Imagen de referencia portafolio de MODA 3.png",
+            descripcion: "Diseñadora enfocada en estilismo, pasarela, color y composición de outfits.",
+            proyectos: "13 proyectos",
+            favoritos: "260 favoritos",
+            portafolios: [
+                {
+                    titulo: "Estilismo Editorial",
+                    imagen: "Img/Portafolio de MODA 3.png",
+                    descripcion: "Propuesta visual para sesión editorial."
+                }
+            ]
+        }
+    },
+
+    arquitectonico: {
+        valeria: {
+            nombre: "Valeria Quintero",
+            rol: "Diseñadora Arquitectónico",
+            categoria: "Arquitectónico",
+            foto: "Img/Autores/foto arcqui1-28207198.jpg.jpeg",
+            banner: "Img/banner arcqui1.jpg",
+            descripcion: "Desarrollo proyectos que integran eficiencia energetica.",
+            proyectos: "9 proyectos",
+            favoritos: "175 favoritos",
+            portafolios: [
+                {
+                    titulo: "Diseños arquitectonicos bioclimaticos",
+                    imagen: "Img/portafolio arcqui.jpg.jpeg",
+                    descripcion: "Diseño de vivienda moderna y funcional."
+                }
+            ]
+        },
+
+        isabela: {
+            nombre: "Isabela Morales",
+            rol: "Diseñadora Interiorista",
+            categoria: "Arquitectónico",
+            foto: "Img/Autores/foto arcqui3.jpg.jpeg",
+            banner: "Img/banner arcqui3.jpg",
+            descripcion: "Diseñadora de interiores enfocada en ambientes cálidos y elegantes.",
+            proyectos: "15 proyectos",
+            favoritos: "300 favoritos",
+            portafolios: [
+                {
+                    titulo: "Sala Moderna",
+                    imagen: "Img/portafolio arcqui3.jpg.jpeg",
+                    descripcion: "Diseño interior para ambiente familiar."
+                }
+            ]
+        }
+    }
+};
+
+const params = new URLSearchParams(window.location.search);
+
+const categoriaSeleccionada = params.get("categoria") || "industrial";
+const autorSeleccionado = params.get("autor") || "jose";
+
+const autor = autores[categoriaSeleccionada]?.[autorSeleccionado];
+
+if (!autor) {
+    document.querySelector("main").innerHTML = `
+        <section class="perfil-card">
+            <h1>Autor no encontrado</h1>
+            <p>El perfil que buscas no existe o fue movido.</p>
+            <a class="btn-gestionar" href="explorar.html">Volver a explorar</a>
+        </section>
+    `;
+} else {
+    document.getElementById("bannerAutor").src = autor.banner;
+    document.getElementById("fotoAutor").src = autor.foto;
+    document.getElementById("nombreAutor").textContent = autor.nombre;
+    document.getElementById("rolAutor").textContent = autor.rol;
+    document.getElementById("descripcionAutor").textContent = autor.descripcion;
+    document.getElementById("proyectosAutor").textContent = autor.proyectos;
+    document.getElementById("favoritosAutor").textContent = autor.favoritos;
+    document.getElementById("categoriaAutor").textContent = autor.categoria;
+
+    document.getElementById("btnFavoritoAutor").addEventListener("click", () => {
+        agregarFavorito(
+            autor.nombre,
+            "Autor " + autor.categoria,
+            autor.foto,
+            "autor"
+        );
+    });
+
+    document.getElementById("btnSeguirAutor").addEventListener("click", () => {
+        seguirAutor(autor.nombre);
+    });
+
+    const proyectosGrid = document.getElementById("proyectosGrid");
+
+    autor.portafolios.forEach(proyecto => {
+        proyectosGrid.innerHTML += `
+            <article class="portfolio-card">
+                <img src="${proyecto.imagen}" alt="${proyecto.titulo}">
+                <h3>${proyecto.titulo}</h3>
+                <p>${proyecto.descripcion}</p>
+
+                <button class="btn-favorito"
+                    onclick="agregarFavorito('${proyecto.titulo}', 'Portafolio ${autor.categoria}', '${proyecto.imagen}', 'portafolio')">
+                    ♡ Agregar a favoritos
+                </button>
+            </article>
+        `;
+    });
+}
+
+async function agregarFavorito(titulo, categoria, imagen, tipo = "portafolio") {
+    const idUsuario = localStorage.getItem("id_usuario");
+    const usuario = localStorage.getItem("usuario");
+
+    if (!idUsuario || !usuario || idUsuario === "undefined") {
+        window.location.href = "iniciosesion.html";
+        return;
+    }
+
+    const respuesta = await fetch(`${API_URL}/favoritos`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            id_usuario,
+            titulo,
+            categoria,
+            imagen,
+            tipo
+        })
+    });
+
+    const resultado = await respuesta.json();
+    alert(resultado.mensaje);
+}
+
+function seguirAutor(nombreAutor) {
+    const idUsuario = localStorage.getItem("id_usuario");
+    const usuario = localStorage.getItem("usuario");
+
+    if (!idUsuario || !usuario || idUsuario === "undefined") {
+        window.location.href = "iniciosesion.html";
+        return;
+    }
+
+    alert("Ahora sigues a " + nombreAutor);
+}
+</script>
+
+</body>
+</html>

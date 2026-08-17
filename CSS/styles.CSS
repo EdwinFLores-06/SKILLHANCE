@@ -1,174 +1,1418 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+/* =========================
+   SKILLHANCE - STYLE GLOBAL
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-    font-family:Arial, Helvetica, sans-serif;
-    background:#f5f7fb;
+:root {
+    --azul: #162447;
+    --azul-hover: #22335f;
+    --naranja: #f9a602;
+    --naranja-suave: #ffc57a;
+    --dorado: #9a6500;
+    --gris: #f5f7fb;
+    --blanco: #ffffff;
+    --texto: #111111;
+    --texto-suave: #555555;
+    --borde: #dddddd;
+    --sombra: 0 8px 22px rgba(0,0,0,0.10);
 }
 
-.header-top{
-    background:white;
-    padding:15px 40px;
+body {
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    background: var(--gris);
+    color: var(--texto);
 }
 
-.logo{
+/* =========================
+   HEADER / NAVBAR GLOBAL
+========================= */
+
+header{
     display:flex;
+    justify-content:space-between;
     align-items:center;
-    gap:15px;
+    padding:20px 80px;
+    background:white;
 }
 
-
-
-.logo h1{
-    color:#172445;
-    font-size:2rem;
-    font-weight:900;
-}
-
-.navbar{
-    background:#172445;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.navbar > ul{
+nav ul{
+    display:flex;
+    gap:40px;
     list-style:none;
-    display:flex;
-    justify-content:center;
-    align-items:center;
 }
 
-.navbar ul li{
-    position:relative;
-}
-
-.navbar ul li a{
-    display:block;
-    padding:18px 22px;
-    color:rgb(255, 252, 252);
+nav a{
     text-decoration:none;
-    font-weight:bold;
-    transition:.3s;
+    color:#0f1f4d;
+    font-weight:600;
 }
 
-.navbar ul li a:hover{
-    background:#22335f;
+/* SUBMENÚ */
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 105%;
+    left: 0;
+    background: white;
+    min-width: 200px;
+    border-radius: 10px;
+    box-shadow: var(--sombra);
+    overflow: hidden;
+    z-index: 2000;
 }
 
-/* ================= SUBMENU ================= */
-
-.submenu{
-    display:none;
-    position:absolute;
-    top:100%;
-    left:0;
-    min-width:200px;
-    background:white;
-    box-shadow:0 5px 15px rgba(0,0,0,.15);
-    z-index:1000;
+.tiene-submenu:hover .submenu {
+    display: block;
 }
 
-.submenu li{
-    width:100%;
+.submenu li {
+    width: 100%;
 }
 
-.submenu li a{
-    color:#172445;
-    padding:12px 15px;
+.submenu li a {
+    color: var(--azul);
+    padding: 13px 16px;
+    text-transform: none;
+    border-radius: 0;
 }
 
-.submenu li a:hover{
-    background:#f2f2f2;
+.submenu li a:hover {
+    background: #f2f2f2;
 }
 
-.tiene-submenu:hover .submenu{
-    display:block;
+/* =========================
+   CONTENEDOR GENERAL
+========================= */
+
+main {
+    max-width: 1200px;
+    margin: auto;
+    padding: 50px 20px;
 }
 
-/* ================= CONTENIDO ================= */
-
-main{
-    max-width:1200px;
-    margin:auto;
-    padding:40px 20px;
+section h1,
+.titulo-seccion {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 25px;
+    text-align: center;
 }
 
-#nosotros{
-    text-align:center;
+section h2 {
+    font-size: 2rem;
+    margin-bottom: 18px;
 }
 
-#nosotros h1{
-    font-size:3rem;
-    margin-bottom:30px;
-    color:#111;
+section p {
+    line-height: 1.7;
+}
+
+/* =========================
+   INDEX
+========================= */
+
+#nosotros,
+#explorar,
+#contacto {
+    text-align: center;
+}
+
+#nosotros h1 {
+    font-size: 3.4rem;
+    max-width: 1000px;
+    margin: 0 auto 35px;
 }
 
 #quienes-somos,
 #mision,
-#vision{
-    background:white;
-    padding:25px;
-    margin:20px 0;
-    border-radius:10px;
-    box-shadow:0 4px 12px rgba(0,0,0,.08);
+#vision,
+#explorar article,
+#contacto article {
+    background: white;
+    padding: 30px;
+    margin: 25px 0;
+    border-radius: 16px;
+    box-shadow: var(--sombra);
 }
 
-#quienes-somos p,
-#mision p,
-#vision p{
-    line-height:1.8;
+#nosotros img {
+    width: 100%;
+    max-width: 900px;
+    border-radius: 16px;
+    margin-top: 30px;
 }
 
-#nosotros img{
+/* =========================
+   PERFIL / ADMIN
+========================= */
+
+.perfil-contenedor,
+.gestion-contenedor,
+.suscripciones-contenedor,
+.portafolio-contenedor {
+    max-width: 1200px;
+    margin: auto;
+    padding: 50px 20px;
+}
+
+.perfil-card,
+.gestion-card {
+    background: white;
+    border-radius: 18px;
+    padding: 35px;
+    box-shadow: var(--sombra);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.perfil-card h1,
+.gestion-card h1 {
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+.perfil-card h2,
+.gestion-card h2 {
+    font-size: 28px;
+    margin-bottom: 18px;
+}
+
+.foto-perfil {
+    width: 155px;
+    height: 155px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid var(--naranja);
+    margin: 15px auto;
+    display: block;
+    background: white;
+}
+
+#nombreUsuario {
+    font-size: 30px;
+    margin: 18px 0;
+}
+
+.perfil-card p {
+    font-size: 16px;
+    margin: 12px 0;
+    color: #333;
+}
+
+.perfil-card strong {
+    color: var(--dorado);
+}
+
+/* =========================
+   FORMULARIOS
+========================= */
+
+#formPerfil,
+#formPassword {
+    max-width: 650px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: left;
+}
+
+#formPerfil label,
+#formPassword label {
+    font-weight: 700;
+    color: var(--dorado);
+    margin-top: 8px;
+}
+
+#formPerfil input,
+#formPassword input,
+#formPerfil textarea {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: inherit;
+    outline: none;
+}
+
+#formPerfil textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+#formPerfil input:focus,
+#formPassword input:focus,
+#formPerfil textarea:focus {
+    border-color: var(--naranja);
+    box-shadow: 0 0 0 3px rgba(249,166,2,.20);
+}
+
+#fotoPerfilInput {
+    background: white;
+    cursor: pointer;
+}
+
+/* CONFIGURACIÓN */
+
+.perfil-card:nth-child(3) label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--gris);
+    padding: 14px;
+    margin: 12px auto;
+    border-radius: 12px;
+    max-width: 650px;
+    text-align: left;
+}
+
+/* =========================
+   BOTONES
+========================= */
+
+button,
+.btn-favorito,
+.btn-gestionar {
+    font-family: inherit;
+}
+
+#formPerfil button,
+#formPassword button,
+.plan-card button,
+.btn-favorito,
+.btn-gestionar {
+    padding: 13px 18px;
+    border: 2px solid var(--naranja);
+    border-radius: 10px;
+    background: white;
+    color: var(--azul);
+    font-weight: 800;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+#formPerfil button:hover,
+#formPassword button:hover,
+.plan-card button:hover,
+.btn-favorito:hover,
+.btn-gestionar:hover {
+    background: var(--naranja);
+    color: white;
+}
+
+#formPerfil button,
+#formPassword button {
+    width: 100%;
+    margin-top: 18px;
+}
+
+/* =========================
+   ESTADÍSTICAS
+========================= */
+
+.estadisticas {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.estadisticas div {
+    background: var(--gris);
+    padding: 25px;
+    border-radius: 14px;
+    min-width: 180px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.08);
+}
+
+.estadisticas h3 {
+    font-size: 35px;
+    color: var(--dorado);
+}
+
+/* =========================
+   SUSCRIPCIONES
+========================= */
+
+.suscripciones-hero,
+.portafolio-hero {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.suscripciones-hero h1,
+.portafolio-hero h1 {
+    font-size: 42px;
+    font-weight: 900;
+}
+
+.suscripciones-hero p,
+.portafolio-hero p {
+    color: var(--texto-suave);
+    font-size: 18px;
+}
+
+.planes-contenedor,
+.planes-grid,
+.planes-gestion {
+    max-width: 1100px;
+    margin: 0 auto 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 35px;
+}
+
+.plan-card {
+    background: white;
+    border: 1px solid var(--borde);
+    border-radius: 14px;
+    padding: 30px 25px;
+    box-shadow: var(--sombra);
+    transition: 0.3s;
+    text-align: left;
+}
+
+.plan-card:hover {
+    transform: translateY(-6px);
+}
+
+.plan-card.destacado {
+    border: 3px solid var(--naranja-suave);
+}
+
+.popular {
+    background: var(--naranja-suave);
+    color: white;
+    text-align: center;
+    padding: 12px;
+    font-weight: bold;
+    border-radius: 10px 10px 0 0;
+    margin: -30px -25px 25px;
+}
+
+.plan-card h2 {
+    color: var(--azul);
+    font-size: 26px;
+    margin-bottom: 15px;
+}
+
+.precio {
+    font-size: 34px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.precio span,
+.precio small {
+    font-size: 15px;
+    color: var(--azul);
+}
+
+.precio-antiguo,
+.gratis {
+    color: var(--texto-suave);
+    font-size: 14px;
+}
+
+.descuento {
+    background: #f6d9b0;
+    padding: 6px 12px;
+    border-radius: 6px;
+    margin-left: 8px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.beneficios,
+.plan-card ul {
+    list-style: none;
+    margin-top: 25px;
+}
+
+.beneficios li,
+.plan-card ul li {
+    padding: 11px 0;
+    color: #1e2a5c;
+    border-bottom: 1px solid #eee;
+}
+
+.plan-card ul li::before {
+    content: "✓ ";
+    color: var(--naranja);
+    font-weight: bold;
+}
+
+/* =========================
+   SUSCRIPCIÓN EN PERFIL
+========================= */
+
+.suscripcion-card {
+    max-width: 460px;
+    margin: 25px auto 10px;
+    padding: 24px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    justify-content: center;
+    box-shadow: var(--sombra);
+    border: 2px solid var(--borde);
+}
+
+.suscripcion-medalla {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    background: var(--naranja);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+}
+
+.suscripcion-info p {
+    margin: 0;
+    font-weight: 700;
+    color: var(--dorado);
+}
+
+.suscripcion-info h3 {
+    margin: 8px 0;
+    font-size: 26px;
+}
+
+.suscripcion-info span {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 800;
+    background: var(--azul);
+    color: white;
+}
+
+.sin-suscripcion {
+    background: #f4f4f4;
+    border-color: #ccc;
+}
+
+.con-suscripcion {
+    background: linear-gradient(135deg, #fff8e7, white);
+    border-color: var(--naranja);
+}
+
+.creativo .suscripcion-medalla {
+    background: #6f35a5;
+}
+
+.creativo .suscripcion-info h3 {
+    color: #6f35a5;
+}
+
+.premium .suscripcion-medalla {
+    background: linear-gradient(135deg, var(--naranja), var(--dorado));
+}
+
+.premium .suscripcion-info h3 {
+    color: var(--dorado);
+}
+
+/* =========================
+   GESTIONAR SUSCRIPCIÓN
+========================= */
+
+.plan-actual {
+    margin-top: 25px;
+    background: #fff8e7;
+    padding: 25px;
+    border-radius: 14px;
+    border: 2px solid var(--naranja);
+}
+
+.peligro {
+    border: 2px solid #c62828;
+}
+
+.peligro h2 {
+    color: #c62828;
+}
+
+.peligro button {
+    margin-top: 20px;
+    padding: 13px 25px;
+    border: none;
+    border-radius: 10px;
+    background: #c62828;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.peligro button:hover {
+    background: #9f1f1f;
+}
+
+/* =========================
+   PORTAFOLIOS / FAVORITOS
+========================= */
+
+.portfolio-grid,
+.favoritos-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.portfolio-card,
+.favorito-card {
+    background: white;
+    border-radius: 16px;
+    padding: 22px;
+    box-shadow: var(--sombra);
+    text-align: center;
+    transition: 0.3s;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-6px);
+}
+
+.portfolio-card img,
+.favorito-card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+.portfolio-card h3,
+.favorito-card h3 {
+    color: var(--azul);
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.portfolio-card p {
+    color: #333;
+    font-size: 15px;
+    min-height: 55px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    background: var(--naranja);
+    color: white;
+    margin-top: 60px;
+}
+
+.footer-contenido,
+.footer-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 45px 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 35px;
+}
+
+.footer h3,
+.footer h4 {
+    color: var(--azul);
+    margin-bottom: 12px;
+}
+
+.footer p,
+.footer a {
+    color: white;
+    line-height: 1.8;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: var(--azul);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 18px;
+    border-top: 1px solid rgba(255,255,255,.3);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav a {
+        font-size: 13px;
+        padding: 11px 13px;
+    }
+}
+
+@media (max-width: 600px) {
+    main,
+    .perfil-contenedor,
+    .gestion-contenedor,
+    .suscripciones-contenedor,
+    .portafolio-contenedor {
+        padding: 30px 15px;
+    }
+
+    .logo p,
+    .logo h1 {
+        font-size: 22px;
+    }
+
+    .logo img {
+        height: 45px;
+    }
+
+    section h1,
+    .titulo-seccion,
+    #nosotros h1 {
+        font-size: 34px;
+    }
+
+    .perfil-card,
+    .gestion-card {
+        padding: 25px 18px;
+    }
+
+    .suscripcion-card {
+        flex-direction: column;
+    }
+
+    .estadisticas {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .estadisticas div {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+/* =========================
+   AUTORES INDUSTRIAL
+========================= */
+
+.autores-grid {
+    max-width: 1150px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    gap: 30px;
+}
+
+.autor-card {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: var(--sombra);
+    transition: 0.3s;
+}
+
+.autor-card:hover {
+    transform: translateY(-7px);
+}
+
+.autor-banner {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    background: var(--azul);
+}
+
+.autor-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.autor-info {
+    padding: 25px;
+    text-align: center;
+    position: relative;
+}
+
+.autor-foto {
+    width: 95px;
+    height: 95px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid white;
+    margin-top: -75px;
+    background: white;
+    box-shadow: var(--sombra);
+}
+
+.autor-info h3 {
+    margin-top: 15px;
+    font-size: 24px;
+    color: var(--azul);
+}
+
+.autor-rol {
+    color: var(--dorado);
+    font-weight: 700;
+    margin: 8px 0;
+}
+
+.autor-descripcion {
+    color: #444;
+    font-size: 14px;
+    margin: 15px 0;
+    min-height: 70px;
+}
+
+.autor-stats {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin: 18px 0;
+    color: var(--azul);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.autor-botones {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn-ver-portafolio,
+.btn-seguir {
+    padding: 12px 16px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.btn-ver-portafolio {
+    background: var(--azul);
+    color: white;
+}
+
+.btn-ver-portafolio:hover {
+    background: var(--azul-hover);
+}
+
+.btn-seguir {
+    border: 2px solid var(--azul);
+    background: white;
+    color: var(--azul);
+}
+
+.btn-seguir:hover {
+    background: var(--azul);
+    color: white;
+}
+
+/* AUTORES */
+
+.autores-grid {
+    max-width: 1150px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    gap: 30px;
+}
+
+.autor-card {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: var(--sombra);
+    transition: 0.3s;
+}
+
+.autor-card:hover {
+    transform: translateY(-7px);
+}
+
+.autor-banner {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    background: var(--azul);
+}
+
+.autor-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.autor-info {
+    padding: 25px;
+    text-align: center;
+}
+
+.autor-foto {
+    width: 95px;
+    height: 95px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid white;
+    margin-top: -75px;
+    background: white;
+    box-shadow: var(--sombra);
+}
+
+.autor-info h3 {
+    margin-top: 15px;
+    font-size: 24px;
+    color: var(--azul);
+}
+
+.autor-rol {
+    color: var(--dorado);
+    font-weight: 700;
+    margin: 8px 0;
+}
+
+.autor-descripcion {
+    color: #444;
+    font-size: 14px;
+    margin: 15px 0;
+    min-height: 70px;
+}
+
+.autor-botones {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn-ver-portafolio,
+.btn-seguir {
+    padding: 12px 16px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.btn-ver-portafolio {
+    background: var(--azul);
+    color: white;
+}
+
+.btn-ver-portafolio:hover {
+    background: var(--azul-hover);
+}
+
+.btn-seguir {
+    border: 2px solid var(--azul);
+    background: white;
+    color: var(--azul);
+}
+
+.btn-seguir:hover {
+    background: var(--azul);
+    color: white;
+}
+
+/* PERFIL AUTOR */
+
+.perfil-autor-contenedor {
+    max-width: 1200px;
+    margin: auto;
+    padding: 50px 20px;
+}
+
+.perfil-autor-header {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: var(--sombra);
+    margin-bottom: 40px;
+}
+
+.banner-autor {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+.perfil-autor-info {
+    text-align: center;
+    padding: 0 35px 35px;
+}
+
+.foto-autor-grande {
+    width: 135px;
+    height: 135px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 6px solid white;
+    margin-top: -70px;
+    background: white;
+    box-shadow: var(--sombra);
+}
+
+.perfil-autor-info h1 {
+    margin-top: 15px;
+    font-size: 38px;
+    color: var(--azul);
+}
+
+.autor-premium-actions{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-top:25px;
+}
+
+.autor-premium-actions .btn-gestionar{
+    display:inline-block;
+    min-width:190px;
+    text-align:center;
+}
+
+/* ZONA DE AUTOR PREMIUM */
+
+.autor-premium-actions{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-top:25px;
+}
+
+.autor-premium-actions .btn-gestionar{
+    display:inline-block;
+    min-width:190px;
+    text-align:center;
+}
+
+.perfil-card form select,
+.perfil-card form input,
+.perfil-card form textarea{
     width:100%;
-    max-width:900px;
-    height:auto;
+    padding:14px;
+    margin:10px 0 18px;
+    border:1px solid #d9d9d9;
     border-radius:12px;
-    margin-top:30px;
+    font-family:'Montserrat',sans-serif;
+    font-size:15px;
+    outline:none;
 }
 
-/* ================= FOOTER ================= */
-
-.footer{
-    background:#172445;
-    color:white;
-    margin-top:60px;
+.perfil-card form input:focus,
+.perfil-card form textarea:focus,
+.perfil-card form select:focus{
+    border-color:#f9a602;
+    box-shadow:0 0 0 4px rgba(249,166,2,.15);
 }
 
-.footer-contenido{
-    max-width:1200px;
-    margin:auto;
-    padding:50px 20px;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:40px;
-}
-
-.footer-col h3{
-    margin-bottom:15px;
-    color:#ffb347;
-}
-
-.footer-col p{
-    line-height:1.8;
-}
-
-.footer-col a{
+.perfil-card form label{
     display:block;
+    font-weight:700;
+    color:#9a6500;
+    margin-top:8px;
+}
+
+.perfil-card form button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:#162447;
     color:white;
-    text-decoration:none;
+    font-weight:800;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.perfil-card form button:hover{
+    background:#0d1836;
+    transform:translateY(-2px);
+}
+
+.portfolio-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:28px;
+}
+
+.portfolio-card{
+    background:white;
+    border-radius:18px;
+    padding:22px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    text-align:center;
+    transition:.3s;
+}
+
+.portfolio-card:hover{
+    transform:translateY(-6px);
+}
+
+.portfolio-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:14px;
+    margin-bottom:18px;
+}
+
+.portfolio-card h3{
+    color:#162447;
     margin-bottom:10px;
 }
 
-.footer-col a:hover{
-    color:#ffb347;
+.portfolio-card p{
+    color:#666;
+    line-height:1.6;
 }
 
-.footer-bottom{
-    text-align:center;
-    padding:20px;
-    border-top:1px solid rgba(255,255,255,.1);
+@media(max-width:768px){
+    .autor-premium-actions{
+        flex-direction:column;
+    }
+
+    .autor-premium-actions .btn-gestionar{
+        width:100%;
+    }
+
+    .portfolio-card img{
+        height:180px;
+    }
+}
+
+/* =========================
+   RESPONSIVE EXTRA SKILLHANCE
+========================= */
+
+/* TABLET */
+@media (max-width: 1024px) {
+    header {
+        padding: 18px 35px;
+    }
+
+    .logo img {
+        width: 210px;
+        height: auto;
+        object-fit: contain;
+    }
+
+    nav ul {
+        gap: 22px;
+    }
+
+    main,
+    .perfil-contenedor,
+    .gestion-contenedor,
+    .suscripciones-contenedor,
+    .portafolio-contenedor,
+    .perfil-autor-contenedor {
+        max-width: 95%;
+        padding: 40px 20px;
+    }
+
+    section h1,
+    .titulo-seccion {
+        font-size: 2.5rem;
+    }
+
+    .autores-grid,
+    .portfolio-grid,
+    .favoritos-grid,
+    .planes-contenedor,
+    .planes-grid,
+    .planes-gestion {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* NOTIFICACIÓN FLOTANTE */
+
+.toast{
+    position:fixed;
+    top:25px;
+    right:25px;
+    background:#162447;
+    color:white;
+    padding:18px 24px;
+    border-radius:14px;
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
+    font-weight:700;
+    z-index:999999;
+    opacity:0;
+    transform:translateY(-20px);
+    pointer-events:none;
+    transition:.35s ease;
+    border-left:6px solid #f9a602;
+}
+
+.toast.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.toast.success{
+    border-left-color:#f9a602;
+}
+
+.toast.error{
+    border-left-color:#d32f2f;
+}
+
+.toast.info{
+    border-left-color:#2196f3;
+}
+
+@media(max-width:600px){
+    .toast{
+        left:20px;
+        right:20px;
+        top:20px;
+        text-align:center;
+    }
+}
+
+/* CELULAR */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 18px 20px;
+        gap: 18px;
+        text-align: center;
+    }
+
+    .logo img {
+        width: 190px;
+        height: auto;
+        object-fit: contain;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+    }
+
+    nav a {
+        display: block;
+        padding: 10px 14px;
+        font-size: 14px;
+    }
+
+    .submenu {
+        position: static;
+        margin-top: 8px;
+        width: 100%;
+        box-shadow: none;
+    }
+
+    section h1,
+    .titulo-seccion,
+    #nosotros h1 {
+        font-size: 2rem;
+    }
+
+    .suscripciones-hero h1,
+    .portafolio-hero h1,
+    .perfil-card h1,
+    .gestion-card h1 {
+        font-size: 2rem;
+    }
+
+    .autores-grid,
+    .portfolio-grid,
+    .favoritos-grid,
+    .planes-contenedor,
+    .planes-grid,
+    .planes-gestion {
+        grid-template-columns: 1fr;
+    }
+
+    .perfil-card,
+    .gestion-card,
+    .plan-card,
+    .autor-card,
+    .portfolio-card,
+    .favorito-card {
+        width: 100%;
+    }
+
+    .banner-autor {
+        height: 190px;
+    }
+
+    .foto-autor-grande {
+        width: 115px;
+        height: 115px;
+    }
+
+    .footer-container,
+    .footer-contenido {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 35px 20px;
+    }
+}
+
+/* CELULAR PEQUEÑO */
+@media (max-width: 480px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    header {
+        padding: 15px;
+    }
+
+    .logo img {
+        width: 160px;
+    }
+
+    main,
+    .perfil-contenedor,
+    .gestion-contenedor,
+    .suscripciones-contenedor,
+    .portafolio-contenedor,
+    .perfil-autor-contenedor {
+        padding: 25px 12px;
+    }
+
+    section h1,
+    .titulo-seccion,
+    #nosotros h1 {
+        font-size: 1.7rem;
+    }
+
+    .perfil-card,
+    .gestion-card,
+    .plan-card,
+    .autor-info,
+    .portfolio-card,
+    .favorito-card {
+        padding: 22px 16px;
+    }
+
+    .foto-perfil {
+        width: 125px;
+        height: 125px;
+    }
+
+    #nombreUsuario {
+        font-size: 24px;
+    }
+
+    .autor-banner {
+        height: 155px;
+    }
+
+    .autor-foto {
+        width: 80px;
+        height: 80px;
+        margin-top: -55px;
+    }
+
+    .precio {
+        font-size: 28px;
+    }
+
+    .suscripcion-card {
+        width: 100%;
+        padding: 18px;
+    }
+
+    button,
+    .btn-favorito,
+    .btn-gestionar,
+    .btn-ver-portafolio,
+    .btn-seguir {
+        width: 50%;
+        text-align: center;
+    }
+}
+
+
+
+.img-modal{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.92);
+
+    display: none;
+
+    justify-content: center;
+    align-items: flex-start;
+
+    overflow-y: auto;
+
+    padding: 40px 20px;
+
+    z-index: 99999;
+}
+
+.img-modal.show{
+    display: flex;
+}
+
+.modal-wrapper{
+    width: fit-content;
+    margin: auto;
+}
+
+.modal-wrapper img{
+    display: block;
+
+    max-width: 50vw;
+    height: auto;
+
+    border-radius: 12px;
+    box-shadow: 0 15px 50px rgba(0,0,0,.5);
+}
+
+.close-img{
+    position: fixed;
+    top: 20px;
+    right: 30px;
+
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+
+    cursor: pointer;
+    z-index: 100000;
 }
